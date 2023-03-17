@@ -6,9 +6,7 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro",
-		"css-build": "node-sass --omit-source-map-url src/styles/sass/mystyles.scss src/styles/css/mystyles.css",
-		"css-watch": "npm run css-build -- --watch"
+		"astro": "astro"
 	},
 	"dependencies": {
 		"@astrojs/react": "^2.1.0",
@@ -19,7 +17,6 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"bulma": "^0.9.4",
 		"node-sass": "^8.0.0"
 	}
 }
