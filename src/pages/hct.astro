@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import HoriCard from "../components/HoriCard.astro";
+import VerticalCard from "../components/VerticalCard.astro";
+
+---
+
+<Layout title="hct">
+    <main>
+        <Navbar/>
+        <HoriCard title="Shriteq 2022 Tryouts" body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/>
+        <div class="bwhite">
+        <VerticalCard link="/" date="NOVEMBER 2022" title="Winners @ DPS RK Puram Exun 2022 Hackathon" body="Our 4-member team won the hackathon with their Flutter and Flask mental health app." imgLink="../public/rad.png"/></div>
+    </main>
+</Layout>
+
+<style>
+        /* :root{
+    --bluetwo: #82E8F0;
+            --yellow: "#FFE81B";
+            --red: "#FF7474";
+            --green: "#CEFF1B";} */
+    main{
+        background: #82E8F0;
+        }
+</style>
