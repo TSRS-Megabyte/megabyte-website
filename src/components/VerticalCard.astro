@@ -1,0 +1,23 @@
+---
+export interface Props {
+    title: string;
+    body: string;
+    imgLink: string;
+}
+const {title, body, imgLink} = Astro.props
+---
+<body>
+    <div class="p-10">  
+        <div style="box-shadow: 3px 4px 0px 1px #000;" class="max-w-sm rounded overflow-hidden shadow-2xl font-mono border-2 border-black">
+          <div>
+            <div class="font-bold text-xl mb-2">{title}</div>
+          </div>
+          <div class="px-6 py-4">
+            <img class="w-full rounded-xl" alt="fbdbfsd" src="https://www.desicomments.com/wallpapers/wp-content/uploads/2014/12/Mountain-Image.jpg" />
+            <p class="text-gray-700 text-base">
+              {body}
+            </p>
+          </div>
+        </div>
+      </div>
+</body>
