@@ -1,10 +1,10 @@
 ---
 ---
 
-<div class="wrapper">
+<div class="wrapper ">
   <div class="flex flex-row left-side-container">
     <img src="Circle.png" alt="" />
-    <p class="mgbt-text"><span>MEGAB</span>YTE</p>
+    <p class="mgbt-text"><span>MEGA</span>BYTE</p>
   </div>
   <div>
     <ul>
@@ -29,7 +29,15 @@
     padding: 0 20px;
     font-size: 20px;
   }
+  li:hover {
+
+  text-decoration: underline solid #cceaff;
+      text-decoration-color: #cceaff;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 5px;
+}
   .wrapper {
+    background: rgba(255, 255, 255, 0.8);
     width: 75vw;
     height: 88px;
     border: 2px solid black;
@@ -43,6 +51,9 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+  }
+  .wrapper:hover {
+    background: #fff;
   }
   .mgbt-text {
     font-family: "Lexend", sans-serif;
