@@ -7,10 +7,12 @@ const pathname = new URL(Astro.request.url).pathname;
   <div class="wrapper">
     <div class="whiteBar">
       <div class='inline-flex flex-row left-side-container align-middle hamburgerGroup'>
-        <div class="inline-flex align-middle">
-          <img src="Circle.png" alt="A circle - round and palpable" />
-          <p class="mgbt-text"><span class='mega'>MEGA</span>BYTE</p>
-        </div>
+        <a href="/" class="navHome" title="Home">
+          <div class="inline-flex align-middle">
+            <img src="Circle.png" alt="A circle - round and palpable" />
+            <p class="mgbt-text"><span class='mega'>MEGA</span>BYTE</p>
+          </div>
+        </a>
         <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
           <span class="material-symbols-outlined hamburger-menu">menu</span>
         </button>
@@ -111,6 +113,15 @@ const pathname = new URL(Astro.request.url).pathname;
     text-decoration: underline #CCEAFF .30rem;
     text-underline-offset: .275rem;
   }
+
+  .navHome > div > p > span {
+    transition: .2s ease;
+  }
+
+  .navHome:hover > div > p > span {
+    text-decoration: underline #FF7474 .30rem;
+  }
+
   img {
     min-width: 70px;
     width: 5vw;
@@ -151,7 +162,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
     }
     .wrapper:hover {
-      background: rgba(255, 255, 255, 1);
+      background: rgba(255, 255, 255, 0.75);
     }
 
     .current {
