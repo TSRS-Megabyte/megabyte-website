@@ -4,29 +4,29 @@ export interface Props {
     body: string;
     date: string;
     imgLink: string;
-    link: string;
 }
 const {title,link, date, body, imgLink} = Astro.props
 ---
-<body>
+<body class="mw-20 mh-70">
     <div class="p-10">  
         <div style="box-shadow: 3px 4px 0px 1px #000;" class="max-w-full rounded overflow-hidden shadow-2xl border-2 border-black">
-          <div class="bg-opacity-0  p-5 ">
-            <div class="font-bold text-xl ">{title}</div><div class="pt-4">
+          <div class="bg-opacity-0 text-center  p-5 ">
+            <div class="font-bold text-xl bg-blue-600"><h4 class="">{title}</h4></div><div class="pt-4">
               {date}
             </div>
           </div>
           <div class="bg-white">
-          <div class="bg-white px-8 py-4">
+          <div class="bg-white w-100 h-70 px-8 py-4">
             <img class="w-full border-2" style="box-shadow: 3px 4px 0px 1px #000;" alt="fbdbfsd" src={imgLink} />
             
           </div>
           <div class="p-5">
            <p class="text-gray-700 text-lg ">
               {body}
-            </p></div>
+            </p>
+          </div>
             <div class="bwhite text-right w-full p-3">
-  <a class="bg-white text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}>READ MORE</a></div>
+  <a class="hover:pointer bg-white text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}>READ MORE</a></div>
         </div>
         </div>
       </div>
