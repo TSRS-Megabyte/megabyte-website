@@ -4,6 +4,7 @@ import navPages from '../../navPages';
 const pathname = new URL(Astro.request.url).pathname;
 
 ---
+<div class="navbar">
 <div id="center-wrapper" class="flex">
   <div class="wrapper">
     <div class="whiteBar">
@@ -30,10 +31,16 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
   </div>
 </div>
+</div>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
+  .navbar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
   .current {
     color: #FF7474;
     opacity: 75%
