@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title: string;
+  href: string;
+  currentPath: string;
+}
+
+const {title, href, currentPath} = Astro.props;
+
+let navClass = "navlink"
+if (currentPath == href) {
+  navClass += " active"
+}
+---
+
+
+<a class={navClass} id={title.toLowerCase()} href={href}>
+  <li class="font-mono">{title}</li>
+</a>

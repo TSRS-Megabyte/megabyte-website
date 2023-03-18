@@ -1,5 +1,8 @@
 ---
+import Navbar from "../components/Navbar.astro";
+import navPages from "../../navPages";
 const {title} = Astro.props
+
 ---
 <html lang="en">
 <head>
@@ -9,6 +12,9 @@ const {title} = Astro.props
     <title>{title}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+<header>
+    <Navbar></Navbar>
+</header>
 <body>
     <slot></slot>
     <style>

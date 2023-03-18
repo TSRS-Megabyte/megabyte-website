@@ -1,5 +1,7 @@
 ---
+import navPages from '../../navPages';
 
+const pathname = new URL(Astro.request.url).pathname;
 ---
 <div id="center-wrapper" class="flex">
   <div class="wrapper">
@@ -16,16 +18,23 @@
     </div>
     <div class="navlinks-div" data-visible="false">
       <ul class="navlinks hiddenNavlinks">
-        <li class="font-mono">Events</li>
-        <li class="font-mono">Accomplishments</li>
-        <li class="font-mono">Resources</li>
-        <li class="font-mono">About</li>
+        {Object.entries(navPages).map((page) => (
+          <a class={pathname == page[1] ? "navlink active" : "navlink"} id={page[0].toLowerCase()} href={page[1]}>
+            <li class="font-mono">{page[0]}</li>
+          </a>
+        ))}
       </ul>
     </div>
   </div>
 </div>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
+
+  .active {
+    color: rgb(59, 95, 252);
+    opacity: 75%
+  }
+
   ul {
     list-style: none;
     display: flex;
@@ -35,19 +44,27 @@
     align-items: center;
     flex-direction: row;
   }
-  li {
-    padding: 0 1em;
-    font-size: 1.25vmax;
-  }
-  li:hover {
 
-  text-decoration: underline solid #cceaff;
-      text-decoration-color: #cceaff;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 5px;
-}
+  .navlink {
+    text-decoration: none;
+    padding: 0 1em;
+    font-size: 1.8vmin;
+  }
+
+  .navlink li {
+    background-image: linear-gradient(90deg, orange, red);
+    background-size: 0% .25rem;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: .2s ease;
+  }
+
+  .navlink li:hover {
+    background-size: 100% .25rem;
+  }
+
   .wrapper {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.9);
     width: 75vw;
     min-height: 1rem;
     display: flex;
@@ -179,7 +196,6 @@
       opacity: 0;
       transition: .25s ease;
     }
-
 
     li {
       font-size: 2.5vmax
