@@ -2,6 +2,7 @@
 import navPages from '../../navPages';
 
 const pathname = new URL(Astro.request.url).pathname;
+
 ---
 <div id="center-wrapper" class="flex">
   <div class="wrapper">
@@ -9,7 +10,7 @@ const pathname = new URL(Astro.request.url).pathname;
       <div class='inline-flex flex-row left-side-container align-middle hamburgerGroup'>
         <a href="/" class="navHome" title="Home">
           <div class="inline-flex align-middle">
-            <img src="src/assets/Circle.png" alt="A circle - round and palpable" />
+            <img src="src/assets/tsrs.svg" alt="A circle - round and palpable" />
             <p class="mgbt-text"><span class='mega'>MEGA</span>BYTE</p>
           </div>
         </a>
@@ -56,14 +57,14 @@ const pathname = new URL(Astro.request.url).pathname;
 
   .navlink:not(.current) li {
     background-image: linear-gradient(90deg, #FF7474, orange);
-    background-size: 0% .25rem;
+    background-size: 0% .5vh;
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center 110%;
     transition: .2s ease;
   }
 
   .navlink:not(.current) li:hover {
-    background-size: 100% .25vh;
+    background-size: 100% .5vh;
   }
 
   .current {
@@ -143,7 +144,6 @@ const pathname = new URL(Astro.request.url).pathname;
     display: none;
 
   }
-
 
   @media (max-width: 60em) {
     
