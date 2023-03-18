@@ -12,7 +12,7 @@ const pathname = new URL(Astro.request.url).pathname;
           <p class="mgbt-text"><span class='mega'>MEGA</span>BYTE</p>
         </div>
         <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
-          <span  class="material-symbols-outlined hamburger-menu">menu</span>
+          <span class="material-symbols-outlined hamburger-menu">menu</span>
         </button>
       </div>
     </div>
@@ -20,7 +20,7 @@ const pathname = new URL(Astro.request.url).pathname;
       <ul class="navlinks hiddenNavlinks">
         {Object.entries(navPages).map((page) => (
           <a class={pathname == page[1] ? "navlink current" : "navlink"} id={page[0].toLowerCase()} href={page[1]}>
-            <li class="font-mono">{page[0]}</li>
+            <li class="font-mono">{page[0].toUpperCase()}</li>
           </a>
         ))}
       </ul>
@@ -29,6 +29,7 @@ const pathname = new URL(Astro.request.url).pathname;
 </div>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
   .current {
     color: rgb(59, 95, 252);
@@ -59,10 +60,14 @@ const pathname = new URL(Astro.request.url).pathname;
     transition: .2s ease;
   }
 
-  .navlink li:hover {
+  .navlink li:hover:not(.current) {
     background-size: 100% .25vh;
   }
 
+  .font-mono {
+    font-family: 'Roboto Mono', monospace;
+
+  }
   .wrapper {
     background: rgba(255, 255, 255, 0.9);
     width: 75vw;

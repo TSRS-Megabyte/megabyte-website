@@ -1,4 +1,4 @@
-// navPages lists all the pages on the navbar in the form 'DisplayedTitle':'PagePath' - must be in the order of display
+// navPages lists all the pages on the navbar in the form 'Title':'PagePath' - must be in the order of display
 const navPages = {
   "Events": "/events",
   "Accomplishments": "/accomplishments",
