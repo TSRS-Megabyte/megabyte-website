@@ -20,7 +20,7 @@ const pathname = new URL(Astro.request.url).pathname;
       <ul class="navlinks hiddenNavlinks">
         {Object.entries(navPages).map((page) => (
           <a class={pathname == page[1] ? "navlink current" : "navlink"} id={page[0].toLowerCase()} href={page[1]}>
-            <li class="font-mono">{page[0]}</li>
+            <li class="font-mono hover:text-white">{page[0]}</li>
           </a>
         ))}
       </ul>
@@ -52,7 +52,7 @@ const pathname = new URL(Astro.request.url).pathname;
   }
 
   .navlink li {
-    background-image: linear-gradient(90deg, orange, red);
+    background-image: linear-gradient(90deg,  #82E8F0  70%,  #82E8F0  70% );
     background-size: 0% .25rem;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -61,6 +61,8 @@ const pathname = new URL(Astro.request.url).pathname;
 
   .navlink li:hover {
     background-size: 100% .25rem;
+    /* background-color: #0f0; */
+    /* box-shadow: # 0.2rem -0.2rem 1rem; */
   }
 
   .wrapper {
@@ -123,7 +125,7 @@ const pathname = new URL(Astro.request.url).pathname;
   @media (max-width: 60em) {
     
     .wrapper {
-      background: rgba(255, 220, 220, 0.75);
+      background: rgba(255, 255, 255, 0.75);
       position: fixed;
       border-radius: 0px;
       width: 100vw;
@@ -134,7 +136,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
     }
     .wrapper:hover {
-      background: rgba(255, 220, 220, 0.75);
+      background: rgba(255, 255, 255, 1);
     }
 
     .current {
