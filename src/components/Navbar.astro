@@ -9,7 +9,7 @@ const pathname = new URL(Astro.request.url).pathname;
       <div class='inline-flex flex-row left-side-container align-middle hamburgerGroup'>
         <a href="/" class="navHome" title="Home">
           <div class="inline-flex align-middle">
-            <img src="Circle.png" alt="A circle - round and palpable" />
+            <img src="src/assets/Circle.png" alt="A circle - round and palpable" />
             <p class="mgbt-text"><span class='mega'>MEGA</span>BYTE</p>
           </div>
         </a>
@@ -34,7 +34,7 @@ const pathname = new URL(Astro.request.url).pathname;
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
   .current {
-    color: rgb(59, 95, 252);
+    color: #FF7474;
     opacity: 75%
   }
 
@@ -95,9 +95,6 @@ const pathname = new URL(Astro.request.url).pathname;
     border-radius: 10px;
     box-shadow: 3px 4px 0px 1px #000;
     transition: .25s ease;
-  }
-  .wrapper:hover {
-    background: #fff;
   }
 
 

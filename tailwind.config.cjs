@@ -9,7 +9,11 @@ module.exports = {
             red: "#FF7474",
             green: "#CEFF1B",
         },
-        extend: {},
+        extend: {
+            backgroundImage: {
+                "hero-pattern": "url('/herobg.png')",
+            }
+        },
     },
     plugins: [],
 };
