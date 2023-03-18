@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="navlinks-div" data-visible="false">
-      <ul class="navlinks hidden">
+      <ul class="navlinks hiddenNavlinks">
         <li class="font-mono">Events</li>
         <li class="font-mono">Accomplishments</li>
         <li class="font-mono">Resources</li>
@@ -175,7 +175,7 @@
       transition: .5s ease;
     }
 
-    .hidden {
+    .hiddenNavlinks {
       opacity: 0;
       transition: .25s ease;
     }
@@ -203,12 +203,12 @@
     navToggle.setAttribute("aria-expanded", visible)
 
     if (visible === "true") {
-      navlinks.classList.remove("hidden")
+      navlinks.classList.remove("hiddenNavlinks")
       navlinks.classList.add("visible")
     }
     else {
       navlinks.classList.remove("visible")
-      navlinks.classList.add("hidden")
+      navlinks.classList.add("hiddenNavlinks")
     }
   })
 </script>
