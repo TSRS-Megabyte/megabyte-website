@@ -52,18 +52,30 @@ const pathname = new URL(Astro.request.url).pathname;
     font-size: 2vmin;
   }
 
-  .navlink li {
-    background-image: linear-gradient(90deg,  #82E8F0  70%,  #82E8F0  70% );
+  .navlink:not(.current) li {
+    background-image: linear-gradient(90deg, #FF7474, orange);
     background-size: 0% .25rem;
     background-repeat: no-repeat;
     background-position: center bottom;
     transition: .2s ease;
   }
 
-  .navlink li:hover:not(.current) {
+  .navlink:not(.current) li:hover {
     background-size: 100% .25vh;
   }
 
+  .current {
+    cursor: default;
+    transition: .2s ease;
+  }
+
+  .current:hover {
+    color: gray;
+  }
+
+  .current:active {
+    pointer-events: none;
+  }
   .font-mono {
     font-family: 'Roboto Mono', monospace;
 
