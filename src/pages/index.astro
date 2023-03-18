@@ -5,12 +5,23 @@ import Layout from "../layouts/Layout.astro";
 
 ---
 
-<Layout title="Megabyte">
-    <div class="container h-screen">
-        <div class="hero w-full text-5xl h-full bg-hero-pattern">
-            thog oetogpeogbqjrwpehwhbrkjwfkoeprvgbejrwfekofwdg
+<Layout title="Megabyte" class="w-screen h-screen" >
+    <div class="container w-screen h-screen bg-hero-pattern">
+        <div class="bar">
+                    <Navbar /></div>
+        <div class="w-screen text-5xl h-full pt-64">
+
+            <div class="">
+                <span class="weare">We are </span>
+            <span class="maintext">
+                Megabyte
+            </span>
+            <span class="commune">
+            A community of enthus<span class="blue-u">iasts</span>, innov<span class="yel-u">ators</span> , and ma<span class="red-u">kers</span>.</span>
+        </div>
         </div>
         <div class="body">
+            
             <div class="notice">
             </div>
             <div class="acc"></div>
@@ -20,10 +31,108 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-    .hero {
-        background-image: ;
+    
+    @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
+
+    .bar {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+    .commune {
+        margin-top: 5vh;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lexend';
+font-style: normal;
+font-weight: 400;
+font-size: 4vmin;
+line-height: 40px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;}
+    .mt-24 {
+        margin-top: 20vh;
+    }
+    .container {
+        width: 100vw;
+        
+    }
+    .weare {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 400;
+font-size: 6vmin;
+line-height: 65px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.01em;
+    }
+    .bg-hero-pattern {
+        background-image: url('/src/assets/anime-lines.svg');
         background-size: cover;
-        background-position: center;
+        min-width: 100vw;
         background-repeat: no-repeat;
+        background-position: center;
+    }
+    .maintext {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 700;
+font-size: 14vmin;
+line-height: 150px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.05em;
+
+color: #CCEAFF;
+text-shadow: -2px 2px 0px #000,
+				  2px 2px 0px #000,
+				 8px 6px 0px #000,
+				-2px -2px 0px #000;
+
+    }
+    .blue-u {
+        text-decoration-line: underline ;
+        text-decoration-color: #32a9ff;
+        text-decoration-thickness: 15px;
+    }
+    .yel-u {
+        text-decoration-line: underline ;
+        text-decoration-color: #fFE81B;
+;
+        text-decoration-thickness: 15px;
+    }
+     .red-u {
+        text-decoration-line: underline ;
+        text-decoration-color: #ff7474;
+;
+        text-decoration-thickness: 15px;
     }
 </style>

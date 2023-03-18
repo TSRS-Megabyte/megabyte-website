@@ -11,7 +11,7 @@ module.exports = {
         },
         extend: {
             backgroundImage: {
-                "hero-pattern": "url('/herobg.png')",
+                "hero-pattern": "url('src/assets/anime-lines.svg')",
             }
         },
     },
