@@ -1,18 +1,27 @@
 ---
----
 
-<div class="wrapper ">
-  <div class="flex flex-row left-side-container">
-    <img src="Circle.png" alt="" />
-    <p class="mgbt-text"><span>MEGA</span>BYTE</p>
-  </div>
-  <div>
-    <ul>
-      <li class="font-mono">Events</li>
-      <li class="font-mono">Accomplishments</li>
-      <li class="font-mono">Resources</li>
-      <li class="font-mono">About</li>
-    </ul>
+---
+<div id="center-wrapper" class="flex">
+  <div class="wrapper">
+    <div class="whiteBar">
+      <div class='inline-flex flex-row left-side-container align-middle hamburgerGroup'>
+        <div class="inline-flex align-middle">
+          <img src="Circle.png" alt="A circle - round and palpable" />
+          <p class="mgbt-text"><span class='mega'>MEGA</span>BYTE</p>
+        </div>
+        <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
+          <span  class="material-symbols-outlined hamburger-menu">menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="navlinks-div" data-visible="false">
+      <ul class="navlinks hidden">
+        <li class="font-mono">Events</li>
+        <li class="font-mono">Accomplishments</li>
+        <li class="font-mono">Resources</li>
+        <li class="font-mono">About</li>
+      </ul>
+    </div>
   </div>
 </div>
 <style>
@@ -20,14 +29,15 @@
   ul {
     list-style: none;
     display: flex;
-
+    padding: 0;
+    margin: 0;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
   }
   li {
-    padding: 0 20px;
-    font-size: 20px;
+    padding: 0 1em;
+    font-size: 1.25vmax;
   }
   li:hover {
 
@@ -37,44 +47,168 @@
   text-decoration-thickness: 5px;
 }
   .wrapper {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.7);
     width: 75vw;
-    height: 88px;
-    border: 2px solid black;
-    border-radius: 10px;
-    position: fixed;
-    top: 20px;
-    box-shadow: 3px 4px 0px 1px #000;
-    margin-left: -37.5vw;
-    left: 50%;
+    min-height: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 4px 0px 1px #000;
+    transition: .25s ease;
   }
   .wrapper:hover {
     background: #fff;
   }
+
+
   .mgbt-text {
     font-family: "Lexend", sans-serif;
-    font-size: 24px;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #000;
     vertical-align: middle;
+    align-self: center;
   }
-  span {
-    box-shadow: -6px 11px 0px -6px #cceaff;
-    overflow: hidden;
+  .mega {
+    text-decoration: underline #CCEAFF .30rem;
+    text-underline-offset: .275rem;
   }
   img {
-    height: 65px;
-    width: 70px;
+    min-width: 70px;
+    width: 5vw;
+    height: auto;
   }
   .left-side-container {
-    padding-left: 20px;
+    padding-left: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
   }
+  #center-wrapper {
+    width: 100vw;
+    justify-content: center;
+    
+    position: relative;
+    top: 1rem;
+  }
+
+  .hamburger-menu {
+    display: none;
+
+  }
+
+
+  @media (max-width: 60em) {
+    
+    .wrapper {
+      background: rgba(255, 220, 220, 0.75);
+      position: fixed;
+      border-radius: 0px;
+      width: 100vw;
+      box-shadow: 0px 0px 0px 0px;
+      flex-direction: column;
+      justify-content: start;
+      transition: .25s ease;
+
+    }
+    .wrapper:hover {
+      background: rgba(255, 220, 220, 0.75);
+    }
+
+    #center-wrapper {
+      top: 0rem;
+    }
+    .whiteBar {
+      display: flex;
+      width: calc(100vw - 4px);
+      background: white;
+      justify-content: center;
+      box-shadow: 0 .25rem 1rem #00000075;
+    }
+    .hamburger-menu {
+      display: inline;
+    }
+
+    .hamburgerGroup {
+      width: 90vw;
+      justify-content: space-between;
+    }
+
+    .left-side-container {
+      padding-left: 0rem;
+    }
+    .navlinks-div {
+      position: relative;
+      width: 100vw;
+      height: 0vh;
+      vertical-align: middle;
+      justify-content: center;
+      display: flex;
+      visibility: hidden;
+      transition: .5s ease;
+    }
+    .navlinks-div[data-visible="true"] {
+      height: 60vh;
+    }
+    .navlinks {
+      display: flex;
+      flex-direction: column;
+      height: 75%;
+      align-self: center;
+      /* display: none; */
+    }
+    
+    @supports (backdrop-filter: blur(.25rem)) {
+      .wrapper[blur="true"] {
+        backdrop-filter: blur(.25rem);
+      }
+    }
+
+    .visible {
+      visibility: visible;
+      opacity: 1;
+      transition: .5s ease;
+    }
+
+    .hidden {
+      opacity: 0;
+      transition: .25s ease;
+    }
+
+
+    li {
+      font-size: 2.5vmax
+    }
+  }
 </style>
+
+<script defer>
+  const nav = document.querySelector(".navlinks-div")
+  const navlinks = document.querySelector(".navlinks")
+  const navToggle = document.querySelector(".nav-toggle")
+  const wrapper = document.querySelector(".wrapper")
+  navToggle.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    let visible = nav.getAttribute("data-visible")
+    visible = visible === "false" ? "true" : "false";
+    console.log(visible)
+    nav.setAttribute("data-visible", visible)
+    wrapper.setAttribute("blur", visible)
+    navToggle.setAttribute("aria-expanded", visible)
+
+    if (visible === "true") {
+      navlinks.classList.remove("hidden")
+      navlinks.classList.add("visible")
+    }
+    else {
+      navlinks.classList.remove("visible")
+      navlinks.classList.add("hidden")
+    }
+  })
+</script>
