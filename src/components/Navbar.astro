@@ -19,7 +19,7 @@ const pathname = new URL(Astro.request.url).pathname;
     <div class="navlinks-div" data-visible="false">
       <ul class="navlinks hiddenNavlinks">
         {Object.entries(navPages).map((page) => (
-          <a class={pathname == page[1] ? "navlink active" : "navlink"} id={page[0].toLowerCase()} href={page[1]}>
+          <a class={pathname == page[1] ? "navlink current" : "navlink"} id={page[0].toLowerCase()} href={page[1]}>
             <li class="font-mono">{page[0]}</li>
           </a>
         ))}
@@ -30,7 +30,7 @@ const pathname = new URL(Astro.request.url).pathname;
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
 
-  .active {
+  .current {
     color: rgb(59, 95, 252);
     opacity: 75%
   }
@@ -137,6 +137,11 @@ const pathname = new URL(Astro.request.url).pathname;
       background: rgba(255, 220, 220, 0.75);
     }
 
+    .current {
+      opacity: 100%;
+      color: rgb(59, 72, 255);
+    }
+
     #center-wrapper {
       top: 0rem;
     }
@@ -158,6 +163,10 @@ const pathname = new URL(Astro.request.url).pathname;
 
     .left-side-container {
       padding-left: 0rem;
+    }
+
+    .navlink {
+      text-shadow: 0em .2em .2em #0000003d;
     }
     .navlinks-div {
       position: relative;
