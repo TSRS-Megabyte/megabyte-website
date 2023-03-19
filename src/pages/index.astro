@@ -8,8 +8,8 @@ import IconButton from "../components/IconButton.astro";
 ---
 
 <Layout title="Megabyte" class="w-screen h-screen">
-  <div class="container w-screen h-screen bg-hero-pattern">
-    <div class="w-screen text-5xl h-full md:pt-64 text-center">
+  <div class="h-screen bg-hero-pattern">
+    <div class="text-5xl h-full md:pt-96 text-center">
       <div class="align-middle text-center m-auto mt-5">
         <span class="weare">We are</span>
         <span class="maintext"> Megabyte</span>
@@ -22,48 +22,95 @@ import IconButton from "../components/IconButton.astro";
       </div>
     </div>
     <div class="body">
-      <div class="notice p-8 md:p-24 ">
-        <div class="notice-box  w-fit p-5">
+      <div class="notice p-8 md:p-24">
+        <div class="notice-box w-fit p-5">
           <span class="notice-title mb-2">Notice Board</span>
           <span class="notice-text">Events, opportunities, and meetings</span>
         </div>
         <div class="events w-fit">
-          <ul class="events-list ">
-            <li class="blue-u  mt-20 "><HoriCard title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
-            <li class="yel-u  mt-20 "><HoriCard title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
-            <li class="red-u  mt-20 "><HoriCard title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
-          
+          <ul class="events-list">
+            <li class="blue-u mt-20">
+              <HoriCard
+                title="Shriteq 2022 tryouts"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                link="/"
+              />
+            </li>
+            <li class="yel-u mt-20">
+              <HoriCard
+                title="Shriteq 2022 tryouts"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                link="/"
+              />
+            </li>
+            <li class="red-u mt-20">
+              <HoriCard
+                title="Shriteq 2022 tryouts"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                link="/"
+              />
+            </li>
           </ul>
         </div>
-          <div class="bgreen text-right w-full p-3 mt-10"><Button text="See All" link="/"/>
-          </div>
-           </div>
-      <div class="acc  p-8 md:p-24 ">
-        <div class="notice-box  w-fit p-5">
+        <div class="bgreen text-right w-full p-3 mt-10">
+          <Button text="See All" link="/" />
+        </div>
+      </div>
+      <div class="acc p-8 md:p-24">
+        <div class="notice-box w-fit p-5">
           <span class="notice-title mb-2">Accomplishments</span>
           <span class="notice-text">Events, opportunities, and meetings</span>
         </div>
 
-         <div class="events w-fit mt-20">
+        <div class="events w-fit mt-20">
           <ul class="events-list lg:flex">
-            <li class="blue-u mb-12 lg:mr-8"><VerticalCard date="12 MARCH" imgLink="/src/assets/rad.png" title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
-            <li class="yel-u mb-12 lg:mr-8  "><VerticalCard date="12 MARCH" imgLink="/src/assets/rad.png" title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
-            <li class="red-u mb-12 "><VerticalCard date="12 MARCH" imgLink="/src/assets/rad.png" title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
-          
+            <li class="blue-u mb-12 lg:mr-8">
+              <VerticalCard
+                date="12 MARCH"
+                imgLink="/src/assets/rad.png"
+                title="Shriteq 2022 tryouts"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                link="/"
+              />
+            </li>
+            <li class="yel-u mb-12 lg:mr-8">
+              <VerticalCard
+                date="12 MARCH"
+                imgLink="/src/assets/rad.png"
+                title="Shriteq 2022 tryouts"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                link="/"
+              />
+            </li>
+            <li class="red-u mb-12">
+              <VerticalCard
+                date="12 MARCH"
+                imgLink="/src/assets/rad.png"
+                title="Shriteq 2022 tryouts"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                link="/"
+              />
+            </li>
           </ul>
         </div>
-                  <div class="bgreen text-right w-full p-3 mt-10"><Button text="See All" link="/"/>
-          </div>
+        <div class="bgreen text-right w-full p-3 mt-10">
+          <Button text="See All" link="/" />
+        </div>
       </div>
       <div class="resources notice p-8 md:p-24">
         <p class="rec-main text-2xl md:text-4xl lg:text-5xl">Resources</p>
 
-        <p class="rec-text  text-lg md:text-2xl mb-8 w-2/3 lg:w-3/8 max-w-fit">Collections of links, guides, and more to help you learn about all things tech</p>
-        <IconButton link="/" imgLink="src/assets/circle-arrow.png" text="Learn more"></IconButton>
+        <p class="rec-text text-lg md:text-2xl mb-8 w-2/3 lg:w-3/8 max-w-fit">
+          Collections of links, guides, and more to help you learn about all
+          things tech
+        </p>
+        <IconButton
+          link="/"
+          imgLink="src/assets/circle-arrow.png"
+          text="Learn more"
+        />
       </div>
-
-</div>
-     
+    </div>
   </div>
 </Layout>
 
@@ -117,7 +164,7 @@ import IconButton from "../components/IconButton.astro";
   .bg-hero-pattern {
     background-image: url("/src/assets/anime-lines.svg");
     background-size: cover;
-    min-width: 100vw;
+    max-width: 100vw;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -174,60 +221,59 @@ import IconButton from "../components/IconButton.astro";
   }
 
   .notice-box {
-   background-color: #000 0%;
+    background-color: #000 0%;
     display: flex;
     flex-direction: column;
     align-items: left;
     text-align: left;
     letter-spacing: -0.01em;
     /* background: #FFFFFF; */
-border: 2px solid #000000;
-box-shadow: 3px 3px 0px #000000;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
   }
   .notice-title {
-    font-family: 'Lexend';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-/* line-height: 18px; */
-/* or 75% */
+    font-family: "Lexend";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    /* line-height: 18px; */
+    /* or 75% */
 
-display: flex;
-align-items: center;
-letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
   }
   .noitce-text {
-    font-family: 'Lexend';
-font-style: bold;
-font-weight: 500;
-font-size: 20px;
-/* line-height: 30px; */
-/* or 167% */
+    font-family: "Lexend";
+    font-style: bold;
+    font-weight: 500;
+    font-size: 20px;
+    /* line-height: 30px; */
+    /* or 167% */
 
-letter-spacing: 0.04em;
+    letter-spacing: 0.04em;
   }
 
-.rec-main {
-  font-family: 'Lexend';
-font-style: bold;
-font-weight: 700;
-line-height: 52px;
-display: flex;
-align-items: center;
-
-}
-.rec-text {
-  margin-top: 25px;
-  font-family: 'Lexend';
-font-style: normal;
-font-weight: 400;
-line-height: 52px;
-display: flex;
-align-items: center;
-
-}
-@media (max-width: 768px) {
+  .rec-main {
+    font-family: "Lexend";
+    font-style: bold;
+    font-weight: 700;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+  }
   .rec-text {
-    line-height: 32px ;}}
-
+    margin-top: 25px;
+    font-family: "Lexend";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 60em) {
+    .rec-text {
+      line-height: 32px;
+    }
+  }
 </style>
