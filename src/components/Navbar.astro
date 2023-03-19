@@ -2,6 +2,8 @@
 import navPages from "../../navPages";
 
 const pathname = new URL(Astro.request.url).pathname;
+
+import { Icon } from "astro-icon";
 ---
 
 <div class="navbar">
@@ -25,7 +27,28 @@ const pathname = new URL(Astro.request.url).pathname;
             aria-expanded="false"
             class="nav-toggle"
           >
-            <span class="material-symbols-outlined hamburger-menu">menu</span>
+            <span class="hamburger-menu"
+              ><svg
+                class="open-menu symbol"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                ><path
+                  fill="currentColor"
+                  d="M3 18v-2h18v2Zm0-5v-2h18v2Zm0-5V6h18v2Z"></path></svg
+              ><svg
+                class="close-menu symbol hiddenSymbol"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                ><path
+                  fill="currentColor"
+                  d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6Z"
+                ></path></svg
+              >
+            </span>
           </button>
         </div>
       </div>
@@ -184,6 +207,9 @@ const pathname = new URL(Astro.request.url).pathname;
     display: none;
   }
 
+  .symbol {
+    display: none;
+  }
   @media (max-width: 60em) {
     .wrapper {
       background: rgba(255, 255, 255, 0.75);
@@ -215,7 +241,9 @@ const pathname = new URL(Astro.request.url).pathname;
       box-shadow: 0 0.25rem 1rem #00000075;
     }
     .hamburger-menu {
-      display: inline;
+      display: grid;
+      place-items: center;
+      grid-template-areas: "icons";
     }
 
     .hamburgerGroup {
@@ -271,6 +299,22 @@ const pathname = new URL(Astro.request.url).pathname;
     li {
       font-size: 2.5vmax;
     }
+    .symbol {
+      display: inline;
+      grid-area: icons;
+    }
+
+    .visibleSymbol {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.25s;
+    }
+
+    .hiddenSymbol {
+      opacity: 0;
+      transition: 0.25s ease;
+      visibility: hidden;
+    }
   }
 </style>
 
@@ -279,6 +323,11 @@ const pathname = new URL(Astro.request.url).pathname;
   const navlinks = document.querySelector(".navlinks");
   const navToggle = document.querySelector(".nav-toggle");
   const wrapper = document.querySelector(".wrapper");
+
+  const hamburgerMenu = document.querySelector(".hamburger-menu");
+  const openMenuSymbol = document.querySelector(".open-menu");
+  const closeMenuSymbol = document.querySelector(".close-menu");
+
   navToggle.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -292,9 +341,19 @@ const pathname = new URL(Astro.request.url).pathname;
     if (visible === "true") {
       navlinks.classList.remove("hiddenNavlinks");
       navlinks.classList.add("visible");
+
+      openMenuSymbol.classList.remove("visibleSymbol");
+      openMenuSymbol.classList.add("hiddenSymbol");
+      closeMenuSymbol.classList.remove("hiddenSymbol");
+      closeMenuSymbol.classList.add("visibleSymbol");
     } else {
       navlinks.classList.remove("visible");
       navlinks.classList.add("hiddenNavlinks");
+
+      openMenuSymbol.classList.add("visibleSymbol");
+      openMenuSymbol.classList.remove("hiddenSymbol");
+      closeMenuSymbol.classList.add("hiddenSymbol");
+      closeMenuSymbol.classList.remove("visibleSymbol");
     }
   });
 

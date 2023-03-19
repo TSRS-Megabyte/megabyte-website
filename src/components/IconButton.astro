@@ -1,23 +1,33 @@
 ---
 export interface Props {
-    link: string;
-    text: string;
-    imgLink: string;
+  link: string;
+  text: string;
+  imgLink: string;
 }
-const {link, text, imgLink} = Astro.props
-
+const { link, text, imgLink } = Astro.props;
 ---
-<a class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-bold font-mono text-xl w-fit px-4 py-2 flex" href={link}><span class="mt-2  mx-3">{text}</span> <span class=""><img class="w-10 hover:rotate-90 hover:duration-500" alt="an icon" src={imgLink}></span> </a>
-<style>
-      .bgreen {
-    background-color: #CEFF1B;
 
-}
-a {
+<a
+  class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-bold font-mono text-xl w-fit px-4 py-2 flex"
+  href={link}
+  ><span class="mt-2 mx-3">{text}</span>
+  <span class=""
+    ><img
+      class="w-10 hover:rotate-90 hover:duration-500"
+      alt="an icon"
+      src={imgLink}
+    /></span
+  >
+</a>
+<style>
+  .bgreen {
+    background-color: #ceff1b;
+  }
+  a {
     box-shadow: 2px 2px 0px 2px #000;
-}
+  }
   a:hover {
-    transform: translate(1px, 1px );
+    transform: translate(1px, 1px);
     box-shadow: 1px 1px 0px 1px #000;
   }
 </style>
