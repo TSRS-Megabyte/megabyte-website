@@ -20,8 +20,8 @@ const { title, body, link } = Astro.props;
   </div>
   <div class="body">
   <p class=" text-lg p-6 text-justify">{body}</p></div>
-  <div class="bwhite text-right w-full p-3">
-  <a class="bg-white text-center linktext font-mono w-fit px-2 py-1" href={link}>More Info</a></div>
+  <div class="bwhite text-right w-full p-3 pb-8 pr-8">
+  <a class="bg-white text-center linktext font-mono w-fit px-2 py-2" href={link}>More Info</a></div>
 </div>
 
 
@@ -48,17 +48,18 @@ line-height: 18px;
     font-weight: 400;
   }
   .linktext {
+
     background: #FFFFFF;
 border: 1px solid #000000;
 box-shadow: 3px 3px 0px #000000;
 font-style: normal;
 font-weight: 400;
-font-size: 12px;
+font-size: 16px;
 line-height: 16px;
 
 letter-spacing: 0.05em;
 text-transform: uppercase;
-
+padding: auto;
   }
   .linktext:hover{
     transform: translate(2.5px, 2.5px);
