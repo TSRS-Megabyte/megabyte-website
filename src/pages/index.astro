@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 
 ---
 
-<Layout title="Megabyte" class="w-screen h-screen">
+<Layout title="Megabyte" class="w-screen h-screen opacity-100">
     <div class="container w-screen h-screen bg-hero-pattern">
         <div class="w-screen text-5xl h-full pt-64">
             <div class="">
@@ -31,6 +31,9 @@ import Layout from "../layouts/Layout.astro";
     
     @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
 
+    .opacity-100 {
+        opacity: 100%;
+    }
     .commune {
         margin-top: 5vh;
         width: 100%;
