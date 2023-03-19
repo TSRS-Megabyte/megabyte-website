@@ -5,4 +5,17 @@ export interface Props {
 }
 const {link, text} = Astro.props
 ---
-<a style="box-shadow: 2px 2px 0px 2px #000;"  class="rounded-sm border-2 border-black hover:cursor-pointer bg-white text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}>{text}</a>
+<a class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}>{text}</a>
+<style>
+      .bgreen {
+    background-color: #CEFF1B;
+
+}
+a {
+    box-shadow: 2px 2px 0px 2px #000;
+}
+  a:hover {
+    transform: translate(1px, 1px );
+    box-shadow: 1px 1px 0px 1px #000;
+  }
+</style>

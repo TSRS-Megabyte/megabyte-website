@@ -1,13 +1,16 @@
 ---
+import HoriCard from "../components/HoriCard.astro";
 import Navbar from "../components/Navbar.astro";
 import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
+import VerticalCard from "../components/VerticalCard.astro";
+import IconButton from "../components/IconButton.astro";
 ---
 
 <Layout title="Megabyte" class="w-screen h-screen">
   <div class="container w-screen h-screen bg-hero-pattern">
     <div class="w-screen text-5xl h-full pt-64">
-      <div class="">
+      <div class="align-middle text-center m-auto mt-5">
         <span class="weare">We are</span>
         <span class="maintext"> Megabyte</span>
         <span class="commune">
@@ -19,16 +22,54 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
     <div class="body">
-      <div class="notice"></div>
-      <div class="acc"></div>
-      <div class="resources"></div>
-    </div>
+      <div class="notice p-8 md:p-24 ">
+        <div class="notice-box  w-fit p-5">
+          <span class="notice-title mb-2">Notice Board</span>
+          <span class="notice-text">Events, opportunities, and meetings</span>
+        </div>
+        <div class="events w-fit">
+          <ul class="events-list ">
+            <li class="blue-u  mt-20 "><HoriCard title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
+            <li class="yel-u  mt-20 "><HoriCard title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
+            <li class="red-u  mt-20 "><HoriCard title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
+          
+          </ul>
+        </div>
+          <div class="bgreen text-right w-full p-3 mt-10"><Button text="See All" link="/"/>
+          </div>
+           </div>
+      <div class="acc  p-8 md:p-24 ">
+        <div class="notice-box  w-fit p-5">
+          <span class="notice-title mb-2">Accomplishments</span>
+          <span class="notice-text">Events, opportunities, and meetings</span>
+        </div>
+
+         <div class="events w-fit mt-20">
+          <ul class="events-list lg:flex">
+            <li class="blue-u mb-12 lg:mr-8"><VerticalCard date="12 MARCH" imgLink="/src/assets/rad.png" title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
+            <li class="yel-u mb-12 lg:mr-8  "><VerticalCard date="12 MARCH" imgLink="/src/assets/rad.png" title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
+            <li class="red-u mb-12 "><VerticalCard date="12 MARCH" imgLink="/src/assets/rad.png" title="Shriteq 2022 tryouts"  body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. " link="/"/> </li>
+          
+          </ul>
+        </div>
+                  <div class="bgreen text-right w-full p-3 mt-10"><Button text="See All" link="/"/>
+          </div>
+      </div>
+      <div class="resources notice p-8 md:p-24">
+        <p class="rec-main ">Resources</p>
+
+        <p class="rec-text mb-8 md:w-2/3 lg:w-3/6 max-w-fit">Collections of links, guides, and more to help you learn about all things tech</p>
+        <IconButton link="/" imgLink="src/assets/circle-arrow.png" text="Learn more"></IconButton>
+      </div>
+
+</div>
+     
   </div>
 </Layout>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap");
-
+  @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap");
   .commune {
     margin-top: 5vh;
     width: 100%;
@@ -40,7 +81,7 @@ import Layout from "../layouts/Layout.astro";
     font-family: "Lexend";
     font-style: normal;
     font-weight: 400;
-    font-size: 4vmin;
+    font-size: 2vw;
     line-height: 40px;
     /* identical to box height */
 
@@ -64,7 +105,7 @@ import Layout from "../layouts/Layout.astro";
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
-    font-size: 6vmin;
+    font-size: 3vw;
     line-height: 65px;
     /* identical to box height */
 
@@ -80,6 +121,16 @@ import Layout from "../layouts/Layout.astro";
     background-repeat: no-repeat;
     background-position: center;
   }
+  @media (max-width: 768px) {
+    .bg-hero-pattern {
+      background-image: url("/src/assets/anime-lines.svg");
+      background-size: cover;
+      width: 100vw;
+      min-height: 100vw;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
   .maintext {
     width: 100%;
     height: 100%;
@@ -90,7 +141,7 @@ import Layout from "../layouts/Layout.astro";
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 700;
-    font-size: 14vmin;
+    font-size: 6vw;
     line-height: 150px;
     /* identical to box height */
 
@@ -121,4 +172,61 @@ import Layout from "../layouts/Layout.astro";
     background-image: linear-gradient(#ff7474, #ff7474);
     background-size: 90% 1.8vh;
   }
+
+  .notice-box {
+   background-color: #000 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    letter-spacing: -0.01em;
+    /* background: #FFFFFF; */
+border: 2px solid #000000;
+box-shadow: 3px 3px 0px #000000;
+  }
+  .notice-title {
+    font-family: 'Lexend';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+/* line-height: 18px; */
+/* or 75% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.05em;
+  }
+  .noitce-text {
+    font-family: 'Lexend';
+font-style: bold;
+font-weight: 500;
+font-size: 20px;
+/* line-height: 30px; */
+/* or 167% */
+
+letter-spacing: 0.04em;
+  }
+
+.rec-main {
+  font-family: 'Lexend';
+font-style: bold;
+font-weight: 700;
+font-size: 5vmin;
+line-height: 52px;
+display: flex;
+align-items: center;
+
+}
+.rec-text {
+  margin-top: 25px;
+  font-family: 'Lexend';
+font-style: normal;
+font-weight: 400;
+font-size: 3vmin;
+line-height: 52px;
+display: flex;
+align-items: center;
+
+}
+
 </style>
