@@ -9,15 +9,18 @@ import IconButton from "../components/IconButton.astro";
 
 <Layout title="Megabyte" class="w-screen h-screen">
   <div class="h-screen bg-hero-pattern">
-    <div class="text-5xl h-full md:pt-96 text-center">
-      <div class="align-middle text-center m-auto mt-5">
+    <div class="text-5xl h-full text-center topMain">
+      <div class="align-middle text-center m-auto">
         <span class="weare">We are</span>
         <span class="maintext"> Megabyte</span>
         <span class="commune">
-          A community of enthus<div class="blue-u understroke">iasts</div>,
-          innov<span class="yel-u understroke">ators</span> , and m<span
-            class="red-u understroke">akers</span
-          >.
+          <span>
+            A community of <span
+              >enthus<span class="blue-u understroke">iasts</span></span
+            >, <span>innov<span class="yel-u understroke">ators</span></span>,
+            and<span> m<span class="red-u understroke">akers</span></span>
+            .
+          </span>
         </span>
       </div>
     </div>
@@ -153,8 +156,14 @@ import IconButton from "../components/IconButton.astro";
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap");
+
+    .topMain {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .commune {
-      margin-top: 5vh;
+      margin-top: 2vh;
       width: 100%;
       height: 100%;
       display: flex;
@@ -164,8 +173,7 @@ import IconButton from "../components/IconButton.astro";
       font-family: "Lexend";
       font-style: normal;
       font-weight: 400;
-      font-size: 2vw;
-      line-height: 40px;
+      font-size: 2vmax;
       /* identical to box height */
 
       display: flex;
@@ -188,8 +196,7 @@ import IconButton from "../components/IconButton.astro";
       font-family: "Lexend Deca";
       font-style: normal;
       font-weight: 400;
-      font-size: 3vw;
-      line-height: 65px;
+      font-size: 3vmax;
       /* identical to box height */
 
       display: flex;
@@ -201,20 +208,21 @@ import IconButton from "../components/IconButton.astro";
       background-image: url("/src/assets/anime-lines.svg");
       background-size: cover;
       max-width: 100vw;
+      height: 100vh;
       background-repeat: no-repeat;
       background-position: center;
     }
-    @media (max-width: 60em) {
+    @media (max-width: 67em) {
       .bg-hero-pattern {
         background-image: url("/src/assets/anime-lines.svg");
         background-size: cover;
-        width: 100vw;
         min-height: 100vw;
         background-repeat: no-repeat;
         background-position: center;
       }
     }
     .maintext {
+      margin-top: 0;
       width: 100%;
       height: 100%;
       display: flex;
@@ -224,8 +232,7 @@ import IconButton from "../components/IconButton.astro";
       font-family: "Lexend Deca";
       font-style: normal;
       font-weight: 700;
-      font-size: 6vw;
-      line-height: 150px;
+      font-size: 6vmax;
       /* identical to box height */
 
       display: flex;
@@ -238,9 +245,9 @@ import IconButton from "../components/IconButton.astro";
         -2px -2px 0px #000;
     }
     .understroke {
-      background-size: 100% 1.8vh;
+      background-size: 100% 0.7em;
       background-repeat: no-repeat;
-      background-position: right 80%;
+      background-position: right 0.5em;
       padding-bottom: 1vh;
       margin-top: 1vh;
     }
@@ -253,7 +260,7 @@ import IconButton from "../components/IconButton.astro";
     }
     .red-u {
       background-image: linear-gradient(#ff7474, #ff7474);
-      background-size: 90% 1.8vh;
+      background-size: 90% 0.7em;
     }
 
     .notice-box {
@@ -307,7 +314,7 @@ import IconButton from "../components/IconButton.astro";
       display: flex;
       align-items: center;
     }
-    @media (max-width: 60em) {
+    @media (max-width: 67em) {
       .rec-text {
         line-height: 32px;
       }

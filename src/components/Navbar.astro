@@ -90,7 +90,7 @@ const pathname = new URL(Astro.request.url).pathname;
   .navlink {
     text-decoration: none;
     padding: 0 1em;
-    font-size: 2vmin;
+    font-size: 19px;
   }
 
   .navlink:not(.current) li {
@@ -124,7 +124,6 @@ const pathname = new URL(Astro.request.url).pathname;
   .wrapper {
     background: rgba(255, 255, 255, 0.8);
     width: 75vw;
-    min-height: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -157,7 +156,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
   .mgbt-text {
     font-family: "Lexend", sans-serif;
-    font-size: 1.25rem;
+    font-size: 24px;
     font-weight: 700;
     color: #000;
     vertical-align: middle;
@@ -182,7 +181,7 @@ const pathname = new URL(Astro.request.url).pathname;
     height: auto;
   }
   .left-side-container {
-    padding-left: 1.5rem;
+    padding-left: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +192,7 @@ const pathname = new URL(Astro.request.url).pathname;
     justify-content: center;
 
     position: relative;
-    top: 1rem;
+    top: 1.5vh;
   }
 
   .hamburger-menu {
@@ -203,7 +202,7 @@ const pathname = new URL(Astro.request.url).pathname;
   .symbol {
     display: none;
   }
-  @media (max-width: 65em) {
+  @media (max-width: 67em) {
     .wrapper {
       background: rgba(255, 255, 255, 0.75);
       position: fixed;
@@ -218,6 +217,9 @@ const pathname = new URL(Astro.request.url).pathname;
       background: rgba(255, 255, 255, 0.75);
     }
 
+    .mgbt-text {
+      font-size: 21px;
+    }
     .current {
       opacity: 100%;
       color: rgb(59, 72, 255);
