@@ -14,8 +14,8 @@ import IconButton from "../components/IconButton.astro";
         <span class="weare">We are</span>
         <span class="maintext"> Megabyte</span>
         <span class="commune">
-          <span>
-            A community of <span
+          <span class="comm">
+            A community of           <span
               >enthus<span class="blue-u understroke">iasts</span></span
             >, <span>innov<span class="yel-u understroke">ators</span></span>,
             and<span> m<span class="red-u understroke">akers</span></span>.
@@ -23,7 +23,7 @@ import IconButton from "../components/IconButton.astro";
         </span>
       </div>
     </div>
-    <div class="body">
+    <div class="body bg-cube">
       <div class="notice p-8 md:p-24">
         <div class="notice-box w-fit p-5">
           <span class="notice-title mb-2">Notice Board</span>
@@ -35,13 +35,13 @@ import IconButton from "../components/IconButton.astro";
               <HoriCard
               tColour="#32a9ff"
                 title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim.Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
                 link="/"
               />
             </li>
             <li class="yel-u mt-20">
               <HoriCard
-              tColour="ffe81b"
+              tColour="#ffe81b"
                 title="Shriteq 2022 tryouts"
                 body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
                 link="/"
@@ -57,7 +57,7 @@ import IconButton from "../components/IconButton.astro";
             </li>
           </ul>
         </div>
-        <div class="text-right w-full p-3 mt-10">
+        <div class=" text-right w-full p-3 mt-10">
           <Button text="See All" link="/" />
         </div>
       </div>
@@ -129,9 +129,7 @@ import IconButton from "../components/IconButton.astro";
             >
           </a>
           <style>
-            .bgreen {
-              background-color: #ceff1b;
-            }
+
             a {
               box-shadow: 2px 2px 0px 2px #000;
             }
@@ -158,7 +156,22 @@ import IconButton from "../components/IconButton.astro";
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap");
+    .bg-cube {
+      background-image: url("../src/assets/tileable-cubes.svg");
+      background-size: 50px 70px;
+      background-repeat: repeat;
+  
+      /* background */
+       /* background-size: contain; */
+      /* max-width: 100vw;
+      height: 100vh; */
+      /* background-repeat: no-repeat; */
 
+    }
+          .bgreen {
+    background-color: #CEFF1B;
+
+}
     .topMain {
       display: flex;
       align-items: center;
@@ -257,7 +270,7 @@ import IconButton from "../components/IconButton.astro";
     }
 
     .notice-box {
-      background-color: #000 0%;
+      background-color: #fff;
       display: flex;
       flex-direction: column;
       align-items: left;
@@ -310,6 +323,11 @@ import IconButton from "../components/IconButton.astro";
     @media (max-width: 67em) {
       .rec-text {
         line-height: 32px;
+      }
+      .maintext {
+         text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 6px 4px 0px #000,
+        -2px -2px 0px #000;
+
       }
     }
   </style>
