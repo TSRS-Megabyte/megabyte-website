@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 const posts = (await getCollection("eventinfo")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 ---
 
 <Layout>
