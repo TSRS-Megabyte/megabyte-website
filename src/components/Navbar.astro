@@ -15,9 +15,9 @@ const pathname = new URL(Astro.request.url).pathname;
             <div class="inline-flex align-middle">
               <img
                 src="../src/assets/tsrs.svg"
-                alt="A circle - round and palpable"
+                alt="tsrs logo"
               />
-              <p class="mgbt-text"><span class="mega">MEGA</span>BYTE</p>
+              <p class="mgbt-text mb-3"><span class="mega">MEGA</span>BYTE</p>
             </div>
           </a>
           <button
@@ -73,7 +73,7 @@ const pathname = new URL(Astro.request.url).pathname;
     z-index: 100;
   }
   .current {
-    color: #ff7474;
+    color: #32a9ff75;
     opacity: 75%;
   }
 
@@ -94,15 +94,24 @@ const pathname = new URL(Astro.request.url).pathname;
   }
 
   .navlink:not(.current) li {
-    background-image: linear-gradient(90deg, #ff7474, orange);
-    background-size: 0% 0.5vh;
+    background-image: linear-gradient(90deg, #32a9ff 100%, #32a9ff 70%);
+    background-size: 0% 0.8vh;
     background-repeat: no-repeat;
-    background-position: center 110%;
+    background-position: center 2.2vh;
     transition: 0.2s ease;
+  }
+  @media (max-width: 67em) {
+    .navlink:not(.current) li {
+    background-image: linear-gradient(90deg, #32a9ff 100%, #32a9ff 70%);
+    background-size: 0% 0.8vh;
+    background-repeat: no-repeat;
+    background-position: center 3.4vh;
+    transition: 0.2s ease;
+  }
   }
 
   .navlink:not(.current) li:hover {
-    background-size: 100% 0.5vh;
+    background-size: 100% 1vh;
   }
 
   .current {
@@ -163,8 +172,9 @@ const pathname = new URL(Astro.request.url).pathname;
     align-self: center;
   }
   .mega {
-    text-decoration: underline #cceaff 0.3rem;
-    text-underline-offset: 0.275rem;
+    text-decoration: underline #49b2fd 0.3rem;
+    text-underline-offset: 10px;
+
   }
 
   .navHome > div > p > span {
@@ -173,6 +183,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
   .navHome:hover > div > p > span {
     text-decoration: underline #ff7474 0.3rem;
+;
   }
 
   img {
@@ -219,10 +230,11 @@ const pathname = new URL(Astro.request.url).pathname;
 
     .mgbt-text {
       font-size: 21px;
+      font-weight: 700;
     }
     .current {
       opacity: 100%;
-      color: rgb(59, 72, 255);
+      color: rgba(32, 159, 255, 50%);
     }
 
     #center-wrapper {
@@ -233,7 +245,7 @@ const pathname = new URL(Astro.request.url).pathname;
       width: calc(100vw - 4px);
       background: white;
       justify-content: center;
-      box-shadow: 0 0.25rem 1rem #00000075;
+      box-shadow: 0 0.3em 0rem 0rem #000000;
     }
     .hamburger-menu {
       display: grid;

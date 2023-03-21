@@ -14,11 +14,11 @@ import IconButton from "../components/IconButton.astro";
         <span class="weare">We are</span>
         <span class="maintext"> Megabyte</span>
         <span class="commune">
-          <span class="comm">
-            A community of           <span
-              >enthus<span class="blue-u understroke">iasts</span></span
-            >, <span>innov<span class="yel-u understroke">ators</span></span>,
-            and<span> m<span class="red-u understroke">akers</span></span>.
+          <span class="comm text-center"><span class=" l-hidden">
+            A community of   </span>        <span class=""
+              >Enthus<span class="blue-u understroke">iasts</span></span
+            >, <span>Innov<span class="yel-u understroke">ators</span></span>,
+            and<span> M<span class="red-u understroke">akers</span></span>.
           </span>
         </span>
       </div>
@@ -144,7 +144,9 @@ import IconButton from "../components/IconButton.astro";
               width: 2em;
               height: 2em;
               transition: 0.5s ease;
-              filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+              /* filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5)); */
+              filter: invert(0);
+
             }
 
             svg:hover {
@@ -259,9 +261,9 @@ import IconButton from "../components/IconButton.astro";
         -2px -2px 0px #000;
     }
     .understroke {
-      background-size: 100% 0.7em;
+      background-size: 100% 0.5em;
       background-repeat: no-repeat;
-      background-position: right 0.6em;
+      background-position: center 0.75em;
       padding-bottom: 1vh;
       margin-top: 1vh;
     }
@@ -274,7 +276,7 @@ import IconButton from "../components/IconButton.astro";
     }
     .red-u {
       background-image: linear-gradient(#ff7474, #ff7474);
-      background-size: 90% 0.7em;
+
     }
 
     .notice-box {
@@ -329,6 +331,9 @@ import IconButton from "../components/IconButton.astro";
       align-items: center;
     }
     @media (max-width: 67em) {
+      .l-hidden {
+        display: none;
+      }
       .rec-text {
         line-height: 32px;
       }
