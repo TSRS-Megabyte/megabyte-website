@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-
+import Layout from "./Layout.astro";
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
@@ -45,3 +45,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Footer />
   </body>
 </html> -->
+<Layout>
+  <main>
+    <article>
+      {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+      <h1 class="title">{title}</h1>
+      <!-- <FormattedDate date={pubDate} /> -->
+      {updatedDate && <div class="last-updated-on">Last updated on</div>}
+      <hr />
+      <slot />
+    </article>
+  </main>
+</Layout>
