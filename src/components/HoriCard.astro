@@ -1,83 +1,78 @@
 ---
-import { HydrationDirectiveProps } from 'astro/dist/runtime/server/hydration';
+import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
 
 export interface Props {
   title: string;
   body: string;
   link: string;
   tColour: string;
-
 }
 
 const { title, body, link, tColour } = Astro.props;
 ---
 
-<div
-  class="w-full card h-fit">
+<div class="w-full card h-fit">
   <div class="p-5 bg-var py-7 bg-blue-500 text-xl title font-bold">
     <h3 class="">
       {title}
     </h3>
   </div>
-  <div class="body polka">
-  <p class=" text-lg pt-6 px-6 pb-3 text-justify">{body}</p></div>
+  <div class="card-body polka">
+    <p class="text-lg pt-6 px-6 pb-3 text-justify">{body}</p>
+  </div>
   <div class="bwhite text-right w-full p-3 pb-8 pr-8 polka">
-  <a class="bg-white text-center linktext font-mono w-fit px-2 py-2 " href={link}>More Info</a></div>
+    <button
+            class="hover:pointer bg-white text-center link-button font-mono text-lg py-2"
+          >
+            <a href={link} class="uppercase w-full h-full px-4">Read more</a>
+          </button>
+  </div>
 </div>
 
-
-<style define:vars={tColour} >
-
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
-.bg-var {
-  background: var(--tColour);
-}
-.bwhite {
-  background: #FFFFFF;
-}
-.card {
-
-        border: 2px solid #000000;
-        box-shadow: 5px 5px 0px #000000;
+<style define:vars={tColour}>
+  @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap");
+  .bg-var {
+    background: var(--tColour);
+  }
+  .bwhite {
+    background: #ffffff;
+  }
+  .card {
+    border: 2px solid #000000;
+    box-shadow: 5px 5px 0px #000000;
   }
   .title {
     border-bottom: 2px solid #000000;
-    font-family: 'Lexend';
+    font-family: "Lexend";
     font-weight: 700;
-line-height: 18px;
+    line-height: 18px;
   }
-  .body {
-    background: #FFFFFF;
-    font-family: 'Lexend';
+  .card-body {
+    background: #ffffff;
+    font-family: "Lexend";
     font-weight: 400;
   }
-  .linktext {
+  .link-button {
+    background: #ffffff;
+    border: 1px solid black;
+    box-shadow: 4px 4px 0px 0px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
 
-    background: #FFFFFF;
-border: 1px solid #000000;
-box-shadow: 3px 3px 0px #000000;
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 16px;
-
-letter-spacing: 0.05em;
-text-transform: uppercase;
-padding: auto;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
-  .linktext:hover{
-    transform: translate(2.5px, 2.5px);
-    box-shadow: 1.5px 1.5px 0px #000000;
-    transition-duration: 200ms;
+  .link-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px;
+    /* transition-duration: 200ms; */
   }
   .polka {
-
-
-  background-image: radial-gradient(#000 10%, transparent 11%);
-  background-size: 10px 10px;
-  /* background-position: 0 0, 30px 30px; */
-  background-repeat: repeat;
-}
-
-
+    background-image: radial-gradient(#000 10%, transparent 11%);
+    background-size: 10px 10px;
+    /* background-position: 0 0, 30px 30px; */
+    background-repeat: repeat;
+  }
 </style>

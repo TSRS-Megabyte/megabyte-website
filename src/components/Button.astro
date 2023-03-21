@@ -1,21 +1,30 @@
 ---
 export interface Props {
-    link: string;
-    text: string;
+  link: string;
+  text: string;
 }
-const {link, text} = Astro.props
+const { link, text } = Astro.props;
 ---
-<a class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}><span class=" w-fit">{text}</span></a>
-<style>
-      .bgreen {
-    background-color: #CEFF1B;
 
-}
-a {
-    box-shadow: 2px 2px 0px 2px #000;
-}
-  a:hover {
-    transform: translate(1px, 1px );
-    box-shadow: 1px 1px 0px 1px #000;
+<button
+  class="bgreen rounded-sm hover:cursor-pointer bg-opacity-0 text-center link-button font-mono text-lg w-fit py-2">
+  <a href={link} class="w-full h-full  px-4 " >
+    <span class="w-fit">{text}
+    </span>
+  </a>
+  
+</button>
+<style>
+  .bgreen {
+    background-color: #ceff1b;
+  }
+  button {
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+    color: black;
+  }
+  button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px 0px;
   }
 </style>
