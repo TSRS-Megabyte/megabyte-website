@@ -1,0 +1,26 @@
+---
+//PAGE TO RENDER ALL AVAILABLE POSTS
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+const posts = (await getCollection("eventinfo")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<Layout>
+  <main>
+    {
+      posts.map((post) => (
+        <li class="">
+          <a href={`/events/${post.slug}/`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </main>
+  <style>
+    a {
+      color: #000;
+      text-decoration: underline solid black;
+    }
+  </style>
+</Layout>

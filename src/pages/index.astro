@@ -34,8 +34,8 @@ import IconButton from "../components/IconButton.astro";
             <li class="blue-u mt-20">
               <HoriCard
               tColour="#32a9ff"
-                title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim.Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
+                title="Pathways School Noida Hackathon"
+                body="The Shri Ram School has been invited to participate in the third hackathon, 'Auto Hacks,' hosted by Pathways School Noida on 20th - 22nd January 2023. The theme of the hackathon is 'Automation,' and students from grades 9 - 12 can participate in teams of 1 - 3 members. The event will consist of online workshops and a closing ceremony held physically at Pathways School Noida on the 22nd of January, and details about registration, rules, prizes, judging criteria, and FAQ's can be found on the devpost website.  "
                 link="/"
               />
             </li>
@@ -69,8 +69,19 @@ import IconButton from "../components/IconButton.astro";
 
         <div class="events w-fit mt-20">
           <ul class="events-list lg:flex">
-            <li class="blue-u mb-12 lg:mr-8">
+            <li class=" blue-u h-fit mb-20 lg:mr-8 lg:w-1/3">
               <VerticalCard
+
+                date="12 MARCH"
+                imgLink="https://via.placeholder.com/831x482"
+                title="Pathways School Noida Hackathon"
+                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim."
+                link="/"
+              />
+            </li>
+            <li class="yel-u mb-20 lg:mr-8 h-fit lg:w-1/3">
+              <VerticalCard
+
                 date="12 MARCH"
                 imgLink="https://via.placeholder.com/831x482"
                 title="Shriteq 2022 tryouts"
@@ -78,17 +89,9 @@ import IconButton from "../components/IconButton.astro";
                 link="/"
               />
             </li>
-            <li class="yel-u mb-12 lg:mr-8">
+            <li class="red-u h-fit lg:w-1/3">
               <VerticalCard
-                date="12 MARCH"
-                imgLink="https://via.placeholder.com/831x482"
-                title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                link="/"
-              />
-            </li>
-            <li class="red-u mb-12">
-              <VerticalCard
+
                 date="12 MARCH"
                 imgLink="https://via.placeholder.com/831x482"
                 title="Shriteq 2022 tryouts"
@@ -111,7 +114,7 @@ import IconButton from "../components/IconButton.astro";
         </p>
         <>
           <a
-            class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-bold font-mono text-xl w-fit px-4 py-2 flex"
+            class="bgreen rounded-sm border-2 border-black hover:cursor-pointer text-center linktext font-bold font-mono text-xl w-fit px-4 py-2 flex"
             href="/"
             ><span class="mt-2 mx-3">Learn more</span>
             <span class=""
@@ -222,8 +225,13 @@ import IconButton from "../components/IconButton.astro";
     .bg-hero-pattern {
       background-image: url("/src/assets/anime-lines.svg");
       background-size: cover;
+      /* background-filter: invert(1); */
       max-width: 100vw;
       height: 100vh;
+      /* filter: invert(100%);
+    -webkit-filter: invert(100%); */
+
+    /* z-index: -1; */
       background-repeat: no-repeat;
       background-position: center;
     }
