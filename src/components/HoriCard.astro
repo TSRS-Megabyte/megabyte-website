@@ -17,7 +17,7 @@ const { title, body, link, tColour } = Astro.props;
       {title}
     </h3>
   </div>
-  <div class="card-body polka">
+  <div class="card-body">
     <p class="text-lg pt-6 px-6 pb-3 text-justify">{body}</p>
   </div>
   <div class="bwhite text-right w-full p-3 pb-8 pr-8 polka">
@@ -27,6 +27,7 @@ const { title, body, link, tColour } = Astro.props;
             <a href={link} class="uppercase w-full h-full px-4">Read more</a>
           </button>
   </div>
+
 </div>
 
 <style define:vars={tColour}>
@@ -69,10 +70,6 @@ const { title, body, link, tColour } = Astro.props;
     box-shadow: 2px 2px 0px 0px;
     /* transition-duration: 200ms; */
   }
-  .polka {
-    background-image: radial-gradient(#000 10%, transparent 11%);
-    background-size: 10px 10px;
-    /* background-position: 0 0, 30px 30px; */
-    background-repeat: repeat;
-  }
+  
+
 </style>

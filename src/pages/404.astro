@@ -5,8 +5,38 @@ import HTMLayout from "../layouts/HTMLayout.astro";
 ---
 
 <HTMLayout title="404">
-    <div class="container">
+    <div class="container-main w-screen h-screen ">
+    <div class="text-center md:p-24">
+        <img src="../src/assets/tsrs.svg"  style="
 
-        <Meg dataWord="MEGABYTE" dataTextColours={["#32a9ff","#ffe81b","#ff7474","#ffffff"]} dataWordRepeat={4} />
+        " class="w-2/5 align-middle text-center m-auto"/>
+    <div class="container">
+<div class="m-auto w-fit text-center">
+ 
+        <Meg title="TSRS MEGABYTE "/></div>
+</div><div class="m-auto w-fit text-center">
+        <Meg title="404"/>
+        
     </div>
+    <div class="m-auto w-fit text-center text-4xl">
+        <Meg title="Page Not Found"/>
+        
+    </div>
+</div></div>
+<style>
+    .container-main {
+        background-image: url("../src/assets/tileable-cubes.svg");
+        filter: invert(1);
+        background-size: 7%;
+;}
+    img {
+        transition-duration: 1200ms;
+                filter:invert(1)
+       
+    }
+     img:hover {
+            filter: invert(0);
+            transition-duration: 1200ms;
+        }
+</style>
 </HTMLayout>
