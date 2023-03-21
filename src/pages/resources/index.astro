@@ -5,9 +5,11 @@ import Layout from "../../layouts/Layout.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 ---
 
 <Layout>
+  <title>Megabyte | Resources</title>
   <main>
     {
       posts.map((post) => (
