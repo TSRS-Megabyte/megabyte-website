@@ -5,7 +5,7 @@ export interface Props {
 }
 const {link, text} = Astro.props
 ---
-<a class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}>{text}</a>
+<a class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center linktext font-mono text-lg w-fit px-4 py-2" href={link}><span class=" w-fit">{text}</span></a>
 <style>
       .bgreen {
     background-color: #CEFF1B;

@@ -1,29 +1,14 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import HTMLayout from "./HTMLayout.astro";
 const {title} = Astro.props
 
 ---
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-<header>
-    <Navbar></Navbar>
-</header>
-<body>
-    <slot></slot>
-    <style>
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 48
-        }
-    </style>
-</body>
-</html>
+<HTMLayout title={title} >
+    <header>
+        <Navbar />
+        </header>  
+    <body>
+        <slot></slot>
+    </body>
+</HTMLayout>    

@@ -5,29 +5,33 @@ export interface Props {
   title: string;
   body: string;
   link: string;
+  tColour: string;
 
 }
 
-const { title, body, link } = Astro.props;
+const { title, body, link, tColour } = Astro.props;
 ---
 
 <div
   class="w-full card h-fit">
-  <div class="p-5 bg-opacity-0 py-7 bg-blue-500 text-xl title font-bold">
+  <div class="p-5 bg-var py-7 bg-blue-500 text-xl title font-bold">
     <h3 class="">
       {title}
     </h3>
   </div>
-  <div class="body">
-  <p class=" text-lg p-6 text-justify">{body}</p></div>
-  <div class="bwhite text-right w-full p-3 pb-8 pr-8">
-  <a class="bg-white text-center linktext font-mono w-fit px-2 py-2" href={link}>More Info</a></div>
+  <div class="body polka">
+  <p class=" text-lg pt-6 px-6 pb-3 text-justify">{body}</p></div>
+  <div class="bwhite text-right w-full p-3 pb-8 pr-8 polka">
+  <a class="bg-white text-center linktext font-mono w-fit px-2 py-2 " href={link}>More Info</a></div>
 </div>
 
 
-<style>
+<style define:vars={tColour} >
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+.bg-var {
+  background: var(--tColour);
+}
 .bwhite {
   background: #FFFFFF;
 }
@@ -66,4 +70,14 @@ padding: auto;
     box-shadow: 1.5px 1.5px 0px #000000;
     transition-duration: 200ms;
   }
+  .polka {
+
+
+  background-image: radial-gradient(#000 10%, transparent 11%);
+  background-size: 10px 10px;
+  /* background-position: 0 0, 30px 30px; */
+  background-repeat: repeat;
+}
+
+
 </style>
