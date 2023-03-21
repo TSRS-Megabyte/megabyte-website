@@ -1,18 +1,17 @@
 ---
 //PAGE TO RENDER ALL AVAILABLE POSTS
-// import { getCollection } from "astro:content";
+ import { getCollection } from "astro:content";
+ const posts = (await getCollection('blog')).sort(
+(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+ );
 ---
 
-<!-- // const posts = (await getCollection('blog')).sort(
-// 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-// );
+ 
 
-// {
-  //   posts.map((post) => (
-  //     <li>
-  //       <FormattedDate date={post.data.pubDate} />
-  //       <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-  //     </li>
-  //   ))
-  // }
-// } -->
+{
+  posts.map((post) => (
+     <li>
+       <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+    </li>
+   ))
+ }
