@@ -8,7 +8,7 @@ const { link, text } = Astro.props;
 <!-- the colour is standard at green right now we want to be able to reuse the button with a colour and a size and a separate text and link the text and link work but the styling is not set up, neeed to use define:vars={} for thi as aprop in the style tag  -->
 <!-- check horicard vertcal card and resource component for more info -->
 <button
-  class="bgreen rounded-sm hover:cursor-pointer bg-opacity-0 text-center link-button font-mono text-lg w-fit py-2">
+  class="bgreen hover:cursor-pointer bg-opacity-0 text-center link-button font-mono text-lg w-fit py-2">
   <a href={link} class="w-full h-full  px-4 " >
     <span class="w-fit">{text}
     </span>
