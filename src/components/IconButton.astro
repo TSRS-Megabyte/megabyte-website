@@ -8,9 +8,9 @@ const { link, text, imgLink } = Astro.props;
 ---
 
 <a
-  class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center link-button font-bold font-mono text-xl w-fit px-4 py-2 flex"
+  class="border-black link-button flex w-fit rounded-sm border-2 bg-green bg-opacity-0 px-4 py-2 text-center font-mono text-xl font-bold hover:cursor-pointer"
   href={link}
-  ><span class="mt-2 mx-3">{text}</span>
+  ><span class="mx-3 mt-2">{text}</span>
   <span class=""
     ><img
       class="w-10 hover:rotate-90 hover:duration-500"
@@ -20,7 +20,7 @@ const { link, text, imgLink } = Astro.props;
   >
 </a>
 <style>
-  .bgreen {
+  .bg-green {
     background-color: #ceff1b;
   }
   a {

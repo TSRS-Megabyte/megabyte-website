@@ -1,15 +1,15 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import HTMLayout from "./HTMLayout.astro";
-const {title} = Astro.props
-
+const { title } = Astro.props;
 ---
-<HTMLayout title={title} >
-    <header>
-      
-        <Navbar />
-        </header>  
-    <body>
-        <slot></slot>
-    </body>
-</HTMLayout>    
+
+<HTMLayout title={title}>
+  <header>
+    <Navbar />
+  </header>
+  <body>
+    <slot />
+  </body>
+</HTMLayout>
+

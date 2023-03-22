@@ -29,6 +29,7 @@
     "@swup/slide-theme": "^1.0.5",
     "prettier": "^2.8.6",
     "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-tailwindcss": "^0.2.5",
     "swup": "^3.0.5"
   }
 }
