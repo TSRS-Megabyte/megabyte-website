@@ -7,28 +7,26 @@ export interface Props {
   link: string;
   tColour: string;
 }
-// TODO - Use the tColour as a stype prop for the background of the title and remove the bg-opacity-0 so that the background is visible and remove the class beind the backgrond in the css 
+// TODO - Use the tColour as a stype prop for the background of the title and remove the bg-opacity-0 so that the background is visible and remove the class beind the backgrond in the css
 // !!Disclaimer it might not be working because the bg is set to 0 somewhere but I CANNOT FIND OUT WHERE
 const { title, body, link, tColour } = Astro.props;
 ---
 
-<div class="w-full card h-fit">
-  <div class="p-5 bg-var py-7 bg-blue-500 text-xl title font-bold">
+<div class="card w-full flex flex-col">
+  <div class="flex-shrink bg-var bg-blue-500 px-6 py-7 text-xl font-bold border-b-2 leading-5">
     <h3 class="">
       {title}
     </h3>
   </div>
-  <div class="card-body">
-    <p class="text-lg pt-6 px-6 pb-3 text-justify">{body}</p>
-  </div>
-  <div class="bwhite text-right w-full p-3 pb-8 pr-8 polka">
+  <div class="flex-grow bg-white px-6 py-5 flex flex-col items-end gap-6">
+    <p class="text-justify text-lg">{body}</p>
     <button
-            class="hover:pointer bg-white text-center link-button font-mono text-lg py-2"
-          >
-            <a href={link} class="uppercase w-full h-full px-4">Read more</a>
-          </button>
+      class="bg-white link-button font-bold py-2 text-center font-mono text-xs md:text-sm tracking-wider uppercase"
+    >
+      <a href={link} class="h-full w-full px-4 uppercase">Read more</a>
+    </button>
   </div>
-
+  
 </div>
 
 <style define:vars={tColour}>
@@ -36,7 +34,7 @@ const { title, body, link, tColour } = Astro.props;
   .bg-var {
     background: var(--tColour);
   }
-  .bwhite {
+  .bg-white {
     background: #ffffff;
   }
   .card {
@@ -44,6 +42,25 @@ const { title, body, link, tColour } = Astro.props;
     box-shadow: 6px 6px 0px 0px;
     /* transition: ease 0.2s; */
   }
+
+  .card:hover .title {
+    background-image: linear-gradient(
+      rgba(210, 210, 210, 0.1),
+      rgba(210, 210, 210, 20%)
+    );
+    transition: ease 0.2s;
+  }
+  .link-button {
+    background: #ffffff;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px 0px;
+  }
+  .link-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px;
+    /* transition-duration: 200ms; */
+  }
+
   /* .card:hover {
     transform: translate(-3px, -3px);
     box-shadow: 8px 8px 0px 0px;
@@ -52,40 +69,6 @@ const { title, body, link, tColour } = Astro.props;
   }
   .card:hover .link-button {
     background-color: #ceff1b; */
-    /* transition: ease 0.5s; */
+  /* transition: ease 0.5s; */
   /* } */
-  .card:hover .title {
-    background-image: linear-gradient( rgba(210, 210, 210, 0.1) , rgba(210,210,210, 20%));
-    transition: ease 0.2s;
-  }
-  .title {
-    border-bottom: 2px solid #000000;
-    font-family: "Lexend";
-    font-weight: 700;
-    line-height: 18px;
-  }
-  .card-body {
-    background: #ffffff;
-    font-family: "Lexend";
-    font-weight: 400;
-  }
-  .link-button {
-    background: #ffffff;
-    border: 1px solid black;
-    box-shadow: 4px 4px 0px 0px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .link-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px;
-    /* transition-duration: 200ms; */
-  }
-  
-
 </style>

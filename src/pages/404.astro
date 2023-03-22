@@ -10,6 +10,10 @@ import HTMLayout from "../layouts/HTMLayout.astro";
         <img
           src="../src/assets/tsrs.svg"
           style="
+      <a href="/">
+        <img
+          src="../src/assets/tsrs.svg"
+          style="
 
         "
           class="w-2/5 align-middle text-center m-auto"
@@ -28,7 +32,13 @@ import HTMLayout from "../layouts/HTMLayout.astro";
     </div>
   </div>
   <style>
+  </div>
+  <style>
     .container-main {
+      background-image: url("../src/assets/tileable-cubes.svg");
+      filter: invert(1);
+      background-size: 7%;
+    }
       background-image: url("../src/assets/tileable-cubes.svg");
       filter: invert(1);
       background-size: 7%;
@@ -36,7 +46,14 @@ import HTMLayout from "../layouts/HTMLayout.astro";
     img {
       transition-duration: 1200ms;
       filter: invert(1);
+      transition-duration: 1200ms;
+      filter: invert(1);
     }
+    img:hover {
+      filter: invert(0);
+      transition-duration: 1200ms;
+    }
+  </style>
     img:hover {
       filter: invert(0);
       transition-duration: 1200ms;

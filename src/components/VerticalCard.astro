@@ -1,39 +1,43 @@
 ---
 export interface Props {
-title: string;
-link: string;
-body: string;
-date: string;
-imgLink: string;
+  title: string;
+  link: string;
+  body: string;
+  date: string;
+  imgLink: string;
 }
 const { title, link, date, body, imgLink } = Astro.props;
 // TODO - Add a prop called tColour and use it as a style prop for the background of the title and remove the bg-opacity-0 so that the background is visible and remove the class beind the backgrond in the css
-// Disclaimer check the horicard for possible issue 
+// Disclaimer check the horicard for possible issue
 ---
 
-<div class="card bg-white h-full w-full flex flex-col">
-
-  <div class="text-center p-5 flex-shrink">
-    <p class="font-bold text-xl mb-2">
+<div class="card bg-white flex h-full w-full flex-col">
+  <div class="flex-shrink p-5 text-center">
+    <p class="mb-2 text-xl font-bold">
       {title}
     </p>
     <p class="font-semibold uppercase">
       {date}
     </p>
   </div>
-  <div class="flex-grow px-6 py-6 flex flex-col gap-5">
+  <div class="flex flex-grow flex-col gap-5 px-6 py-6">
     <div class="flex-grow">
-      <img class="w-full mb-4" style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;" alt="fbdbfsd"
-        src={imgLink} />
+      <img
+        class="mb-4 w-full"
+        style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
+        alt="fbdbfsd"
+        src={imgLink}
+      />
       <p class="text-md text-gray-700">
         {body}
       </p>
     </div>
     <button
-    class="hover:pointer bg-white text-center link-button font-mono text-lg py-2">
-      <a href={link} class="uppercase w-full h-full font-bold px-4">Read more</a>
+      class="hover:pointer bg-white link-button py-2 text-center font-mono text-lg"
+    >
+      <a href={link} class="h-full w-full px-4 font-bold uppercase">Read more</a
+      >
     </button>
-
   </div>
 </div>
 
@@ -63,7 +67,7 @@ const { title, link, date, body, imgLink } = Astro.props;
         {body}
       </p>
     </div>
-    <div class="bwhite text-right w-full p-3">
+    <div class="bg-white text-right w-full p-3">
       <button
         class="hover:pointer bg-white text-center link-button font-mono text-lg py-2"
       >

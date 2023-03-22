@@ -1,11 +1,10 @@
 ---
 interface Props {
-    title: string;
-    logo: string;
-    colour1: string;
-    colour2: string;
-    description: string;
-
+  title: string;
+  logo: string;
+  colour1: string;
+  colour2: string;
+  description: string;
 }
 
 const { title, logo, colour1, colour2, description } = Astro.props;
@@ -13,20 +12,20 @@ const props = { title, logo, colour1, colour2, description } as Props;
 ---
 
 <div class="container">
-    <div class="top">this is some text</div>
-    <div class="bottom"></div>
-    <style define:vars={props}>
-        .container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            background-color: var(--colour1);
-        }
-        .top {
-            width: 100%;
-            height: 100%;
+  <div class="top">this is some text</div>
+  <div class="bottom"></div>
+  <style define:vars={props}>
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: var(--colour1);
+    }
+    .top {
+      width: 100%;
+      height: 100%;
 
             background-image: url({{logo}});
             background-size: cover;
@@ -39,9 +38,12 @@ const props = { title, logo, colour1, colour2, description } as Props;
             width: 100%;
             height: 100%;
 
-            background-image: linear-gradient(to bottom, var(--colour1), var(--colour2));
-            border-radius: 10px;
-
-        }
-    </style>
+      background-image: linear-gradient(
+        to bottom,
+        var(--colour1),
+        var(--colour2)
+      );
+      border-radius: 10px;
+    }
+  </style>
 </div>

@@ -38,11 +38,11 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
       </div>
     </div>
   </div>
-  <div class="py-8 body bg-cube">
-    <div class="notice px-8 md:px-24 mb-16">
-      <div class="section-title-box w-fit p-5 text-left mb-6">
+  <div class="body bg-cube py-8">
+    <div class="notice mb-16 px-8 md:px-24">
+      <div class="section-title-box mb-6 w-fit p-5 text-left">
         <p
-          class="notice-title mb-2 font-semibold text-2xl md:text-3xl tracking-wider"
+          class="notice-title mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
         >
           Notice Board
         </p>
@@ -51,7 +51,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
         </p>
       </div>
 
-      <div class="flex flex-col gap-6 mb-4">
+      <div class="mb-4 flex flex-col gap-6">
         <div class="blue-u">
           <HoriCard
             tColour="#82E8FF"
@@ -78,14 +78,14 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
         </div>
       </div>
 
-      <div class="text-right w-full p-3">
+      <div class="w-full p-3 text-right">
         <Button text="See All" link="/events" />
       </div>
     </div>
-    <div class="acc px-8 md:px-24 mb-16">
-      <div class="section-title-box w-fit p-5 text-left mb-6">
+    <div class="acc mb-16 px-8 md:px-24">
+      <div class="section-title-box mb-6 w-fit p-5 text-left">
         <p
-          class="notice-title mb-2 font-semibold text-2xl md:text-3xl tracking-wider"
+          class="notice-title mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
         >
           Accomplishments
         </p>
@@ -96,7 +96,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
       </div>
 
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-8 mb-5"
+        class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
         <div class="blue-u">
           <VerticalCard
@@ -126,7 +126,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
           />
         </div>
       </div>
-      <div class="text-right w-full p-3">
+      <div class="w-full p-3 text-right">
         <Button text="See All" link="/accomplishments" />
       </div>
     </div>
@@ -137,7 +137,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
         >
           Resources
         </p>
-        <p class="text-lg md:text-xl font-medium tracking-wide mb-6">
+        <p class="mb-6 text-lg font-medium tracking-wide md:text-xl">
           Collections of links, guides, and more to help you learn about all
           things tech
         </p>
@@ -170,6 +170,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
       #resources-learn-more-btn:hover {
         transform: translate(3px, 3px);
         box-shadow: 3px 3px 0px 0px;
+        box-shadow: 3px 3px 0px 0px;
       }
       #resources-learn-more-btn svg {
         width: 2em;
@@ -192,7 +193,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
     background-size: 50px 70px;
     background-repeat: repeat;
   }
-  .bgreen {
+  .bg-green {
     background-color: #ceff1b;
   }
   .topMain {
