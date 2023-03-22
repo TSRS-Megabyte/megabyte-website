@@ -47,7 +47,7 @@ const pathname = new URL(Astro.request.url).pathname;
       data-visible="false"
     >
       <ul
-        class="navlinks flex flex-col h-full lg:flex-row  justify-around lg:justify-start lg:h-auto hiddenNavlinks"
+        class="navlinks flex flex-col h-full lg:flex-row justify-around lg:justify-start lg:h-auto hiddenNavlinks"
       >
         {
           Object.entries(navPages).map((page) => (
@@ -56,7 +56,9 @@ const pathname = new URL(Astro.request.url).pathname;
               id={page[0].toLowerCase()}
               href={page[1]}
             >
-              <li class="font-mono text-md lg:text-xl">{page[0].toUpperCase()}</li>
+              <li class="font-mono text-md lg:text-xl">
+                {page[0].toUpperCase()}
+              </li>
             </a>
           ))
         }
@@ -65,14 +67,13 @@ const pathname = new URL(Astro.request.url).pathname;
   </div>
 </div>
 <style>
-
   .bg-white {
     background-color: #fff;
   }
 
   .navbar {
     position: fixed;
-    top: 0;
+    top: 1em;
     z-index: 100;
   }
   .current {
@@ -105,7 +106,7 @@ const pathname = new URL(Astro.request.url).pathname;
     transition: 0.2s ease; */
   }
 
-  .navlink li:hover {
+  .navlink:not(.current) li:hover {
     text-decoration: underline;
     text-underline-offset: 0.5em;
     text-decoration-color: ;
