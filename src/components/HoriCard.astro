@@ -7,8 +7,7 @@ export interface Props {
   link: string;
   tColour: string;
 }
-// TODO - Use the tColour as a stype prop for the background of the title and remove the bg-opacity-0 so that the background is visible and remove the class beind the backgrond in the css
-// !!Disclaimer it might not be working because the bg is set to 0 somewhere but I CANNOT FIND OUT WHERE
+
 const { title, body, link, tColour } = Astro.props;
 ---
 
@@ -58,17 +57,5 @@ const { title, body, link, tColour } = Astro.props;
   .link-button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px 0px;
-    /* transition-duration: 200ms; */
   }
-
-  /* .card:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0px 0px;
-    transition: ease 0.2s;
-
-  }
-  .card:hover .link-button {
-    background-color: #ceff1b; */
-  /* transition: ease 0.5s; */
-  /* } */
 </style>
