@@ -5,24 +5,24 @@ const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <div class="navbar w-screen md:mt-1 md:px-24">
-  <div class="wrapper fixed md:static w-full bg-white flex flex-col md:flex-row justify-start md:justify-between items-center px-10">
-    <div
-      class="hamburgerGroup flex flex-row justify-center items-center"
-    >
+  <div
+    class="wrapper fixed md:static w-full bg-white flex flex-col md:flex-row justify-start md:justify-between items-center px-10"
+  >
+    <div class="hamburgerGroup flex flex-row justify-center items-center">
       <a href="/" class="navHome" title="Home">
         <div class="flex flex-row h-full w-full justify-center items-center">
-          <img class="min-w-[70px] w-[5vw]" src="/assets/tsrs.svg" alt="tsrs logo" />
+          <img
+            class="min-w-[70px] w-[5vw]"
+            src="/assets/tsrs.svg"
+            alt="tsrs logo"
+          />
           <div class="">
             <p class="uppercase font-bold text-2xl mb-[0.03em]">Megabyte</p>
             <!-- <div id="mgbt-underline" class="w-1/2 h-1 bg-[#74bcffb4]"></div> -->
           </div>
         </div>
       </a>
-      <button
-        aria-controls="navlinks"
-        aria-expanded="false"
-        class="nav-toggle"
-      >
+      <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
         <span class="hamburger-menu grid place-items-center w-16 md:hidden"
           ><svg
             class="ham hamRotate ham8"
@@ -42,8 +42,13 @@ const pathname = new URL(Astro.request.url).pathname;
         >
       </button>
     </div>
-    <div class="navlinks-div relative h-0 md:h-auto flex justify-center invisible md:static md:block md:visible" data-visible="false">
-      <ul class="navlinks flex flex-col h-[75%] md:flex-row md:h-auto hiddenNavlinks">
+    <div
+      class="navlinks-div relative h-0 md:h-auto flex justify-center invisible md:static md:block md:visible"
+      data-visible="false"
+    >
+      <ul
+        class="navlinks flex flex-col h-[75%] md:flex-row md:h-auto hiddenNavlinks"
+      >
         {
           Object.entries(navPages).map((page) => (
             <a
@@ -63,8 +68,7 @@ const pathname = new URL(Astro.request.url).pathname;
   @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
-  
-  .bg-white{
+  .bg-white {
     background-color: #fff;
   }
 
@@ -131,7 +135,7 @@ const pathname = new URL(Astro.request.url).pathname;
     box-shadow: 4px 4px 0px 0px #000;
     /* transition: 0.25s ease; */
   }
-/* 
+  /* 
   .wrapper:not(.scrolled):hover {
     background: rgba(255, 255, 255, 1);
   } */
@@ -173,7 +177,6 @@ const pathname = new URL(Astro.request.url).pathname;
     text-decoration: underline #ff7474 0.3rem;
   }
 
-
   /* #center-wrapper {
     width: calc(100vw - 4px);
     justify-content: center;
@@ -181,7 +184,6 @@ const pathname = new URL(Astro.request.url).pathname;
     position: relative;
     top: 1.5vh;
   } */
-
 
   .symbol {
     display: none;
@@ -204,7 +206,6 @@ const pathname = new URL(Astro.request.url).pathname;
       opacity: 100%;
       color: #82e8ff;
     }
-
 
     /* .whiteBar {
       display: flex;

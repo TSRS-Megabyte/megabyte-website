@@ -1,13 +1,14 @@
 ---
 //PAGE TO RENDER ALL AVAILABLE POSTS
 import { getCollection } from "astro:content";
+import Maintain from "../../components/Maintain.astro";
 import Layout from "../../layouts/Layout.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
-
-<Layout>
+<Maintain/>
+<!-- <Layout>
   <main>
     {
       posts.map((post) => (
@@ -17,4 +18,4 @@ const posts = (await getCollection("blog")).sort(
       ))
     }
   </main>
-</Layout>
+</Layout> -->

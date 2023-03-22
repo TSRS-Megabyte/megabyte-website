@@ -1,6 +1,5 @@
 ---
 import HoriCard from "../components/HoriCard.astro";
-import Navbar from "../components/Navbar.astro";
 import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 import VerticalCard from "../components/VerticalCard.astro";
@@ -29,10 +28,9 @@ import VerticalCard from "../components/VerticalCard.astro";
         >
           <span class="comm text-center"
             ><span class="l-hidden"> A community of</span>
-            <span 
-              >Enthus<span class="blue-u understroke">iasts</span></span
-            >, <span>Innov<span class="yel-u understroke">ators</span></span>,
-            and<span> M<span class="red-u understroke">akers</span></span>.
+            <span>Enthus<span class="blue-u understroke">iasts</span></span>, <span
+              >Innov<span class="yel-u understroke">ators</span></span
+            >, and<span> M<span class="red-u understroke">akers</span></span>.
           </span>
         </span>
       </div>
@@ -52,7 +50,7 @@ import VerticalCard from "../components/VerticalCard.astro";
       </div>
 
       <div class="mb-4 flex flex-col gap-6">
-        <div >
+        <div>
           <HoriCard
             tColour="#82E8FF"
             title="Pathways School Noida Hackathon"
@@ -60,7 +58,7 @@ import VerticalCard from "../components/VerticalCard.astro";
             link="/"
           />
         </div>
-        <div >
+        <div>
           <HoriCard
             tColour="#ffe81b"
             title="Shriteq 2022 tryouts"
@@ -68,7 +66,7 @@ import VerticalCard from "../components/VerticalCard.astro";
             link="/"
           />
         </div>
-        <div >
+        <div>
           <HoriCard
             tColour="#ff7474"
             title="Shriteq 2022 tryouts"
@@ -98,9 +96,9 @@ import VerticalCard from "../components/VerticalCard.astro";
       <div
         class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
-        <div >
+        <div>
           <VerticalCard
-          tColour="#82e8ff"
+            tColour="#82e8ff"
             date="12 MARCH"
             imgLink="https://via.placeholder.com/831x482"
             title="Pathways School Noida Hackathon"
@@ -108,9 +106,9 @@ import VerticalCard from "../components/VerticalCard.astro";
             link="/"
           />
         </div>
-        <div >
+        <div>
           <VerticalCard
-          tColour="#ffe81b"
+            tColour="#ffe81b"
             date="12 MARCH"
             imgLink="https://via.placeholder.com/831x482"
             title="Shriteq 2022 tryouts"
@@ -118,9 +116,9 @@ import VerticalCard from "../components/VerticalCard.astro";
             link="/"
           />
         </div>
-        <div >
+        <div>
           <VerticalCard
-          tColour="#ff7474"
+            tColour="#ff7474"
             date="12 MARCH"
             imgLink="https://via.placeholder.com/831x482"
             title="Shriteq 2022 tryouts"
@@ -188,14 +186,11 @@ import VerticalCard from "../components/VerticalCard.astro";
 </Layout>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100");
+
   .bg-cube {
     background-image: url("/assets/tileable-cubes.svg");
     background-size: 50px 70px;
     background-repeat: repeat;
-
   }
   .bg-green {
     background-color: #ceff1b;
@@ -282,7 +277,6 @@ import VerticalCard from "../components/VerticalCard.astro";
   }
 </style>
 <script>
-  
   class TextScramble {
     constructor(el) {
       this.el = el;

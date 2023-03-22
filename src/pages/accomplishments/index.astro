@@ -7,7 +7,8 @@ const posts = (await getCollection("eventinfo")).sort(
 );
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 ---
-
+<Maintain />
+<!-- 
 <Layout>
   <main>
     {
@@ -24,4 +25,4 @@ import Maintain from "../../components/Maintain.astro"; // Use when site under m
       text-decoration: underline solid black;
     }
   </style>
-</Layout>
+</Layout> -->
