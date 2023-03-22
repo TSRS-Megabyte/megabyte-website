@@ -2,21 +2,22 @@
 export interface Props {
   link: string;
   text: string;
+  color: string;
 }
-const { link, text } = Astro.props;
+const { link, text, color } = Astro.props;
 ---
 
-<!-- the colour is standard at green right now we want to be able to reuse the button with a colour and a size and a separate text and link the text and link work but the styling is not set up, neeed to use define:vars={} for thi as aprop in the style tag  --><!-- check horicard vertcal card and resource component for more info -->
+
 <button
-  class="link-button w-fit bg-green bg-opacity-0 py-2 text-center font-mono text-lg hover:cursor-pointer"
+  class="link-button w-fit bg bg-opacity-0 py-2 text-center font-mono text-lg hover:cursor-pointer"
 >
   <a href={link} class="h-full w-full px-4">
     <span class="w-fit">{text}</span>
   </a>
 </button>
-<style>
-  .bg-green {
-    background-color: #ceff1b;
+<style define:vars={{color}}>
+  .bg {
+    background-color: var(--color);
   }
   button {
     border: 3px solid black;
