@@ -7,7 +7,8 @@ export interface Props {
   link: string;
   tColour: string;
 }
-
+// TODO - Use the tColour as a stype prop for the background of the title and remove the bg-opacity-0 so that the background is visible and remove the class beind the backgrond in the css 
+// !!Disclaimer it might not be working because the bg is set to 0 somewhere but I CANNOT FIND OUT WHERE
 const { title, body, link, tColour } = Astro.props;
 ---
 
