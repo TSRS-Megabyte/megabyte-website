@@ -65,8 +65,6 @@ const pathname = new URL(Astro.request.url).pathname;
   </div>
 </div>
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
   .bg-white {
     background-color: #fff;
@@ -78,8 +76,7 @@ const pathname = new URL(Astro.request.url).pathname;
     z-index: 100;
   }
   .current {
-    color: #74bcff;
-    opacity: 65%;
+    font-weight: 600;
   }
 
   ul {
@@ -202,10 +199,6 @@ const pathname = new URL(Astro.request.url).pathname;
       font-size: 21px;
       font-weight: 700;
     } */
-    .current {
-      opacity: 100%;
-      color: #82e8ff;
-    }
 
     /* .whiteBar {
       display: flex;
