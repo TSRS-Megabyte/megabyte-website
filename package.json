@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@swup/slide-theme": "^1.0.5",
-    "prettier": "^2.8.6",
+    "prettier": "2.8.6",
     "prettier-plugin-astro": "^0.8.0",
     "swup": "^3.0.5"
   }
