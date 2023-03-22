@@ -4,8 +4,8 @@ import Navbar from "../components/Navbar.astro";
 import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 import VerticalCard from "../components/VerticalCard.astro";
-import IconButton from "../components/IconButton.astro";
-import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
+
+// import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
 ---
 
 <Layout title="Megabyte" class="w-screen h-screen =-mandatory">
@@ -192,7 +192,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
   @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100");
   .bg-cube {
-    background-image: url("../src/assets/tileable-cubes.svg");
+    background-image: url("/public/assets/tileable-cubes.svg");
     background-size: 50px 70px;
     background-repeat: repeat;
 
@@ -216,7 +216,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
     letter-spacing: -0.01em;
   }
   .bg-hero-pattern {
-    background-image: url("/src/assets/anime-lines.svg");
+    background-image: url("/public/assets/anime-lines.svg");
   }
   .maintext {
     font-size: 6vmax;
