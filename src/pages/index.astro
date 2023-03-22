@@ -29,7 +29,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
         >
           <span class="comm text-center"
             ><span class="l-hidden"> A community of</span>
-            <span class=""
+            <span 
               >Enthus<span class="blue-u understroke">iasts</span></span
             >, <span>Innov<span class="yel-u understroke">ators</span></span>,
             and<span> M<span class="red-u understroke">akers</span></span>.
@@ -52,7 +52,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
       </div>
 
       <div class="mb-4 flex flex-col gap-6">
-        <div class="blue-u">
+        <div >
           <HoriCard
             tColour="#82E8FF"
             title="Pathways School Noida Hackathon"
@@ -60,7 +60,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
             link="/"
           />
         </div>
-        <div class="yel-u">
+        <div >
           <HoriCard
             tColour="#ffe81b"
             title="Shriteq 2022 tryouts"
@@ -68,7 +68,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
             link="/"
           />
         </div>
-        <div class="red-u">
+        <div >
           <HoriCard
             tColour="#ff7474"
             title="Shriteq 2022 tryouts"
@@ -79,7 +79,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
       </div>
 
       <div class="w-full p-3 text-right">
-        <Button text="See All" link="/events" />
+        <Button color="#ceff1b" text="See All" link="/events" />
       </div>
     </div>
     <div class="acc mb-16 px-8 md:px-24">
@@ -98,8 +98,9 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
       <div
         class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
-        <div class="blue-u">
+        <div >
           <VerticalCard
+          tColour="#82e8ff"
             date="12 MARCH"
             imgLink="https://via.placeholder.com/831x482"
             title="Pathways School Noida Hackathon"
@@ -107,8 +108,9 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
             link="/"
           />
         </div>
-        <div class="yel-u">
+        <div >
           <VerticalCard
+          tColour="#ffe81b"
             date="12 MARCH"
             imgLink="https://via.placeholder.com/831x482"
             title="Shriteq 2022 tryouts"
@@ -116,8 +118,9 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
             link="/"
           />
         </div>
-        <div class="red-u">
+        <div >
           <VerticalCard
+          tColour="#ff7474"
             date="12 MARCH"
             imgLink="https://via.placeholder.com/831x482"
             title="Shriteq 2022 tryouts"
@@ -127,7 +130,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
         </div>
       </div>
       <div class="w-full p-3 text-right">
-        <Button text="See All" link="/accomplishments" />
+        <Button color="#ceff1b" text="See All" link="/accomplishments" />
       </div>
     </div>
     <div class="px-8 md:px-24 mb-16">
@@ -144,13 +147,13 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
 
         <button
           id="resources-learn-more-btn"
-          class="bgreen hover:cursor-pointer text-center font-mono text-lg py-2 px-1"
+          class="bg-green hover:cursor-pointer text-center font-mono text-lg py-2 px-1"
         >
           <a
             href="/"
             class="w-full h-full px-4 flex flex-row gap-2 justify-center items-center"
           >
-            <span class="">Learn more</span>
+            <span class="font-bold">Learn more</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -192,6 +195,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
     background-image: url("../src/assets/tileable-cubes.svg");
     background-size: 50px 70px;
     background-repeat: repeat;
+
   }
   .bg-green {
     background-color: #ceff1b;
@@ -278,10 +282,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
   }
 </style>
 <script>
-  // ——————————————————————————————————————————————————
-  // TextScramble
-  // ——————————————————————————————————————————————————
-
+  
   class TextScramble {
     constructor(el) {
       this.el = el;
@@ -337,7 +338,7 @@ import Maintain from "../components/Maintain.astro"; // Use when site under main
     }
   }
 
-  const phrases = ["MEGABYTE"];
+  const phrases = ["MEGABYTE", "MEGABYTE"];
 
   const el = document.querySelector(".text");
   const fx = new TextScramble(el);

@@ -14,7 +14,7 @@ const { title, body, link, tColour } = Astro.props;
 
 <div class="card w-full flex flex-col">
   <div class="flex-shrink bg-var bg-blue-500 px-6 py-7 text-xl font-bold border-b-2 leading-5">
-    <h3 class="">
+    <h3 >
       {title}
     </h3>
   </div>
@@ -29,7 +29,7 @@ const { title, body, link, tColour } = Astro.props;
   
 </div>
 
-<style define:vars={tColour}>
+<style define:vars={{tColour}}>
   @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap");
   .bg-var {
     background: var(--tColour);

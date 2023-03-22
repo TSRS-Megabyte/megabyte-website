@@ -5,14 +5,14 @@ export interface Props {
   body: string;
   date: string;
   imgLink: string;
+  tColour: string;
 }
-const { title, link, date, body, imgLink } = Astro.props;
-// TODO - Add a prop called tColour and use it as a style prop for the background of the title and remove the bg-opacity-0 so that the background is visible and remove the class beind the backgrond in the css
-// Disclaimer check the horicard for possible issue
+const { tColour, title, link, date, body, imgLink } = Astro.props;
+
 ---
 
 <div class="card bg-white flex h-full w-full flex-col">
-  <div class="flex-shrink p-5 text-center">
+  <div class="flex-shrink p-5 text-center title">
     <p class="mb-2 text-xl font-bold">
       {title}
     </p>
@@ -41,53 +41,16 @@ const { title, link, date, body, imgLink } = Astro.props;
   </div>
 </div>
 
-<!-- 
-<div
-  style=""
-  class="card  h-full w-full bg-white"
->
-  <div class="text-center p-5 title">
-    <div class="font-bold text-xl bg-blue-600">
-      <h4 class="">{title}</h4>
-    </div><div class="pt-2">
-      {date}
-    </div>
-  </div>
-  <div class="">
-    <div class="bg-white w-100 h-70 px-8 py-4">
-      <img
-        class="w-full"
-        style="box-shadow: 5px 5px 0px 0px #000; border: 2px solid black;"
-        alt="fbdbfsd"
-        src={imgLink}
-      />
-    </div>
-    <div class="p-5">
-      <p class="text-gray-700 text-lg">
-        {body}
-      </p>
-    </div>
-    <div class="bg-white text-right w-full p-3">
-      <button
-        class="hover:pointer bg-white text-center link-button font-mono text-lg py-2"
-      >
-        <a href={link} class="uppercase w-full h-full px-4">Read more</a>
-      </button>
-    </div>
-  </div>
-</div> -->
 
-<style>
+
+<style define:vars={{tColour}}>
   .card {
     box-shadow: 6px 6px 0px 0px;
     border: 2px solid black;
     transition: ease 0.2s;
+
   }
 
-  /* .card:hover {
-    transform: translate(3px, 3px);
-    box-shadow: 3px 3px 0px 0px;
-  } */
 
   body {
     font-family: "Lexend";
@@ -112,6 +75,8 @@ const { title, link, date, body, imgLink } = Astro.props;
   .link-button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px 0px;
-    /* transition-duration: 200ms; */
+  }
+  .title {
+    background-color: var(--tColour);
   }
 </style>
