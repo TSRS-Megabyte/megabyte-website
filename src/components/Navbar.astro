@@ -43,7 +43,7 @@ const pathname = new URL(Astro.request.url).pathname;
       </button>
     </div>
     <div
-      class="navlinks-div relative h-0 lg:h-auto flex flex-col gap-3 invisible lg:static lg:block lg:visible"
+      class="navlinks-div relative h-0 lg:h-auto flex flex-col gap-3 lg:static lg:block lg:visible"
       data-visible="false"
     >
       <ul
@@ -218,6 +218,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
     .navlinks-div {
       transition: 0.5s ease;
+      -webkit-transition: 0.5s ease;
     }
     .navlinks-div[data-visible="true"] {
       height: 60vh;
@@ -233,11 +234,13 @@ const pathname = new URL(Astro.request.url).pathname;
       visibility: visible;
       opacity: 1;
       transition: 0.5s ease;
+      -webkit-transition: 0.5s ease;
     }
 
     .hiddenNavlinks {
       opacity: 0;
       transition: 0.25s ease;
+      -webkit-transition: 0.25s ease;
     }
 
     li {
@@ -252,6 +255,7 @@ const pathname = new URL(Astro.request.url).pathname;
       visibility: visible;
       opacity: 1;
       transition: 0.25s;
+      -webkit-transition: 0.25s;
     }
 
     .hiddenSymbol {
@@ -278,6 +282,7 @@ const pathname = new URL(Astro.request.url).pathname;
     .line {
       fill: none;
       transition: stroke-dasharray 700ms, stroke-dashoffset 700ms;
+
       stroke: #000;
       stroke-width: 5.5;
       stroke-linecap: round;
@@ -294,6 +299,7 @@ const pathname = new URL(Astro.request.url).pathname;
       stroke-dasharray: 40 85;
       transform-origin: 50%;
       transition: transform 400ms, stroke-dashoffset 400ms;
+      -webkit-transition: transform 400ms, stroke-dashoffset 400ms;
     }
     .ham8.active .top {
       stroke-dashoffset: -64px;
