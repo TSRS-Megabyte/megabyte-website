@@ -4,9 +4,9 @@ import navPages from "../../navPages";
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<div class="navbar w-screen md:mt-1 md:px-24">
+<div class="navbar w-screen lg:mt-1 lg:px-24">
   <div
-    class="wrapper fixed md:static w-full bg-white flex flex-col md:flex-row justify-start md:justify-between items-center px-10"
+    class="wrapper fixed lg:static w-full bg-white flex flex-col lg:flex-row justify-start lg:justify-between items-center px-10"
   >
     <div class="hamburgerGroup flex flex-row justify-center items-center">
       <a href="/" class="navHome" title="Home">
@@ -23,7 +23,7 @@ const pathname = new URL(Astro.request.url).pathname;
         </div>
       </a>
       <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
-        <span class="hamburger-menu grid place-items-center w-16 md:hidden"
+        <span class="hamburger-menu grid place-items-center w-16 lg:hidden"
           ><svg
             class="ham hamRotate ham8"
             viewBox="0 0 100 100"
@@ -43,11 +43,11 @@ const pathname = new URL(Astro.request.url).pathname;
       </button>
     </div>
     <div
-      class="navlinks-div relative h-0 md:h-auto flex justify-center invisible md:static md:block md:visible"
+      class="navlinks-div relative h-0 lg:h-auto flex flex-col gap-3 invisible lg:static lg:block lg:visible"
       data-visible="false"
     >
       <ul
-        class="navlinks flex flex-col h-full justify-around md:flex-row md:h-auto hiddenNavlinks"
+        class="navlinks flex flex-col h-full lg:flex-row  justify-around lg:justify-start lg:h-auto hiddenNavlinks"
       >
         {
           Object.entries(navPages).map((page) => (
@@ -56,7 +56,7 @@ const pathname = new URL(Astro.request.url).pathname;
               id={page[0].toLowerCase()}
               href={page[1]}
             >
-              <li class="font-mono">{page[0].toUpperCase()}</li>
+              <li class="font-mono text-md lg:text-xl">{page[0].toUpperCase()}</li>
             </a>
           ))
         }
@@ -185,7 +185,7 @@ const pathname = new URL(Astro.request.url).pathname;
   .symbol {
     display: none;
   }
-  @media (max-width: 67em) {
+  @media (max-width: 1023px) {
     .wrapper {
       /* background: rgba(255, 255, 255, 0.75); */
       box-shadow: 0px 0px 0px 0px;
