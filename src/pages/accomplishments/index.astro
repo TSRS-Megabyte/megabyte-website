@@ -18,7 +18,20 @@ const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?
   /^-*|-*$/g,
   ""
 )}`;
-const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
+const colours = [
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+];
 ---
 
 <!-- <Maintain /> Use when site under Maintainance --><!-- <Maintain /> --><!-- 
@@ -29,8 +42,7 @@ pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
 <<<<<<< HEAD
-<!-- `/accomplishments/${post.slug}/`} -->
-          <!-- `/accomplishments/${post.slug}/`} -->
+<!-- `/accomplishments/${post.slug}/`} --><!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
     <div class="mb-8 flex flex-row items-center justify-center">
@@ -42,12 +54,15 @@ heroImage: "/public/assets/tsrs.svg"
           What the society and its members have been up to, in and outside
           school.
         </p>
-        
-        <p>
-          Email <span><a target="_blank" href="mailto:tsrs.mgbt@gmail.com">tsrs.mgbt@gmail.com</a></span> in case you would like one of your
-          tech-related accomplishments to be featured on the website.
-        </p>
 
+        <p>
+          Email <span
+            ><a target="_blank" href="mailto:tsrs.mgbt@gmail.com"
+              >tsrs.mgbt@gmail.com</a
+            ></span
+          > in case you would like one of your tech-related accomplishments to be
+          featured on the website.
+        </p>
       </div>
     </div>
 
@@ -76,7 +91,7 @@ heroImage: "/public/assets/tsrs.svg"
                   body={details.subline}
                   img={details.media.data[0]["attributes"]}
                   tColour={colours[num]}
-                  date={details.date}
+                  date={details.date.split("-").reverse().join("-")}
                 />
               </div>
             );
