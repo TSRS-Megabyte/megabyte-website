@@ -16,6 +16,9 @@ import database from "../../../megabyte-cms/config/database";
 description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
+heroImage: "/public/assets/tsrs.svg" -->
+<Layout title="Accomplishments">
+  <div class="mt-24 md:mt-36 px-4 sm:px-8 md:px-24 pb-12">
 heroImage: "/public/assets/tsrs.svg"
           <!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments"  >
@@ -24,6 +27,7 @@ heroImage: "/public/assets/tsrs.svg"
 <div class="">
 
     <div class="flex flex-row justify-center items-center w-full">
+      <div class="bg-[#ff7474] title w-fit py-6 px-8 mb-8 md:mb-12 ">
       <div class="bg-[#ff7474] max-w-screen w-full p-10  h-fit mt-[70px]  mb-[30px] lg:mt-[10em] lg:mb-[5em] title ">
         <h1 class="text-center font-bold text-2xl md:text-4xl">Accomplishments</h1>
         <p class="pt-5 text-center text-lg md:text-2xl">
@@ -33,6 +37,13 @@ heroImage: "/public/assets/tsrs.svg"
     </div>
 
 
+    <div
+      class="mb-5 grid w-full grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4"
+    >
+      {
+        posts.map((post) => (
+          <div>
+            <VerticalCard
 </div>
     
     <div class="mb-5 px-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 ">
