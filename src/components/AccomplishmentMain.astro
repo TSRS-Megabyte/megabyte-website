@@ -1,46 +1,65 @@
 ---
 import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
-
+import { marked } from "marked";
 export interface Props {
   title: string;
-  body: string;
-
+  rawContent: string;
   tColour: string;
-
-  date: string
+  date: string;
 }
 
-const { title, body,  tColour, date } = Astro.props;
+const { title, rawContent, tColour, date } = Astro.props;
+const parsedContent = marked.parse(rawContent);
+
+const dateObj = new Date(date);
+const day = dateObj.getDate();
+const month = dateObj.toLocaleString("default", { month: "long" });
+const year = dateObj.getFullYear();
+
+const nthNumber = (number) => {
+  if (number > 3 && number < 21) return "th";
+  switch (number % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
+
+const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
 ---
 
-<div class="rounded-lg card w-full flex flex-col h-full">
-  <div class="flex-shrink bg-var bg-blue-500 py-3 border-b-2 leading-5 px-4 md:px-8">
-    <h3 class="text-xl font-bold mb-2">
+<div class="card flex h-full w-full flex-col rounded-lg">
+  <div
+    class="bg-var bg-blue-500 flex-shrink border-b-2 py-3 px-4 leading-5 md:px-8"
+  >
+    <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-     <h3 class="text-sm font-bold mb-2">
-      Published on: {date}
+    <h3 class="text-md mb-2 font-bold">
+      {formattedDate}
     </h3>
-    
   </div>
-  <div class="flex-grow bg-white py-5 flex flex-col items-start gap-3 px-4 md:px-8">
-
-    <p class="text-left text-lg">{body}</p>
-    </div>
+  <div
+    class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
+  >
+    <div
+      class="flex flex-col gap-3 text-left text-lg"
+      set:html={parsedContent}
+    />
+  </div>
 </div>
 
-<style define:vars={{tColour}}>
+<style define:vars={{ tColour }}>
   .bg-var {
     background: var(--tColour);
   }
-  .bg-white {
-    background: #ffffff;
-  }
-  .card {
-    border: 3px solid black;
-    box-shadow: 6px 6px 0px 0px;
-    /* transition: ease 0.2s; */
-  }
+
+
 
   .card:hover .title {
     background-image: linear-gradient(

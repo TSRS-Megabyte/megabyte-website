@@ -8,15 +8,43 @@ export interface Props {
   tColour: string;
 }
 const { tColour, title, link, date, body, img } = Astro.props;
+const formattedDate = new Date(date).toLocaleDateString("en-GB", {
+  // year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const ordinalDay = formattedDate.replace(
+  /(\d{1,2})(st|nd|rd|th)/,
+  (match, day, suffix) => {
+    if (day >= 11 && day <= 19) {
+      return day + "th";
+    } else {
+      switch (day % 10) {
+        case 1:
+          return day + "st";
+        case 2:
+          return day + "nd";
+        case 3:
+          return day + "rd";
+        default:
+          return day + "th";
+      }
+    }
+  }
+);
 ---
 
 <div class="card bg-white flex h-full w-full flex-col">
-  <div class="title flex-shrink p-5 text-center">
-    <p class="mb-2 text-xl font-bold">
+  <div
+    class="title flex flex-shrink flex-col items-center justify-between gap-1 px-5 pt-2 pb-2 text-center"
+  >
+    <p
+      class="flex min-h-[60px] flex-grow items-center justify-center text-2xl font-bold"
+    >
       {title}
     </p>
-    <p class="font-semibold uppercase">
-      {date}
+    <p class="font-bold uppercase">
+      {ordinalDay}
     </p>
   </div>
   <div class="flex flex-grow flex-col gap-5 px-6 py-6">
@@ -24,7 +52,7 @@ const { tColour, title, link, date, body, img } = Astro.props;
       {
         img ? (
           <img
-            class="mb-4 w-auto h-auto max-h-[250px] max-w-full"
+            class="mb-4 h-auto max-h-[250px] w-auto max-w-full"
             style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
             src={img.formats.medium.url}
             alt={img.name}
@@ -40,9 +68,9 @@ const { tColour, title, link, date, body, img } = Astro.props;
       </p>
       <a
         href={link}
-        class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-lg font-bold uppercase"
+        class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-sm uppercase"
       >
-        Read more
+        <span class="font-bold"> Read more</span>
       </a>
     </div>
   </div>
@@ -66,12 +94,6 @@ const { tColour, title, link, date, body, img } = Astro.props;
       background: #ffffff;
       border: 1px solid black;
       box-shadow: 4px 4px 0px 0px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 16px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
     }
 
     .link-button:hover {
