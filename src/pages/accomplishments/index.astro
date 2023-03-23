@@ -9,8 +9,8 @@ import VerticalCard from "../../components/VerticalCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 import database from "../../../megabyte-cms/config/database";
 ---
-<!-- <Maintain /> -->
-<!-- 
+
+<!-- <Maintain /> --><!-- 
   structure of the post
   title: "this is the title"
 description: "this is a description of the post"
@@ -21,23 +21,28 @@ heroImage: "/public/assets/tsrs.svg"
 <Layout title="Accomplishments"  >
   <body >
   <main>
-    <div class="bg-[#ff7474] max-w-screen w-full p-10  h-fit mt-[100px]  mb-[70px] lg:mt-[10em] lg:mb-[5em] title">
-  
-      <h1 class="text-4xl font-bold text-left">ACCOMPLISHMENTS</h1>
-<h1 class="text-xl pt-5 text-left">What the society and its members have been up to, in and outside school.</h1>
+<div class="">
 
+    <div class="flex flex-row justify-center items-center w-full">
+      <div class="bg-[#ff7474] max-w-screen w-full p-10  h-fit mt-[70px]  mb-[30px] lg:mt-[10em] lg:mb-[5em] title ">
+        <h1 class="text-center font-bold text-2xl md:text-4xl">Accomplishments</h1>
+        <p class="pt-5 text-center text-lg md:text-2xl">
+          What the society and its members have been up to, in and outside school.
+        </p>
+      </div>
+    </div>
 
 
 </div>
     
-    <div class="mb-5 px-5 grid w-full grid-cols-1 gap-5 md:gap-12 lg:gap-14 md:grid-cols-2 lg:grid-cols-3 ">
+    <div class="mb-5 px-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 ">
     {
       posts.map((post) => (
-        <div class="m-5">
+        <div class="md:m-3  lg:m-5">
 
          <VerticalCard
               title={post.data.title}
-              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              link={ `/accomplishments/${post.slug}/`}
               body={post.data.description}
               imgLink={post.data.heroImage}
              tColour={post.data.bg_colour}
@@ -46,7 +51,7 @@ heroImage: "/public/assets/tsrs.svg"
       ))
     }</div>
   </main>
-  <style>
+  <style >
     body {
             background-image: url("/assets/tileable-cubes.svg");
       background-size: 50px;
@@ -54,8 +59,8 @@ heroImage: "/public/assets/tsrs.svg"
     }
     main {
       margin: 50px;
-
-    }.title {
+    }
+    .title {
       border: 2px solid #000;
       box-shadow: 6px 6px 0px 0px #000;
     }
