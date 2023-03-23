@@ -1,15 +1,19 @@
 ---
-//PAGE TO RENDER ALL AVAILABLE POSTS
-import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-const posts = (await getCollection("eventinfo")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+let data = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
+const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(/^-*|-*$/g, '')}`;
+const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
 ---
 
 <Layout>
-  <title>Megabyte | Accomplishments</title>
   <main>
     {
       posts.map((post) => (
@@ -20,9 +24,15 @@ import Maintain from "../../components/Maintain.astro"; // Use when site under m
     }
   </main>
   <style>
-    a {
-      color: #000;
-      text-decoration: underline solid black;
+    .title-box {
+      border: 3px solid #000;
+      box-shadow: 6px 6px 0px 0px #000;
+    }
+
+    .bg-cube {
+      background-image: url("/assets/tileable-cubes.svg");
+      background-size: 50px 70px;
+      background-repeat: repeat;
     }
   </style>
 </Layout>

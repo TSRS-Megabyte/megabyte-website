@@ -1,10 +1,14 @@
 ---
-import Navbar from "./Navbar.astro";
+import Layout from "../layouts/Layout.astro";
 ---
-<div class="h-screen">
-    <Navbar />
-    <div class="flex items-center justify-center h-screen">
-        <p class="text-4xl">&#x1F6E0</p>
-        <div class="pl-5"><h1 class="text-4xl">Site Under Maintainance, We Will Be Right Back!</h1></div>
+
+<Layout title="Under construction | Megabyte" class="w-screen h-screen">
+  <div class="px-6">
+    <div class="flex flex-col h-screen items-center justify-center gap-4">
+      <p class="text-4xl">&#x1F6E0</p>
+      <h1 class="text-4xl text-center font-medium">
+        This page is currently under construction
+      </h1>
     </div>
-</div>
+  </div>
+</Layout>

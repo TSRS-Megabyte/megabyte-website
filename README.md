@@ -1,51 +1,5 @@
-# Astro Starter Kit: Blog
-
-```
-npm create astro@latest -- --template blog
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
+# Megabyte website
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0a2fff49-4374-4956-bb9d-065c32c4c98c/deploy-status)](https://app.netlify.com/sites/megabyte-website/deploys)
 
 ## 🧞 Commands
 
@@ -59,11 +13,36 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`      | Preview your build locally, before deploying     |
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro --help` | Get help using the Astro CLI                     |
+| `prettier --write .`   | Run the prettier linter                          |
 
-## 👀 Want to learn more?
+## Style Guide
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### CSS
 
-## Credit
+- We use TailwindCSS to improve the development experience and to keep the CSS consistent
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- This means that we only use custom CSS when _absolutely necessary_, except for a few notable exceptions. These exceptions include:
+  - Custom neubrutalist box-shadows and borders
+  - Animations and transitions
+   
+   Otherwise, _almost everything_ should be written in Tailwind. Never write a line of CSS that could be written in Tailwind.
+   
+- We write mobile-first CSS. This means that we write Tailwind classes for the mobile breakpoint first, and apply selectors (usually `md`) to change properties with larger breakpoints.
+
+- Use Flexbox and Grid for complex layouts. Never use floats or positioning unless specifically required. This does not mean that a lone paragraph tag needs to go in a flexbox, but complex layouts, such as cards or grids, often benefit from modern CSS display layouts. If you find yourself repeatedly adding the same margins or paddings to elements, you're probably in a situation where you can use flex or grid layouts to write clearner and more maintainable code.
+
+- Avoid div nesting hell. Every div you add should have a purpose. If you ever find yourself writing `wrapper-wrapper-inner-wrapper`, you probably need to refactor your code.
+
+- If writing custom CSS classes, try to stick to Tailwind's conventions. For example, since we are not using Tailwind's colour palette, background colour classes should be in the format `bg-[colourname]`
+
+- Class names should be descriptive. Don't write write class names like 'my-div' or 'main-div'. If you're writing a custom class, that probably means what you're writing is really important, repeated, and not covered by Tailwind – so its name should reflect its purpose.
+
+- If you need to write css properties which tailwind provides a class for, but not the right exact value of, use Tailwind's arbitary CSS feature. For example, you can set a custom width of `26px` with the declaration 'w-[26px]'.
+
+- Use margin-bottoms (through tailwind's `mb-*` class). Avoid `margin-top` properties, those tend to be more difficult to comprehend.
+
+- \[Important] Run `prettier write .` before any commit. This cleans your files, and sorts tailwind classes in a consistent order. You can run `prettier write myfile.astro` to format a single file.
+
+ In general, strive for maintainability and readability. It should be as easy as possible to make minor changes without breaking the whole layout. Strive for as little pure CSS as possible, and use Tailwind and modern CSS as much as you can.
+
+Read the [Tailwind documentation](https://tailwindcss.com/docs) for more information.

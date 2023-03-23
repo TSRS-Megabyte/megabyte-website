@@ -1,0 +1,73 @@
+---
+//PAGE TO RENDER ALL AVAILABLE POSTS
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+let data = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/notices"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+import AccomplishmentCard from "../components/AccomplishmentCard.astro";
+import NoticeBoardCard from "../components/NoticeBoardCard.astro";
+const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+
+---
+
+<!-- <Maintain /> -->
+<Layout title="Notice Board | Megabyte">
+  <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
+    <div class="flex flex-row items-center justify-center mb-8">
+      <div class="title-box w-fit bg-[#ceff1b] py-6 px-6">
+        <h1 class="mb-5 text-center text-2xl font-bold md:text-3xl xl:text-4xl">
+          Notice board
+        </h1>
+        <p class="text-center text-lg md:text-xl xl:text-xl">
+          Upcoming events, opportunities, and announcements.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {
+        !data ? (
+          <div />
+        ) : (
+          // <h1 class="text-center text-xl">().</h1>
+          // map each event to its own block
+          data.map((event) => {
+            const colour = colours[Math.floor(Math.random() * colours.length)];
+            let details = event.attributes;
+            return (
+              <div>
+                <NoticeBoardCard
+                  title={details.title}
+                  body={details.content}
+
+                  tColour={colour}
+                  date={details.publishedAt}
+                />
+              </div>
+            );
+          })
+        )
+      }
+    </div>
+  </div>
+
+  <style>
+    .title-box {
+      border: 2px solid #000;
+      box-shadow: 6px 6px 0px 0px #000;
+    }
+
+    .bg-cube {
+        background-image: url("/assets/tileable-cubes.svg");
+        background-size: 50px 70px;
+        background-repeat: repeat;
+      }
+
+  </style>
+
+</Layout>

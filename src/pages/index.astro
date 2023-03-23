@@ -1,343 +1,364 @@
 ---
-import HoriCard from "../components/HoriCard.astro";
-import Navbar from "../components/Navbar.astro";
+import NoticeBoardCard from "../components/NoticeBoardCard.astro";
 import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
-import VerticalCard from "../components/VerticalCard.astro";
-import IconButton from "../components/IconButton.astro";
-import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
+import AccomplishmentCard from "../components/AccomplishmentCard.astro";
+// import favicon.ico from ''
+// import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
+let notice = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/notices"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+if (notice.length > 3) {
+  var notice_data_new = notice.slice(0, 3);
+} else {
+  var notice_data_new = notice;}
+const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+let accomp = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/accomplishments"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+if (accomp.length > 3) {
+  var accomp_data_new = accomp.slice(0, 3);
+} else {
+  var accomp_data_new = accomp;}
+// const data = [accomp["0"], accomp["1"], accomp["2"]];
 ---
 
-<Layout title="Megabyte" class="w-screen h-screen">
-  <div class="h-screen bg-hero-pattern">
+<Layout title="Megabyte" class="w-screen h-screen =-mandatory">
+  <div
+    class="h-screen bg-hero-pattern max-w-screen bg-no-repeat bg-center bg-cover"
+  >
     <div class="text-5xl h-full text-center topMain">
       <div class="align-middle text-center m-auto">
-        <span class="weare">We are</span>
-        <span class="maintext"> Megabyte</span>
-        <span class="commune">
-          <span class="comm">
-            A community of           <span
-              >enthus<span class="blue-u understroke">iasts</span></span
-            >, <span>innov<span class="yel-u understroke">ators</span></span>,
-            and<span> m<span class="red-u understroke">akers</span></span>.
+        <span
+          class="weare w-full h-full flex flex-col justify-center items-center font-normal text-center"
+          >We are</span
+        >
+        <span
+          class="maintext mt-0 w-full h-full flex flex-col items-center justify-center font-semibold tracking-wider"
+          ><div class="container">
+            <div class="text"></div>
+          </div></span
+        >
+        <span
+          class="commune w-full h-full flex flex-row justify-center items-center text-center"
+        >
+          <span class="comm text-center"
+            ><span class="l-hidden"> A community of</span>
+            <span>Enthus<span class="blue-u understroke">iasts</span></span>, <span
+              >Innov<span class="yel-u understroke">ators</span></span
+            >, and<span> M<span class="red-u understroke">akers</span></span>.
           </span>
         </span>
       </div>
     </div>
-    <div class="body bg-cube">
-      <div class="notice p-8 md:p-24">
-        <div class="notice-box w-fit p-5">
-          <span class="notice-title mb-2">Notice Board</span>
-          <span class="notice-text">Events, opportunities, and meetings</span>
-        </div>
-        <div class="events w-fit">
-          <ul class="events-list">
-            <li class="blue-u mt-20">
-              <HoriCard
-              tColour="#32a9ff"
-                title="Pathways School Noida Hackathon"
-                body="The Shri Ram School has been invited to participate in the third hackathon, 'Auto Hacks,' hosted by Pathways School Noida on 20th - 22nd January 2023. The theme of the hackathon is 'Automation,' and students from grades 9 - 12 can participate in teams of 1 - 3 members. The event will consist of online workshops and a closing ceremony held physically at Pathways School Noida on the 22nd of January, and details about registration, rules, prizes, judging criteria, and FAQ's can be found on the devpost website.  "
-                link="/"
-              />
-            </li>
-            <li class="yel-u mt-20">
-              <HoriCard
-              tColour="#ffe81b"
-                title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                link="/"
-              />
-            </li>
-            <li class="red-u mt-20">
-              <HoriCard
-              tColour="#ff7474"
-                title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                link="/"
-              />
-            </li>
-          </ul>
-        </div>
-        <div class=" text-right w-full p-3 mt-10">
-          <Button text="See All" link="/" />
-        </div>
+  </div>
+  <div class="body bg-cube py-8">
+    <div class="notice mb-16 px-8 md:px-24">
+      <div class="section-title-box mb-6 w-fit p-5 text-left">
+        <p
+          class=" mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
+        >
+          Notice Board
+        </p>
+        <p class="text-lg font-medium tracking-wide">
+          Upcoming events, opportunities, and announcements.
+        </p>
       </div>
-      <div class="acc p-8 md:p-24">
-        <div class="notice-box w-fit p-5">
-          <span class="notice-title mb-2">Accomplishments</span>
-          <span class="notice-text">Events, opportunities, and meetings</span>
-        </div>
 
-        <div class="events w-fit mt-20">
-          <ul class="events-list lg:flex">
-            <li class=" blue-u h-fit mb-20 lg:mr-8 lg:w-1/3">
-              <VerticalCard
+      <div class="mb-4">
+        {
+        !notice_data_new ? (
+          <div />
+        ) : (
+          // <h1 class="text-center text-xl">().</h1>
+          // map each event to its own block
+          notice_data_new.map((event) => {
+            const colour = colours[Math.floor(Math.random() * colours.length)];
+            let details = event.attributes;
+            return (
+              <div class="mb-[2em]">
+                <NoticeBoardCard
+                  title={details.title}
+                  body={details.content}
 
-                date="12 MARCH"
-                imgLink="https://via.placeholder.com/831x482"
-                title="Pathways School Noida Hackathon"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim."
-                link="/"
-              />
-            </li>
-            <li class="yel-u mb-20 lg:mr-8 h-fit lg:w-1/3">
-              <VerticalCard
-
-                date="12 MARCH"
-                imgLink="https://via.placeholder.com/831x482"
-                title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                link="/"
-              />
-            </li>
-            <li class="red-u h-fit lg:w-1/3">
-              <VerticalCard
-
-                date="12 MARCH"
-                imgLink="https://via.placeholder.com/831x482"
-                title="Shriteq 2022 tryouts"
-                body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                link="/"
-              />
-            </li>
-          </ul>
-        </div>
-        <div class=" text-right w-full p-3 mt-10">
-          <Button text="See All" link="/" />
-        </div>
+                  tColour={colour}
+                  date={details.publishedAt}
+                />
+              </div>
+            );
+          })
+        )}
       </div>
-      <div class="resources notice p-8 md:p-24">
-        <p class="rec-main text-2xl md:text-4xl lg:text-5xl">Resources</p>
 
-        <p class="rec-text text-lg md:text-2xl mb-8 w-2/3 lg:w-3/8 max-w-fit">
+      <div class="w-full p-3 text-right">
+        <Button color="#ceff1b" text="See All" link="/notice-board" />
+      </div>
+    </div>
+    <div class="acc mb-16 px-8 md:px-24">
+      <div class="section-title-box mb-6 w-fit p-[2.25vmin] text-left" id="accomplishments-title-box">
+        <p
+          class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
+        >
+          Accomplishments
+        </p>
+        <p class="text-lg font-medium tracking-wide">
+          What the society and its members have been up to, in and outside
+          school.
+        </p>
+      </div>
+
+      <div
+        class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+      >
+        {
+      !accomp_data_new ? (
+        // if there are no events found
+        <div />
+      ) : (
+        // map each event to its own block
+        accomp_data_new.map((event) => {
+          const colour_ = colours[Math.floor(Math.random() * colours.length)];
+          let details = event.attributes;
+          return (
+            <div>
+              <AccomplishmentCard
+                title={details.title}
+                link={`/accomplishments/random`}
+                body={details.subline}
+                imgLink={details.heroImage}
+                tColour={colour_}
+                date={details.date}
+              />
+            </div>
+          );
+        })
+      )
+    }
+      </div>
+      <div class="w-full p-3 text-right">
+        <Button color="#ceff1b" text="See All" link="/accomplishments" />
+      </div>
+    </div>
+    <div class="px-8 md:px-24 mb-16">
+      <div class="section-title-box w-fit py-8 px-8 text-left mb-6">
+        <p
+          class=" mb-2 font-semibold text-2xl md:text-3xl tracking-wider"
+        >
+          Resources
+        </p>
+        <p class="mb-6 text-lg font-medium tracking-wide md:text-xl">
           Collections of links, guides, and more to help you learn about all
           things tech
         </p>
-        <>
+
+        <button
+          id="resources-learn-more-btn"
+          class="bg-green hover:cursor-pointer text-center font-mono text-lg py-2 px-1"
+        >
           <a
-            class="bgreen rounded-sm border-2 border-black hover:cursor-pointer bg-opacity-0 text-center link-button font-bold font-mono text-xl w-fit px-4 py-2 flex"
             href="/"
-            ><span class="mt-2 mx-3">Learn more</span>
-            <span class=""
-              ><svg
-                class="w-10"
-                xmlns="http://www.w3.org/2000/svg"
-                width="200"
-                height="200"
-                viewBox="0 0 24 24"
-                ><path
-                  fill="currentColor"
-                  d="m12 16l4-4l-4-4l-1.4 1.4l1.6 1.6H8v2h4.2l-1.6 1.6Zm0 6q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4Q8.65 4 6.325 6.325Q4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-                ></path></svg
-              ></span
-            >
+            class="w-full h-full px-4 flex flex-row gap-2 justify-center items-center"
+          >
+            <span class="font-bold font-body">Learn more</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="m12 16l4-4l-4-4l-1.4 1.4l1.6 1.6H8v2h4.2l-1.6 1.6Zm0 6q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4Q8.65 4 6.325 6.325Q4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+              ></path>
+            </svg>
           </a>
-          <style>
-
-            a {
-              box-shadow: 2px 2px 0px 2px #000;
-            }
-            a:hover {
-              transform: translate(1px, 1px);
-              box-shadow: 1px 1px 0px 1px #000;
-            }
-            svg {
-              width: 2em;
-              height: 2em;
-              transition: 0.5s ease;
-              filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
-            }
-
-            svg:hover {
-              transform: rotate(90deg);
-            }
-          </style>
-        </>
+        </button>
       </div>
     </div>
+
+    <style >
+      #resources-learn-more-btn {
+        border: 3px solid black;
+        box-shadow: 6px 6px 0px 0px #000;
+      }
+      #resources-learn-more-btn:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0px 0px;
+        box-shadow: 3px 3px 0px 0px;
+      }
+      #resources-learn-more-btn svg {
+        width: 2em;
+        height: 2em;
+        transition: 0.5s ease;
+      }
+      #resources-learn-more-btn svg:hover {
+        transform: rotate(90deg);
+      }
+    </style>
   </div>
+</Layout>
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap");
-    .bg-cube {
-      background-image: url("../src/assets/tileable-cubes.svg");
-      background-size: 50px 70px;
-      background-repeat: repeat;
+<style >
+  .bg-cube {
+    background-image: url("/assets/tileable-cubes.svg");
+    background-size: 50px 70px;
+    background-repeat: repeat;
+  }
+  .bg-green {
+    background-color: #ceff1b;
+  }
+  .topMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .commune {
+    margin-top: 2vh;
+    font-size: 2vmax;
+  }
+
+  .weare {
+    font-size: 3vmax;
+    /* identical to box height */
+    letter-spacing: -0.01em;
+  }
+  .bg-hero-pattern {
+    background-image: url("/assets/anime-lines.svg");
+  }
+  .maintext {
+    font-size: 6vmax;
+    /* identical to box height */
+    color: #cceaff;
+    text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 8px 6px 0px #000,
+      -2px -2px 0px #000;
+  }
+  .understroke {
+    background-size: 100% 0.5em;
+    background-repeat: no-repeat;
+    background-position: center 0.75em;
+    padding-bottom: 1vh;
+    margin-top: 1vh;
+  }
+
+  .blue-u {
+    background-image: linear-gradient(#82e8ff, #82e8ff);
+  }
+  .yel-u {
+    background-image: linear-gradient(#ffe81b, #ffe81b);
+  }
+  .red-u {
+    background-image: linear-gradient(#ff7474, #ff7474);
+  }
+
+  .section-title-box {
+    cursor: pointer;
+    transition: ease 0.4s;
+    letter-spacing: -0.01em;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    background-color: white;
+  }
   
-      /* background */
-       /* background-size: contain; */
-      /* max-width: 100vw;
-      height: 100vh; */
-      /* background-repeat: no-repeat; */
+  .section-title-box:active {
+    transform: rotate(-5deg);
+    transition: ease 0.4s;
+  }
 
-    }
-          .bgreen {
-    background-color: #CEFF1B;
-
-}
-    .topMain {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .commune {
-      margin-top: 2vh;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      font-family: "Lexend";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 2vmax;
-      /* identical to box height */
-
-      display: flex;
-      align-items: center;
-      text-align: center;
-    }
-    .mt-24 {
-      margin-top: 20vh;
-    }
-    .container {
-      width: 100vw;
-    }
-    .weare {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: "Lexend Deca";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 3vmax;
-      /* identical to box height */
-
-      display: flex;
-      align-items: center;
-      text-align: center;
-      letter-spacing: -0.01em;
-    }
-    .bg-hero-pattern {
-      background-image: url("/src/assets/anime-lines.svg");
-      background-size: cover;
-      /* background-filter: invert(1); */
-      max-width: 100vw;
-      height: 100vh;
-      /* filter: invert(100%);
-    -webkit-filter: invert(100%); */
-
-    /* z-index: -1; */
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    .maintext {
-      margin-top: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: "Lexend Deca";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 6vmax;
-      /* identical to box height */
-
-      display: flex;
-      align-items: center;
-      text-align: center;
-      letter-spacing: 0.05em;
-
-      color: #cceaff;
-      text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 8px 6px 0px #000,
-        -2px -2px 0px #000;
-    }
-    .understroke {
-      background-size: 100% 0.7em;
-      background-repeat: no-repeat;
-      background-position: right 0.6em;
-      padding-bottom: 1vh;
-      margin-top: 1vh;
-    }
-
-    .blue-u {
-      background-image: linear-gradient(#32a9ff, #32a9ff);
-    }
-    .yel-u {
-      background-image: linear-gradient(#ffe81b, #ffe81b);
-    }
-    .red-u {
-      background-image: linear-gradient(#ff7474, #ff7474);
-      background-size: 90% 0.7em;
-    }
-
-    .notice-box {
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: left;
-      text-align: left;
-      letter-spacing: -0.01em;
-      /* background: #FFFFFF; */
-      border: 2px solid #000000;
-      box-shadow: 3px 3px 0px #000000;
-    }
-    .notice-title {
-      font-family: "Lexend";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      /* line-height: 18px; */
-      /* or 75% */
-
-      display: flex;
-      align-items: center;
-      letter-spacing: 0.05em;
-    }
-    .notice-text {
-      font-family: "Lexend";
-      font-style: bold;
-      font-weight: 500;
-      font-size: 20px;
-      /* line-height: 30px; */
-      /* or 167% */
-
-      letter-spacing: 0.04em;
-    }
-
-    .rec-main {
-      font-family: "Lexend";
-      font-style: bold;
-      font-weight: 700;
-      line-height: 52px;
-      display: flex;
-      align-items: center;
+  @media (max-width: 67em) {
+    .l-hidden {
+      display: none;
     }
     .rec-text {
-      margin-top: 25px;
-      font-family: "Lexend";
-      font-style: normal;
-      font-weight: 400;
-      line-height: 52px;
-      display: flex;
-      align-items: center;
+      line-height: 32px;
     }
-    @media (max-width: 67em) {
-      .rec-text {
-        line-height: 32px;
-      }
-      .maintext {
-         text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 6px 4px 0px #000,
+    .maintext {
+      text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 6px 4px 0px #000,
         -2px -2px 0px #000;
+    }
+  }
 
+  .container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+</style>
+<script >
+ function TextScramble(el) {
+  const chars = "ABCDEFGHAJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()__$$##%&*~~~";
+  let queue = [];
+  let frameRequest = null;
+  let frame = 0;
+  let resolve = () => {};
+
+  function setText(newText) {
+    const oldText = el.innerText || "";
+    const length = Math.max(oldText.length, newText.length);
+    queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || "";
+      const to = newText[i] || "";
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40);
+      queue.push({ from , to , start , end, char: "" });
+    }
+    cancelAnimationFrame(frameRequest);
+    frame = 0;
+    update();
+    return new Promise((res) => (resolve = res));
+  }
+
+  function update() {
+    let output = "";
+    let complete = 0;
+    for (let i = 0, n = queue.length; i < n; i++) {
+      let { from, to, start, end, char } = queue[i];
+      if (frame >= end) {
+        complete++;
+        output += to;
+      } else if (frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = randomChar();
+          queue[i].char = char;
+        }
+        output += `<span class="dud">${char}</span>`;
+      } else {
+        output += from;
       }
     }
-  </style>
-</Layout>
+    el.innerHTML = output;
+    if (complete === queue.length) {
+      resolve();
+    } else {
+      frameRequest = requestAnimationFrame(update);
+      frame++;
+    }
+  }
+
+  function randomChar() {
+    return chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  return { setText };
+}
+
+const phrases = ["MEGABYTE", "MEGABYTE"];
+const el = document.querySelector(".text");
+const fx = TextScramble(el);
+
+let counter = 0;
+function next() {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(next, 1400);
+  });
+  counter = (counter + 1) % phrases.length;
+}
+
+next();
+</script>

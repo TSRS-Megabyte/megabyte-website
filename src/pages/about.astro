@@ -1,20 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ComingSoon from "../components/ComingSoon.astro";
+
+import Resource from "../components/Resource.astro";
 import Maintain from "../components/Maintain.astro";
 ---
-<Maintain />
-<!-- lorem ipsum
-<Layout title="About" >
-    <main class="bg-hero-pattern h-screen w-full">
-        <div class=""></div>
-    <p>lorem ipsum</p>
-</main>
+
+<Layout title="About | Megabyte" class="">
+  <div class="px-8 pt-24 sm:pt-36 md:px-24 bg-cube h-full pb-8">
+    <div class="flex flex-col gap-6 md:flex-row mb-12 w-full">
+      <div class="card w-full p-5 bg-[#ceff1b]">
+        <h3 class="text-xl md:text-2xl font-bold  mb-3">Head of Society</h3>
+        <p class="text-justify text-lg md:text-xl font-[500]">Arjun Sharma</p>
+        <a href="mailto:arjun.sharma6131@tsrs.org" class="text-justify text-lg md:text-xl font-[500]">arjun.sharma6131@tsrs.org</a>
+        <p class="text-justify text-lg md:text-xl font-[500] mt-3">IB 2-B</p>
+      </div>
+      <div class="card w-full p-5 bg-[#ff7474] ">
+        <h3 class="text-xl md:text-2xl font-bold  mb-3">Teacher in Charge</h3>
+        <p class="text-justify text-lg md:text-xl font-[500]">Babita Chahal</p>
+        <a href="mailto:babita.chahal@tsrs.org" class="text-justify text-lg md:text-xl font-[500]">babita.chahl@tsrs.org</a>
+                <!-- <p class="text-justify text-lg md:text-xl font-[500]"> put ma'am's designation here </p> -->
+      </div>
+    </div>
+    <div class="bg-white about-div w-fit py-3 text-center px-5">
+      <p class="font-medium text-lg text-center">This site was built by <a target="_blank" href="https://github.com/aarushaggarwal-theone">Aarush Aggarwal</a>, <a target="_blank" href="https://github.com/ArjunS07">Arjun Sharma</a>, <a target="_blank" href="https://github.com/raptor1820">Ritwic Verma</a>, <a target="_blank" href="https://github.com/shreedhar-raj"> Shreedhar Raj</a>, and <a target="_blank" href="https://github.com/notskamr">Varun Sahni</a></p>
+    </div>
+  </div>
 </Layout>
 
-<style>
-    main {
-        height: 100vh;
-    }
+<style >
+a {
+  text-decoration: underline;
+  font-weight: 700;
+}  
+a:hover {
+  color:rgba(0, 0, 0, 0.5);
+}
+  .bg-cube {
+        background-image: url("/assets/tileable-cubes.svg");
+        background-size: 50px 70px;
+        background-repeat: repeat;
+      }
+  .card {
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+    /* transition: ease 0.2s; */
+  }
+
+  .bg-blue {
+    background-color: #82e8ff;
+  }
+
+  .bg-white {
+    background-color: #fff;
+  }
+
+  .about-div {
+    margin:auto;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+  }
+
 </style>
--->

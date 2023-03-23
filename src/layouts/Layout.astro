@@ -1,14 +1,36 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import HTMLayout from "./HTMLayout.astro";
-const {title} = Astro.props
-
+const { title } = Astro.props;
 ---
-<HTMLayout title={title} >
+
+<HTMLayout title={title}>
+  <div class="main-layout h-full w-full">
     <header>
-        <Navbar />
-        </header>  
-    <body>
-        <slot></slot>
-    </body>
-</HTMLayout>    
+      <Navbar />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </div>
+</HTMLayout>
+
+<style >
+  .main-layout {
+    overflow-x: hidden;
+    /* both these declaraitons are required */
+    /* kevin powell goat */
+    min-height: 100vh;
+    min-height: 100dvh; 
+    display: grid;
+
+    grid-template-rows: 
+      auto
+      1fr
+      auto;
+  
+
+  }
+</style>

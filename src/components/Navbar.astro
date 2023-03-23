@@ -4,77 +4,80 @@ import navPages from "../../navPages";
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<div class="navbar">
-  <div id="center-wrapper" class="flex">
-    <div class="wrapper">
-      <div class="whiteBar">
-        <div
-          class="inline-flex flex-row left-side-container align-middle hamburgerGroup"
-        >
-          <a href="/" class="navHome" title="Home">
-            <div class="inline-flex align-middle">
-              <img
-                src="../src/assets/tsrs.svg"
-                alt="A circle - round and palpable"
-              />
-              <p class="mgbt-text"><span class="mega">MEGA</span>BYTE</p>
-            </div>
-          </a>
-          <button
-            aria-controls="navlinks"
-            aria-expanded="false"
-            class="nav-toggle"
-          >
-            <span class="hamburger-menu"
-              ><svg
-                class="ham hamRotate ham8"
-                viewBox="0 0 100 100"
-                onclick="this.classList.toggle('active')"
-              >
-                <path
-                  class="line top"
-                  d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
-                ></path>
-                <path class="line middle" d="m 30,50 h 40"></path>
-                <path
-                  class="line bottom"
-                  d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
-                ></path>
-              </svg></span
-            >
-          </button>
+<div class="navbar w-screen lg:mt-1 lg:px-24">
+  <div
+    class="wrapper fixed lg:static w-full bg-white flex flex-col lg:flex-row justify-start lg:justify-between items-center px-10"
+  >
+    <div class="hamburgerGroup flex flex-row justify-center items-center">
+      <a href="/" class="navHome" title="Home">
+        <div class="flex flex-row h-full w-full justify-center items-center">
+          <img
+            class="min-w-[70px] w-[5vw]"
+            src="/assets/tsrs.svg"
+            alt="tsrs logo"
+          />
+          <div class="">
+            <p class="uppercase font-bold text-2xl mb-[0.03em]">Megabyte</p>
+            <!-- <div id="mgbt-underline" class="w-1/2 h-1 bg-[#74bcffb4]"></div> -->
+          </div>
         </div>
-      </div>
-      <div class="navlinks-div" data-visible="false">
-        <ul class="navlinks hiddenNavlinks">
-          {
-            Object.entries(navPages).map((page) => (
-              <a
-                class={pathname == page[1] ? "navlink current" : "navlink"}
-                id={page[0].toLowerCase()}
-                href={page[1]}
-              >
-                <li class="font-mono">{page[0].toUpperCase()}</li>
-              </a>
-            ))
-          }
-        </ul>
-      </div>
+      </a>
+      <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
+        <span class="hamburger-menu grid place-items-center w-16 lg:hidden"
+          ><svg
+            class="ham hamRotate ham8"
+            viewBox="0 0 100 100"
+            onclick="this.classList.toggle('active')"
+          >
+            <path
+              class="line top"
+              d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
+            ></path>
+            <path class="line middle" d="m 30,50 h 40"></path>
+            <path
+              class="line bottom"
+              d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
+            ></path>
+          </svg></span
+        >
+      </button>
+    </div>
+    <div
+      class="navlinks-div relative h-0 lg:h-auto flex flex-col gap-3 lg:static lg:block lg:visible"
+      data-visible="false"
+    >
+      <ul
+        class="navlinks flex flex-col h-full lg:flex-row justify-around lg:justify-start lg:h-auto hiddenNavlinks"
+      >
+        {
+          Object.entries(navPages).map((page) => (
+            <a
+              class={pathname == page[1] ? "navlink current" : "navlink"}
+              id={page[0].toLowerCase()}
+              href={page[1]}
+            >
+              <li class="text-md lg:text-xl">
+                {page[0].toUpperCase()}
+              </li>
+            </a>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </div>
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+<style >
+  .bg-white {
+    background-color: #fff;
+  }
 
   .navbar {
     position: fixed;
-    top: 0;
+    top: 1em;
     z-index: 100;
   }
   .current {
-    color: #ff7474;
-    opacity: 75%;
+    font-weight: 600;
   }
 
   ul {
@@ -92,26 +95,28 @@ const pathname = new URL(Astro.request.url).pathname;
     padding: 0 1em;
     font-size: 19px;
   }
-
+  li {
+    font-family: 'Roboto Mono', monospace;
+  }
   .navlink:not(.current) li {
-    background-image: linear-gradient(90deg, #ff7474, orange);
-    background-size: 0% 0.5vh;
+    /* padding-top: 1em;
+    margin-bottom: 1em;
+    background: ;
+    background-size: 0% 2px;
     background-repeat: no-repeat;
-    background-position: center 110%;
-    transition: 0.2s ease;
+    background-position: 50% 2.4em;
+    transition: 0.2s ease; */
   }
 
   .navlink:not(.current) li:hover {
-    background-size: 100% 0.5vh;
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+    text-decoration-color: ;
   }
 
   .current {
     cursor: default;
     transition: 0.25s ease;
-  }
-
-  .current:hover {
-    color: gray;
   }
 
   .current:active {
@@ -122,22 +127,14 @@ const pathname = new URL(Astro.request.url).pathname;
   }
 
   .wrapper {
-    background: rgba(255, 255, 255, 0.8);
-    width: 75vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-
     border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 3px 4px 0px 1px #000;
-    transition: 0.25s ease;
+    box-shadow: 4px 4px 0px 0px #000;
+    /* transition: 0.25s ease; */
   }
-
+  /* 
   .wrapper:not(.scrolled):hover {
     background: rgba(255, 255, 255, 1);
-  }
+  } */
 
   .scrolled {
     animation: solidify 1s linear;
@@ -145,26 +142,27 @@ const pathname = new URL(Astro.request.url).pathname;
     animation-fill-mode: forwards;
   }
 
-  @keyframes solidify {
+  /* @keyframes solidify {
     0% {
       background: rgba(255, 255, 255, 0.8);
     }
     100% {
       background: rgba(255, 255, 255, 1);
     }
-  }
+  } */
 
-  .mgbt-text {
+  /* .mgbt-text {
     font-family: "Lexend", sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: #000;
     vertical-align: middle;
     align-self: center;
-  }
+  } */
+
   .mega {
-    text-decoration: underline #cceaff 0.3rem;
-    text-underline-offset: 0.275rem;
+    text-decoration: underline #74bcffb4 0.2em;
+    text-underline-offset: 7px;
   }
 
   .navHome > div > p > span {
@@ -175,73 +173,46 @@ const pathname = new URL(Astro.request.url).pathname;
     text-decoration: underline #ff7474 0.3rem;
   }
 
-  img {
-    min-width: 70px;
-    width: 5vw;
-    height: auto;
-  }
-  .left-side-container {
-    padding-left: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-  }
-  #center-wrapper {
-    width: 100vw;
+  /* #center-wrapper {
+    width: calc(100vw - 4px);
     justify-content: center;
 
     position: relative;
     top: 1.5vh;
-  }
-
-  .hamburger-menu {
-    display: none;
-  }
+  } */
 
   .symbol {
     display: none;
   }
-  @media (max-width: 67em) {
+
+  .megabyte-text {
+    font-family: Lexend;
+  }
+  @media (max-width: 1023px) {
     .wrapper {
-      background: rgba(255, 255, 255, 0.75);
-      position: fixed;
-      border-radius: 0px;
-      width: 100vw;
+      /* background: rgba(255, 255, 255, 0.75); */
       box-shadow: 0px 0px 0px 0px;
-      flex-direction: column;
-      justify-content: start;
       transition: 0.25s ease;
     }
-    .wrapper:hover {
+    /* .wrapper:hover {
       background: rgba(255, 255, 255, 0.75);
-    }
+    } */
 
-    .mgbt-text {
+    /* .mgbt-text {
       font-size: 21px;
-    }
-    .current {
-      opacity: 100%;
-      color: rgb(59, 72, 255);
-    }
+      font-weight: 700;
+    } */
 
-    #center-wrapper {
-      top: 0rem;
-    }
-    .whiteBar {
+    /* .whiteBar {
       display: flex;
-      width: calc(100vw - 4px);
       background: white;
       justify-content: center;
       box-shadow: 0 0.25rem 1rem #00000075;
-    }
-    .hamburger-menu {
-      display: grid;
-      place-items: center;
-      grid-template-areas: "icons";
-      width: 4em;
-    }
+    } */
 
+    .navbar {
+      top: 0;
+    }
     .hamburgerGroup {
       width: 90vw;
       justify-content: space-between;
@@ -252,24 +223,11 @@ const pathname = new URL(Astro.request.url).pathname;
     }
 
     .navlinks-div {
-      position: relative;
-      width: 100vw;
-      height: 0vh;
-      vertical-align: middle;
-      justify-content: center;
-      display: flex;
-      visibility: hidden;
       transition: 0.5s ease;
+      -webkit-transition: 0.5s ease;
     }
     .navlinks-div[data-visible="true"] {
       height: 60vh;
-    }
-    .navlinks {
-      display: flex;
-      flex-direction: column;
-      height: 75%;
-      align-self: center;
-      /* display: none; */
     }
 
     @supports (backdrop-filter: blur(0.25rem)) {
@@ -282,11 +240,14 @@ const pathname = new URL(Astro.request.url).pathname;
       visibility: visible;
       opacity: 1;
       transition: 0.5s ease;
+      -webkit-transition: 0.5s ease;
     }
 
     .hiddenNavlinks {
       opacity: 0;
       transition: 0.25s ease;
+      -webkit-transition: 0.25s ease;
+      pointer-events: none;
     }
 
     li {
@@ -301,6 +262,7 @@ const pathname = new URL(Astro.request.url).pathname;
       visibility: visible;
       opacity: 1;
       transition: 0.25s;
+      -webkit-transition: 0.25s;
     }
 
     .hiddenSymbol {
@@ -327,6 +289,7 @@ const pathname = new URL(Astro.request.url).pathname;
     .line {
       fill: none;
       transition: stroke-dasharray 700ms, stroke-dashoffset 700ms;
+
       stroke: #000;
       stroke-width: 5.5;
       stroke-linecap: round;
@@ -343,6 +306,7 @@ const pathname = new URL(Astro.request.url).pathname;
       stroke-dasharray: 40 85;
       transform-origin: 50%;
       transition: transform 400ms, stroke-dashoffset 400ms;
+      -webkit-transition: transform 400ms, stroke-dashoffset 400ms;
     }
     .ham8.active .top {
       stroke-dashoffset: -64px;
