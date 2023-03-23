@@ -3,6 +3,11 @@ module.exports = {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     mode: "jit",
     theme: {
+        fontFamily: {
+            'body': ['Lexend', 'sans-serif'],
+            'sans': ['Lexend', 'sans-serif'],
+            'mono': ['Robot Mono', 'monospace'],
+        },
         screens: {
             'sm': '640px',
             // => @media (min-width: 640px) { ... }
