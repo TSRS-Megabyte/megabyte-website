@@ -16,7 +16,8 @@ import database from "../../../megabyte-cms/config/database";
 description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
-heroImage: "/public/assets/tsrs.svg" -->
+heroImage: "/public/assets/tsrs.svg"
+          <!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments"  >
   <main>
     <div class="bg-[#ff7474] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
@@ -29,9 +30,10 @@ heroImage: "/public/assets/tsrs.svg" -->
     {
       posts.map((post) => (
         <div>
+
          <VerticalCard
               title={post.data.title}
-              link={`/accomplishments/${post.slug}/`}
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               body={post.data.description}
               imgLink={post.data.heroImage}
              tColour={post.data.titleColour}
