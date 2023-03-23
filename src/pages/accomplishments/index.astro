@@ -18,7 +18,7 @@ const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?
   /^-*|-*$/g,
   ""
 )}`;
-const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
+const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
 ---
 
 <!-- <Maintain /> Use when site under Maintainance --><!-- <Maintain /> --><!-- 
@@ -42,7 +42,7 @@ heroImage: "/public/assets/tsrs.svg"
         </p>
 
         <p>
-          Email tsrs.mgbt@gmail.com in case you would like one of your
+          Email <span><a target="_blank" href="mailto:tsrs.mgbt@gmail.com">tsrs.mgbt@gmail.com</a></span> in case you would like one of your
           tech-related accomplishments to be featured on the website.
         </p>
       </div>
@@ -93,6 +93,9 @@ heroImage: "/public/assets/tsrs.svg"
       background-image: url("/assets/tileable-cubes.svg");
       background-size: 50px 70px;
       background-repeat: repeat;
+    }
+    a {
+      text-decoration: underline;
     }
   </style>
 </Layout>
