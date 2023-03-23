@@ -1,12 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-let data;
-data = await fetch(
+
+let data = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
   .then((res) => res.json())
   .then((d) => {
-    console.log(d.data);
     return d.data;
   });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
