@@ -14,10 +14,7 @@ try {
 }
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
-const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(
-  /^-*|-*$/g,
-  ""
-)}`;
+
 const colours = [
   "#81effc",
   "#ffe81b",
@@ -89,7 +86,7 @@ heroImage: "/public/assets/tsrs.svg"
                   title={details.title}
                   link={`/accomplishments/${details.slug}`}
                   body={details.subline}
-                  img={details.media.data[0]["attributes"]}
+                  image={details.media.data[0]["attributes"]}
                   tColour={colours[num]}
                   date={details.date}
                 />
