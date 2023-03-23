@@ -1,35 +1,36 @@
 ---
 import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
-
+import { marked } from "marked";
 export interface Props {
   title: string;
-  body: string;
-
+  rawContent: string;
   tColour: string;
-
-  date: string
+  date: string;
 }
 
-const { title, body,  tColour, date } = Astro.props;
+const { title, rawContent, tColour, date } = Astro.props;
+const parsedContent = marked.parse(rawContent);
 ---
 
-<div class="rounded-lg card w-full flex flex-col h-full">
-  <div class="flex-shrink bg-var bg-blue-500 py-3 border-b-2 leading-5 px-4 md:px-8">
-    <h3 class="text-xl font-bold mb-2">
+<div class="card flex h-full w-full flex-col rounded-lg">
+  <div
+    class="bg-var bg-blue-500 flex-shrink border-b-2 py-3 px-4 leading-5 md:px-8"
+  >
+    <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-     <h3 class="text-sm font-bold mb-2">
+    <h3 class="mb-2 text-sm font-bold">
       Published on: {date}
     </h3>
-    
   </div>
-  <div class="flex-grow bg-white py-5 flex flex-col items-start gap-3 px-4 md:px-8">
-
-    <p class="text-left text-lg">{body}</p>
-    </div>
+  <div
+    class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
+  >
+    <p class="text-left text-lg" set:html={parsedContent} />
+  </div>
 </div>
 
-<style define:vars={{tColour}}>
+<style define:vars={{ tColour }}>
   .bg-var {
     background: var(--tColour);
   }
