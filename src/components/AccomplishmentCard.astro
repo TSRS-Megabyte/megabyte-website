@@ -11,8 +11,8 @@ const { tColour, title, link, date, body, img } = Astro.props;
 ---
 
 <div class="card bg-white flex h-full w-full flex-col">
-  <div class="title flex-shrink p-5 text-center">
-    <p class="mb-2 text-xl font-bold">
+  <div class="title flex-shrink px-5 py-3 text-center flex flex-col gap-2 justify-between items-center">
+    <p class="text-xl font-bold min-h-[60px] flex-grow flex justify-center items-center">
       {title}
     </p>
     <p class="font-semibold uppercase">
@@ -40,9 +40,13 @@ const { tColour, title, link, date, body, img } = Astro.props;
       </p>
       <a
         href={link}
-        class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-lg font-bold uppercase"
+        class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-lg uppercase"
       >
+
+      <span class="font-bold">
         Read more
+
+      </span>
       </a>
     </div>
   </div>
