@@ -11,30 +11,27 @@ export interface Props {
 
 const { title, body, tColour, date } = Astro.props;
 const parsedContent = marked.parse(body);
-const formattedDate = new Date(date).toLocaleDateString("en-GB", {
-  // year: "numeric",
-  month: "long",
-  day: "numeric",
-});
-const ordinalDay = formattedDate.replace(
-  /(\d{1,2})(st|nd|rd|th)/,
-  (match, day, suffix) => {
-    if (day >= 11 && day <= 19) {
-      return day + "th";
-    } else {
-      switch (day % 10) {
-        case 1:
-          return day + "st";
-        case 2:
-          return day + "nd";
-        case 3:
-          return day + "rd";
-        default:
-          return day + "th";
-      }
-    }
+
+const dateObj = new Date(date);
+const day = dateObj.getDate();
+const month = dateObj.toLocaleString("default", { month: "long" });
+const year = dateObj.getFullYear();
+
+const nthNumber = (number) => {
+  if (number > 3 && number < 21) return "th";
+  switch (number % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
   }
-);
+};
+
+const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
 ---
 
 <div class="card flex h-full w-full flex-col">
@@ -44,7 +41,7 @@ const ordinalDay = formattedDate.replace(
     <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-    <p class="text-base font-light">Posted {ordinalDay}</p>
+    <p class="text-base font-light">Posted <b>{formattedDate}</b></p>
   </div>
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pb-3 md:px-8"
