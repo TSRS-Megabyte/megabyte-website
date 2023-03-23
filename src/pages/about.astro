@@ -4,13 +4,60 @@ import Layout from "../layouts/Layout.astro";
 import Resource from "../components/Resource.astro";
 import Maintain from "../components/Maintain.astro";
 ---
-<Maintain />
-<!-- <Layout title="about">
-  <Resource
-    colour1="#32a9ff"
-    colour2="#ffe862"
-    description="this is a card"
-    title="huolben"
-    logo="/assets/tsrs.svg"
-  />
-</Layout> -->
+
+<Layout title="About | Megabyte" class="">
+  <div class="min-w-screen min-h-screen px-8 pt-36 md:px-24 bg-cube">
+    <div class="mt-12 md:mt-20 flex flex-col gap-6 md:flex-row mb-12 w-full">
+      <div class="card w-full p-5 bg-green">
+        <h3 class="text-xl md:text-2xl font-bold  mb-3">Society head</h3>
+        <p class="text-justify text-lg md:text-xl font-[500]">Arjun Sharma</p>
+        <p class="text-justify text-lg md:text-xl font-[500]">arjun.sharma6131@tsrs.org</p>
+        <p class="text-justify text-lg md:text-xl font-[500]">IB 2-B</p>
+      </div>
+      <div class="card w-full p-5 bg-red ">
+        <h3 class="text-xl md:text-2xl font-bold  mb-3">Teacher in-charge</h3>
+        <p class="text-justify text-lg md:text-xl font-[500]">Babita Chahal</p>
+        <p class="text-justify text-lg md:text-xl font-[500]">babita.chahl@tsrs.org</p>
+      </div>
+    </div>
+    <div class="bg-white about-div py-3 text-left px-5">
+      <p class="font-medium text-lg text-left">This site was built by Aarush Aggarwal, Arjun Sharma, Ritwic Verma, Shreedhar Raj, and Varun Sahni</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  
+  .bg-cube {
+        background-image: url("/assets/tileable-cubes.svg");
+        background-size: 50px 70px;
+        background-repeat: repeat;
+      }
+  .card {
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+    /* transition: ease 0.2s; */
+  }
+
+  .bg-blue {
+    background-color: #82e8ff;
+  }
+
+  .bg-green {
+    background-color: #ceff1b;
+  }
+
+  .bg-red {
+    background-color: #ff7474
+  }
+
+  .bg-white {
+    background-color: #fff;
+  }
+
+  .about-div {
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+  }
+
+</style>
