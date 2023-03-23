@@ -10,6 +10,30 @@ export interface Props {
 
 const { title, rawContent, tColour, date } = Astro.props;
 const parsedContent = marked.parse(rawContent);
+const formattedDate = new Date(date).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const ordinalDay = formattedDate.replace(
+  /(\d{1,2})(st|nd|rd|th)/,
+  (match, day, suffix) => {
+    if (day >= 11 && day <= 19) {
+      return day + "th";
+    } else {
+      switch (day % 10) {
+        case 1:
+          return day + "st";
+        case 2:
+          return day + "nd";
+        case 3:
+          return day + "rd";
+        default:
+          return day + "th";
+      }
+    }
+  }
+);
 ---
 
 <div class="card flex h-full w-full flex-col rounded-lg">
@@ -19,14 +43,14 @@ const parsedContent = marked.parse(rawContent);
     <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-    <h3 class="mb-2 text-sm font-bold">
-      Published on: {date}
+    <h3 class="mb-2 text-md font-bold">
+      {ordinalDay}
     </h3>
   </div>
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
   >
-    <div class="text-left text-lg" set:html={parsedContent} />
+    <div class="text-left text-lg flex flex-col gap-3" set:html={parsedContent} />
   </div>
 </div>
 
