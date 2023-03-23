@@ -15,7 +15,8 @@ let notice = await fetch(
 if (notice.length > 3) {
   var notice_data_new = notice.slice(0, 3);
 } else {
-  var notice_data_new = notice;}
+  var notice_data_new = notice;
+}
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 let accomp = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments"
@@ -27,28 +28,29 @@ let accomp = await fetch(
 if (accomp.length > 3) {
   var accomp_data_new = accomp.slice(0, 3);
 } else {
-  var accomp_data_new = accomp;}
+  var accomp_data_new = accomp;
+}
 // const data = [accomp["0"], accomp["1"], accomp["2"]];
 ---
 
-<Layout title="Megabyte" class="w-screen h-screen =-mandatory">
+<Layout title="Megabyte" class="=-mandatory h-screen w-screen">
   <div
-    class="h-screen bg-hero-pattern max-w-screen bg-no-repeat bg-center bg-cover"
+    class="bg-hero-pattern max-w-screen h-screen bg-cover bg-center bg-no-repeat"
   >
-    <div class="text-5xl h-full text-center topMain">
-      <div class="align-middle text-center m-auto">
+    <div class="topMain h-full text-center text-5xl">
+      <div class="m-auto text-center align-middle">
         <span
-          class="weare w-full h-full flex flex-col justify-center items-center font-normal text-center"
+          class="weare flex h-full w-full flex-col items-center justify-center text-center font-normal"
           >We are</span
         >
         <span
-          class="maintext mt-0 w-full h-full flex flex-col items-center justify-center font-semibold tracking-wider"
+          class="maintext mt-0 flex h-full w-full flex-col items-center justify-center font-semibold tracking-wider"
           ><div class="container">
             <div class="text"></div>
           </div></span
         >
         <span
-          class="commune w-full h-full flex flex-row justify-center items-center text-center"
+          class="commune flex h-full w-full flex-row items-center justify-center text-center"
         >
           <span class="comm text-center"
             ><span class="l-hidden"> A community of</span>
@@ -63,9 +65,7 @@ if (accomp.length > 3) {
   <div class="body bg-cube py-8">
     <div class="notice mb-16 px-8 md:px-24">
       <div class="section-title-box mb-6 w-fit p-5 text-left">
-        <p
-          class=" mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
-        >
+        <p class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl">
           Notice Board
         </p>
         <p class="text-lg font-medium tracking-wide">
@@ -75,27 +75,28 @@ if (accomp.length > 3) {
 
       <div class="mb-4">
         {
-        !notice_data_new ? (
-          <div />
-        ) : (
-          // <h1 class="text-center text-xl">().</h1>
-          // map each event to its own block
-          notice_data_new.map((event) => {
-            const colour = colours[Math.floor(Math.random() * colours.length)];
-            let details = event.attributes;
-            return (
-              <div class="mb-[2em]">
-                <NoticeBoardCard
-                  title={details.title}
-                  body={details.content}
-
-                  tColour={colour}
-                  date={details.publishedAt}
-                />
-              </div>
-            );
-          })
-        )}
+          !notice_data_new ? (
+            <div />
+          ) : (
+            // <h1 class="text-center text-xl">().</h1>
+            // map each event to its own block
+            notice_data_new.map((event) => {
+              const colour =
+                colours[Math.floor(Math.random() * colours.length)];
+              let details = event.attributes;
+              return (
+                <div class="mb-[2em]">
+                  <NoticeBoardCard
+                    title={details.title}
+                    body={details.content}
+                    tColour={colour}
+                    date={details.publishedAt}
+                  />
+                </div>
+              );
+            })
+          )
+        }
       </div>
 
       <div class="w-full p-3 text-right">
@@ -103,10 +104,11 @@ if (accomp.length > 3) {
       </div>
     </div>
     <div class="acc mb-16 px-8 md:px-24">
-      <div class="section-title-box mb-6 w-fit p-[2.25vmin] text-left" id="accomplishments-title-box">
-        <p
-          class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
-        >
+      <div
+        class="section-title-box mb-6 w-fit p-[2.25vmin] text-left"
+        id="accomplishments-title-box"
+      >
+        <p class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl">
           Accomplishments
         </p>
         <p class="text-lg font-medium tracking-wide">
@@ -119,39 +121,38 @@ if (accomp.length > 3) {
         class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
         {
-      !accomp_data_new ? (
-        // if there are no events found
-        <div />
-      ) : (
-        // map each event to its own block
-        accomp_data_new.map((event) => {
-          const colour_ = colours[Math.floor(Math.random() * colours.length)];
-          let details = event.attributes;
-          return (
-            <div>
-              <AccomplishmentCard
-                title={details.title}
-                link={`/accomplishments/random`}
-                body={details.subline}
-                imgLink={details.heroImage}
-                tColour={colour_}
-                date={details.date}
-              />
-            </div>
-          );
-        })
-      )
-    }
+          !accomp_data_new ? (
+            // if there are no events found
+            <div />
+          ) : (
+            // map each event to its own block
+            accomp_data_new.map((event) => {
+              const colour_ =
+                colours[Math.floor(Math.random() * colours.length)];
+              let details = event.attributes;
+              return (
+                <div>
+                  <AccomplishmentCard
+                    title={details.title}
+                    link={`/accomplishments/random`}
+                    body={details.subline}
+                    imgLink={details.heroImage}
+                    tColour={colour_}
+                    date={details.date}
+                  />
+                </div>
+              );
+            })
+          )
+        }
       </div>
       <div class="w-full p-3 text-right">
         <Button color="#ceff1b" text="See All" link="/accomplishments" />
       </div>
     </div>
-    <div class="px-8 md:px-24 mb-16">
-      <div class="section-title-box w-fit py-8 px-8 text-left mb-6">
-        <p
-          class=" mb-2 font-semibold text-2xl md:text-3xl tracking-wider"
-        >
+    <div class="mb-16 px-8 md:px-24">
+      <div class="section-title-box mb-6 w-fit py-8 px-8 text-left">
+        <p class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl">
           Resources
         </p>
         <p class="mb-6 text-lg font-medium tracking-wide md:text-xl">
@@ -161,13 +162,13 @@ if (accomp.length > 3) {
 
         <button
           id="resources-learn-more-btn"
-          class="bg-green hover:cursor-pointer text-center font-mono text-lg py-2 px-1"
+          class="bg-green py-2 px-1 text-center font-mono text-lg hover:cursor-pointer"
         >
           <a
             href="/"
-            class="w-full h-full px-4 flex flex-row gap-2 justify-center items-center"
+            class="flex h-full w-full flex-row items-center justify-center gap-2 px-4"
           >
-            <span class="font-bold font-body">Learn more</span>
+            <span class="font-body font-bold">Learn more</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -179,7 +180,7 @@ if (accomp.length > 3) {
       </div>
     </div>
 
-    <style >
+    <style>
       #resources-learn-more-btn {
         border: 3px solid black;
         box-shadow: 6px 6px 0px 0px #000;
@@ -201,7 +202,7 @@ if (accomp.length > 3) {
   </div>
 </Layout>
 
-<style >
+<style>
   .bg-cube {
     background-image: url("/assets/tileable-cubes.svg");
     background-size: 50px 70px;
@@ -261,7 +262,7 @@ if (accomp.length > 3) {
     box-shadow: 4px 4px 0px #000000;
     background-color: white;
   }
-  
+
   .section-title-box:active {
     transform: rotate(-5deg);
     transition: ease 0.4s;
@@ -287,78 +288,78 @@ if (accomp.length > 3) {
     align-items: center;
     display: flex;
   }
-  
 </style>
-<script >
- function TextScramble(el) {
-  const chars = "ABCDEFGHAJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()__$$##%&*~~~";
-  let queue = [];
-  let frameRequest = null;
-  let frame = 0;
-  let resolve = () => {};
+<script>
+  function TextScramble(el) {
+    const chars =
+      "ABCDEFGHAJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()__$$##%&*~~~";
+    let queue = [];
+    let frameRequest = null;
+    let frame = 0;
+    let resolve = () => {};
 
-  function setText(newText) {
-    const oldText = el.innerText || "";
-    const length = Math.max(oldText.length, newText.length);
-    queue = [];
-    for (let i = 0; i < length; i++) {
-      const from = oldText[i] || "";
-      const to = newText[i] || "";
-      const start = Math.floor(Math.random() * 40);
-      const end = start + Math.floor(Math.random() * 40);
-      queue.push({ from , to , start , end, char: "" });
+    function setText(newText) {
+      const oldText = el.innerText || "";
+      const length = Math.max(oldText.length, newText.length);
+      queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || "";
+        const to = newText[i] || "";
+        const start = Math.floor(Math.random() * 40);
+        const end = start + Math.floor(Math.random() * 40);
+        queue.push({ from, to, start, end, char: "" });
+      }
+      cancelAnimationFrame(frameRequest);
+      frame = 0;
+      update();
+      return new Promise((res) => (resolve = res));
     }
-    cancelAnimationFrame(frameRequest);
-    frame = 0;
-    update();
-    return new Promise((res) => (resolve = res));
-  }
 
-  function update() {
-    let output = "";
-    let complete = 0;
-    for (let i = 0, n = queue.length; i < n; i++) {
-      let { from, to, start, end, char } = queue[i];
-      if (frame >= end) {
-        complete++;
-        output += to;
-      } else if (frame >= start) {
-        if (!char || Math.random() < 0.28) {
-          char = randomChar();
-          queue[i].char = char;
+    function update() {
+      let output = "";
+      let complete = 0;
+      for (let i = 0, n = queue.length; i < n; i++) {
+        let { from, to, start, end, char } = queue[i];
+        if (frame >= end) {
+          complete++;
+          output += to;
+        } else if (frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = randomChar();
+            queue[i].char = char;
+          }
+          output += `<span class="dud">${char}</span>`;
+        } else {
+          output += from;
         }
-        output += `<span class="dud">${char}</span>`;
+      }
+      el.innerHTML = output;
+      if (complete === queue.length) {
+        resolve();
       } else {
-        output += from;
+        frameRequest = requestAnimationFrame(update);
+        frame++;
       }
     }
-    el.innerHTML = output;
-    if (complete === queue.length) {
-      resolve();
-    } else {
-      frameRequest = requestAnimationFrame(update);
-      frame++;
+
+    function randomChar() {
+      return chars[Math.floor(Math.random() * chars.length)];
     }
+
+    return { setText };
   }
 
-  function randomChar() {
-    return chars[Math.floor(Math.random() * chars.length)];
+  const phrases = ["MEGABYTE", "MEGABYTE"];
+  const el = document.querySelector(".text");
+  const fx = TextScramble(el);
+
+  let counter = 0;
+  function next() {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout(next, 1400);
+    });
+    counter = (counter + 1) % phrases.length;
   }
 
-  return { setText };
-}
-
-const phrases = ["MEGABYTE", "MEGABYTE"];
-const el = document.querySelector(".text");
-const fx = TextScramble(el);
-
-let counter = 0;
-function next() {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 1400);
-  });
-  counter = (counter + 1) % phrases.length;
-}
-
-next();
+  next();
 </script>
