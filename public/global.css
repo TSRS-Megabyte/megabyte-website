@@ -1,0 +1,29 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+
+.bg-green {
+  background-color: #ceff1b;
+}
+.bg-white {
+  background: #ffffff;
+}
+
+.card {
+  border: 3px solid black;
+  box-shadow: 6px 6px 0px 0px;
+  /* transition: ease 0.2s; */
+}
+
+.bg-blue {
+  background-color: #82e8ff;
+}
+
+.bg-cube {
+  background-image: url("/assets/tileable-cubes.svg");
+  background-size: 50px 70px;
+  background-repeat: repeat;
+}
