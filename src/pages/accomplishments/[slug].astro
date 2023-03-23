@@ -1,22 +1,28 @@
 ---
 //schena for each blogpost
-import { CollectionEntry, getCollection } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
+import AccomplishmentMain from '../../components/AccomplishmentMain.astro';
+import Layout from '../../layouts/Layout.astro'
 
-export async function getStaticPaths() {
-  const posts = await getCollection("accomplishmentsinfo");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
-}
-type Props = CollectionEntry<"blog">;
-
-const post = Astro.props;
-const { Content } = await post.render();
+const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+const colour = colours[Math.floor(Math.random() * colours.length)];
 ---
 
-<BlogPost {...post.data}>
-  <h1>{post.data.title}</h1>
-  <Content />
-</BlogPost>
+
+<Layout title="<PLACEHOLDER FOR TITLE> | MEGABYTE">
+<div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
+  <AccomplishmentMain
+  title="<PLACEHOLDER FOR TITLE>"
+  body="<PLACEHOLDER FOR CONTENT>"
+  tColour={colour}
+  date='<PLACEHOLDER FOR DATE>'
+  />
+</div>
+<style>
+.bg-cube {
+    background-image: url("/assets/tileable-cubes.svg");
+    background-size: 50px;
+    background-repeat: repeat;
+}
+</style>
+
+</Layout>

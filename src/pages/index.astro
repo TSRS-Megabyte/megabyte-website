@@ -5,6 +5,30 @@ import Layout from "../layouts/Layout.astro";
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 // import favicon.ico from ''
 // import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
+let notice = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/notices"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+if (notice.length > 3) {
+  var notice_data_new = notice.slice(0, 3);
+} else {
+  var notice_data_new = notice;}
+const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+let accomp = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/accomplishments"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+if (accomp.length > 3) {
+  var accomp_data_new = accomp.slice(0, 3);
+} else {
+  var accomp_data_new = accomp;}
+// const data = [accomp["0"], accomp["1"], accomp["2"]];
 ---
 
 <Layout title="Megabyte" class="w-screen h-screen =-mandatory">
@@ -49,31 +73,29 @@ import AccomplishmentCard from "../components/AccomplishmentCard.astro";
         </p>
       </div>
 
-      <div class="mb-4 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <div>
-          <NoticeBoardCard
-            tColour="#82E8FF"
-            title="Pathways School Noida Hackathon"
-            body="The Shri Ram School has been invited to participate in the third hackathon, 'Auto Hacks,' hosted by Pathways School Noida on 20th - 22nd January 2023. The theme of the hackathon is 'Automation,' and students from grades 9 - 12 can participate in teams of 1 - 3 members. The event will consist of online workshops and a closing ceremony held physically at Pathways School Noida on the 22nd of January, and details about registration, rules, prizes, judging criteria, and FAQ's can be found on the devpost website.  "
-            date=""
-          />
-        </div>
-        <div>
-          <NoticeBoardCard
-            tColour="#ffe81b"
-            title="Shriteq 2022 tryouts"
-            body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                        date=""
-          />
-        </div>
-        <div>
-          <NoticeBoardCard
-            tColour="#ff7474"
-            title="Shriteq 2022 tryouts"
-            body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-                        date=""
-          />
-        </div>
+      <div class="mb-4">
+        {
+        !notice_data_new ? (
+          <div />
+        ) : (
+          // <h1 class="text-center text-xl">().</h1>
+          // map each event to its own block
+          notice_data_new.map((event) => {
+            const colour = colours[Math.floor(Math.random() * colours.length)];
+            let details = event.attributes;
+            return (
+              <div class="mb-[2em]">
+                <NoticeBoardCard
+                  title={details.title}
+                  body={details.content}
+
+                  tColour={colour}
+                  date={details.publishedAt}
+                />
+              </div>
+            );
+          })
+        )}
       </div>
 
       <div class="w-full p-3 text-right">
@@ -96,36 +118,30 @@ import AccomplishmentCard from "../components/AccomplishmentCard.astro";
       <div
         class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
-        <div>
-          <AccomplishmentCard
-            tColour="#82e8ff"
-            date="12 MARCH"
-            img=""
-            title="Pathways School Noida Hackathon"
-            body=""
-            link="/"
-          />
-        </div>
-        <div>
-          <AccomplishmentCard
-            tColour="#ffe81b"
-            date="12 MARCH"
-            img=""
-            title="Shriteq 2022 tryouts"
-            body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-            link="/"
-          />
-        </div>
-        <div>
-          <AccomplishmentCard
-            tColour="#ff7474"
-            date="12 MARCH"
-            img=""
-            title="Shriteq 2022 tryouts"
-            body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-            link="/"
-          />
-        </div>
+        {
+      !accomp_data_new ? (
+        // if there are no events found
+        <div />
+      ) : (
+        // map each event to its own block
+        accomp_data_new.map((event) => {
+          const colour_ = colours[Math.floor(Math.random() * colours.length)];
+          let details = event.attributes;
+          return (
+            <div>
+              <AccomplishmentCard
+                title={details.title}
+                link={`/accomplishments/random`}
+                body={details.subline}
+                imgLink={details.heroImage}
+                tColour={colour_}
+                date={details.date}
+              />
+            </div>
+          );
+        })
+      )
+    }
       </div>
       <div class="w-full p-3 text-right">
         <Button color="#ceff1b" text="See All" link="/accomplishments" />

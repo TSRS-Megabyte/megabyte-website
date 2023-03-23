@@ -1,6 +1,5 @@
 ---
-//PAGE TO RENDER ALL AVAILABLE POSTS
-import { getCollection } from "astro:content";
+
 import Layout from "../../layouts/Layout.astro";
 let data = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
@@ -11,7 +10,8 @@ let data = await fetch(
   });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
-import { log } from "astro/dist/core/logger/core";
+const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(/^-*|-*$/g, '')}`;
+const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
 ---
 
 <!-- <Maintain /> --><!-- 
@@ -22,6 +22,7 @@ pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
           <!-- `/accomplishments/${post.slug}/`} -->
+
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
     <div class="mb-8 flex flex-row items-center justify-center">
@@ -33,10 +34,7 @@ heroImage: "/public/assets/tsrs.svg"
           What the society and its members have been up to, in and outside
           school.
         </p>
-        <p class="text-center text-sm font-light md:text-lg">
-          Email us at PLACEHOLDER if you would like a computer-related
-          accomplishment of yours to be featured here.
-        </p>
+
       </div>
     </div>
 

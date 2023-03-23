@@ -11,6 +11,8 @@ let data = await fetch(
   });
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 import NoticeBoardCard from "../components/NoticeBoardCard.astro";
+const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+
 ---
 
 <!-- <Maintain /> -->
@@ -35,13 +37,15 @@ import NoticeBoardCard from "../components/NoticeBoardCard.astro";
           // <h1 class="text-center text-xl">().</h1>
           // map each event to its own block
           data.map((event) => {
+            const colour = colours[Math.floor(Math.random() * colours.length)];
             let details = event.attributes;
             return (
               <div>
                 <NoticeBoardCard
                   title={details.title}
-                  body={details.description}
-                  tColour="#cce"
+                  body={details.content}
+
+                  tColour={colour}
                   date={details.publishedAt}
                 />
               </div>
@@ -65,4 +69,5 @@ import NoticeBoardCard from "../components/NoticeBoardCard.astro";
       }
 
   </style>
+
 </Layout>
