@@ -41,12 +41,12 @@ const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
     <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-    <p class="text-base font-light">Posted <b>{formattedDate}</b></p>
+    <p class="text-base font-medium">Posted {formattedDate}</p>
   </div>
   <div
-    class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pb-3 md:px-8"
+    class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pt-4 pb-4 md:px-8"
   >
-    <div class="text-left text-lg" set:html={parsedContent} />
+    <div class="text-left text-lg flex flex-col gap-3" set:html={parsedContent} />
   </div>
 </div>
 
@@ -54,7 +54,7 @@ const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
   .bg-var {
     background: var(--tColour);
   }
-  
+
   .card {
     border: 3px solid black;
     box-shadow: 6px 6px 0px 0px;

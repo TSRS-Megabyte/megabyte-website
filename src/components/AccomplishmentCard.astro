@@ -35,8 +35,12 @@ const ordinalDay = formattedDate.replace(
 ---
 
 <div class="card bg-white flex h-full w-full flex-col">
-  <div class="title flex-shrink px-5 pt-2 pb-2 text-center flex flex-col gap-1 justify-between items-center">
-    <p class="text-2xl font-bold min-h-[60px] flex-grow flex justify-center items-center">
+  <div
+    class="title flex flex-shrink flex-col items-center justify-between gap-1 px-5 pt-2 pb-2 text-center"
+  >
+    <p
+      class="flex min-h-[60px] flex-grow items-center justify-center text-2xl font-bold"
+    >
       {title}
     </p>
     <p class="font-bold uppercase">
@@ -48,7 +52,7 @@ const ordinalDay = formattedDate.replace(
       {
         img ? (
           <img
-            class="mb-4 w-auto h-auto max-h-[250px] max-w-full"
+            class="mb-4 h-auto max-h-[250px] w-auto max-w-full"
             style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
             src={img.formats.medium.url}
             alt={img.name}
@@ -64,13 +68,9 @@ const ordinalDay = formattedDate.replace(
       </p>
       <a
         href={link}
-        class="hover:pointer bg-white px-4 py-2 text-center font-mono uppercase link-button text-sm"
+        class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-sm uppercase"
       >
-
-      <span class="font-bold">
-        Read more
-
-      </span>
+        <span class="font-bold"> Read more</span>
       </a>
     </div>
   </div>
