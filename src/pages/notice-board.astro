@@ -36,8 +36,8 @@ const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
         ) : (
           // <h1 class="text-center text-xl">().</h1>
           // map each event to its own block
-          data.map((event) => {
-            const colour = colours[Math.floor(Math.random() * colours.length)];
+          data.map((event, num) => {
+            const colour = colours[num];
             let details = event.attributes;
             return (
               <div>
