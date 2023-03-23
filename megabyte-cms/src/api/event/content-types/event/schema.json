@@ -38,10 +38,10 @@
       "unique": false
     },
     "tags": {
-      "displayName": "Tags",
-      "type": "component",
-      "repeatable": true,
-      "component": "tag.tags"
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "events"
     }
   }
 }
