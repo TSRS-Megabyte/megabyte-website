@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 let data;
 try {
   data = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
+    "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
   )
     .then((res) => res.json())
     .then((d) => {
@@ -18,7 +18,7 @@ const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?
   /^-*|-*$/g,
   ""
 )}`;
-const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
+const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
 ---
 
 <!-- <Maintain /> Use when site under Maintainance --><!-- <Maintain /> --><!-- 
@@ -28,6 +28,8 @@ description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
+<<<<<<< HEAD
+<!-- `/accomplishments/${post.slug}/`} -->
           <!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
@@ -40,11 +42,12 @@ heroImage: "/public/assets/tsrs.svg"
           What the society and its members have been up to, in and outside
           school.
         </p>
-
+        
         <p>
-          Email tsrs.mgbt@gmail.com in case you would like one of your
+          Email <span><a target="_blank" href="mailto:tsrs.mgbt@gmail.com">tsrs.mgbt@gmail.com</a></span> in case you would like one of your
           tech-related accomplishments to be featured on the website.
         </p>
+
       </div>
     </div>
 
@@ -93,6 +96,9 @@ heroImage: "/public/assets/tsrs.svg"
       background-image: url("/assets/tileable-cubes.svg");
       background-size: 50px 70px;
       background-repeat: repeat;
+    }
+    a {
+      text-decoration: underline;
     }
   </style>
 </Layout>

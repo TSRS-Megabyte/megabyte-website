@@ -8,7 +8,7 @@ import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 let notice;
 try {
   notice = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/notices"
+    "https://megabyte-website-backend.onrender.com/api/notices?sort=date:des"
   )
     .then((res) => res.json())
     .then((d) => {
@@ -22,9 +22,9 @@ try {
 } catch {
   notice = null;
 }
-const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
 let accomp = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
   .then((res) => res.json())
   .then((d) => {
@@ -78,7 +78,7 @@ if (accomp.length > 3) {
         </p>
       </div>
 
-      <div class="mb-4">
+      <div class="mb-2">
         {
           !notice_data_new ? (
             <div />
@@ -132,10 +132,10 @@ if (accomp.length > 3) {
             <div />
           ) : (
             // map each event to its own block
-            accomp_data_new.map((accomplishment) => {
+            accomp_data_new.map((accomplishment, num) => {
               let details = accomplishment.attributes;
               const colour_ =
-                colours[Math.floor(Math.random() * colours.length)];
+                colours[num];
 
               return (
                 <div>
