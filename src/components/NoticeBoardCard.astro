@@ -31,22 +31,30 @@ const nthNumber = (number) => {
   }
 };
 
-const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
+let hoursMin = dateObj.toLocaleTimeString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+const formattedDatetime = `${month} ${day}${nthNumber(
+  day
+)} ${year}, ${hoursMin}`;
 ---
 
 <div class="card flex h-full w-full flex-col">
-  <div
-    class={`bg-var flex-shrink border-b-2 py-4 px-4 leading-5 md:px-8`}
-  >
+  <div class={`bg-var flex-shrink border-b-2 py-4 px-4 leading-5 md:px-8`}>
     <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-    <p class="text-base font-medium">Posted {formattedDate}</p>
+    <p class="text-base font-medium">Posted {formattedDatetime}</p>
   </div>
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pt-4 pb-4 md:px-8"
   >
-    <div class="text-left text-lg flex flex-col gap-3" set:html={parsedContent} />
+    <div
+      class="flex flex-col gap-3 text-left text-lg"
+      set:html={parsedContent}
+    />
   </div>
 </div>
 
