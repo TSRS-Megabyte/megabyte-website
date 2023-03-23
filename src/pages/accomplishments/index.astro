@@ -71,9 +71,9 @@ heroImage: "/public/assets/tsrs.svg"
           data.map((event, num) => {
             let details = event.attributes;
             let imgSrc = "";
-            if (details.media && details.media.data) {
-              imgSrc = details.media.data[0].attributes.formats.medium.url;
-            }
+              if (details.media.data.length != 0) {
+                imgSrc = details.media.data[0].attributes.url;
+              }
 
             return (
               <div>
