@@ -11,6 +11,7 @@ let data = await fetch(
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(/^-*|-*$/g, '')}`;
+const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
 ---
 
 <!-- <Maintain /> --><!-- 
@@ -21,45 +22,7 @@ pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
           <!-- `/accomplishments/${post.slug}/`} -->
-<Layout title="Accomplishments"  >
-  <main>
-    <div class="bg-[#ff7474] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
-<h1 class="text-4xl font-bold text-center">Accomplishments</h1>
-<h1 class="text-xl pt-5 text-center">What the society and its members have been up to, in and outside school.</h1>
 
-</div>
-    
-    <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-  
-{
-    !data ? (
-      // if there are no events found
-      <h1>No events.</h1>
-    ) : (
-      // map each event to its own block
-      data.map((event) => {
-        let details = event.attributes;
-        return (
-          <div>
-            <VerticalCard
-              title={details.title}
-              link={`/accomplishments/${details.title}`}
-              body={details.subline}
-              imgLink={details.heroImage}
-             tColour={details.bg_color}
-             date={details.date}
-
-         />
-           
-            
-          </div>
-        );
-      })
-    )
-  }
-
-    </div>
-  </main>
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
     <div class="mb-8 flex flex-row items-center justify-center">
@@ -71,10 +34,7 @@ heroImage: "/public/assets/tsrs.svg"
           What the society and its members have been up to, in and outside
           school.
         </p>
-        <p class="text-center text-sm font-light md:text-lg">
-          Email us at PLACEHOLDER if you would like a computer-related
-          accomplishment of yours to be featured here.
-        </p>
+
       </div>
     </div>
 
@@ -86,15 +46,16 @@ heroImage: "/public/assets/tsrs.svg"
       ) : (
         // map each event to its own block
         data.map((event) => {
+          const colour = colours[Math.floor(Math.random() * colours.length)];
           let details = event.attributes;
           return (
             <div>
               <AccomplishmentCard
                 title={details.title}
-                link={`/accomplishments`}
+                link={`/accomplishments/random`}
                 body={details.subline}
                 imgLink={details.heroImage}
-                tColour={details.bg_color}
+                tColour={colour}
                 date={details.date}
               />
             </div>
