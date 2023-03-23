@@ -1,23 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 let data;
-try {
-  data = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
-  )
-    .then((res) => res.json())
-    .then((d) => {
-      return d.data;
-    });
-} catch {
-  data = null;
-}
+data = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    console.log(d.data);
+    return d.data;
+  });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
-const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(
-  /^-*|-*$/g,
-  ""
-)}`;
+
 const colours = [
   "#81effc",
   "#ffe81b",
@@ -41,7 +35,7 @@ description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
-<<<<<<< HEAD
+
 <!-- `/accomplishments/${post.slug}/`} --><!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
@@ -77,11 +71,10 @@ heroImage: "/public/assets/tsrs.svg"
           // map each event to its own block
           data.map((event, num) => {
             let details = event.attributes;
-            var str = JSON.stringify(
-              details.media.data[0]["attributes"],
-              null,
-              4
-            ); // (Optional) beautiful indented output.
+            let imgSrc = "";
+              if (details.media.data.length != 0) {
+                imgSrc = details.media.data[0].attributes.url;
+              }
 
             return (
               <div>
@@ -89,7 +82,7 @@ heroImage: "/public/assets/tsrs.svg"
                   title={details.title}
                   link={`/accomplishments/${details.slug}`}
                   body={details.subline}
-                  img={details.media.data[0]["attributes"]}
+                  img={imgSrc}
                   tColour={colours[num]}
                   date={details.date}
                 />
