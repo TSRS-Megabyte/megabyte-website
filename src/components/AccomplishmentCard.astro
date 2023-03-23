@@ -20,7 +20,7 @@ const { tColour, title, link, date, body, img } = Astro.props;
     </p>
   </div>
   <div class="flex flex-grow flex-col gap-5 px-6 py-6">
-    <div class="flex h-[250px] flex-col items-center justify-center">
+    <div class="flex md:h-[250px] flex-col items-center justify-center">
       {
         img ? (
           <img
@@ -34,53 +34,52 @@ const { tColour, title, link, date, body, img } = Astro.props;
         )
       }
     </div>
-    <div class="flex-grow flex flex-col justify-between">
-      <p class="text-md text-gray-700 flex-grow mb-6">
+    <div class="flex flex-grow flex-col justify-between">
+      <p class="text-md text-gray-700 mb-6 flex-grow">
         {body}
       </p>
-      <button
-        class="hover:pointer bg-white link-button py-2 text-center font-mono text-lg"
+      <a
+        href={link}
+        class="hover:pointer bg-white link-button h-full w-full px-4 py-2 text-center font-mono font-mono text-lg font-bold uppercase"
       >
-        <a href={link} class="h-full w-full px-4 font-mono font-bold uppercase"
-          >Read more</a
-        >
-      </button>
+        <button> Read more</button>
+      </a>
     </div>
   </div>
+
+  <style define:vars={{ tColour }}>
+    .card {
+      box-shadow: 6px 6px 0px 0px;
+      border: 2px solid black;
+      transition: ease 0.2s;
+    }
+
+    body {
+      font-family: "Lexend";
+    }
+
+    .bg-white {
+      background-color: #fff;
+    }
+
+    .link-button {
+      background: #ffffff;
+      border: 1px solid black;
+      box-shadow: 4px 4px 0px 0px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .link-button:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px;
+    }
+    .title {
+      background-color: var(--tColour);
+    }
+  </style>
 </div>
-
-<style define:vars={{ tColour }}>
-  .card {
-    box-shadow: 6px 6px 0px 0px;
-    border: 2px solid black;
-    transition: ease 0.2s;
-  }
-
-  body {
-    font-family: "Lexend";
-  }
-
-  .bg-white {
-    background-color: #fff;
-  }
-
-  .link-button {
-    background: #ffffff;
-    border: 1px solid black;
-    box-shadow: 4px 4px 0px 0px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .link-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px;
-  }
-  .title {
-    background-color: var(--tColour);
-  }
-</style>
