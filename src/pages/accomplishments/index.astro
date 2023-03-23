@@ -9,49 +9,59 @@ import VerticalCard from "../../components/VerticalCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 import database from "../../../megabyte-cms/config/database";
 ---
-<!-- <Maintain /> -->
-<!-- 
+
+<!-- <Maintain /> --><!-- 
   structure of the post
   title: "this is the title"
 description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg" -->
-<Layout title="Accomplishments"  >
-  <main>
-    <div class="bg-[#ff7474] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
-<h1 class="text-4xl font-bold text-center">Accomplishments</h1>
-<h1 class="text-xl pt-5 text-center">What the society and its members have been up to, in and outside school.</h1>
+<Layout title="Accomplishments">
+  <div class="mt-24 md:mt-36 px-8 md:px-24 pb-12">
 
-</div>
-    
-    <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-    {
-      posts.map((post) => (
-        <div>
-         <VerticalCard
+    <div class="flex flex-row justify-center items-center w-full">
+      <div class="bg-[#ff7474] title w-fit py-6 px-8 mb-8">
+        <h1 class="text-center font-bold text-2xl md:text-4xl">Accomplishments</h1>
+        <p class="pt-5 text-center text-lg md:text-2xl">
+          What the society and its members have been up to, in and outside school.
+        </p>
+      </div>
+    </div>
+
+
+    <div
+      class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-3 xl:grid-cols-4"
+    >
+      {
+        posts.map((post) => (
+          <div>
+            <VerticalCard
               title={post.data.title}
               link={`/accomplishments/${post.slug}/`}
               body={post.data.description}
               imgLink={post.data.heroImage}
-             tColour={post.data.titleColour}
-         />
-        </div>
-      ))
-    }</div>
-  </main>
+              tColour={post.data.titleColour}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+  </div>
+
   <style>
     body {
-            background-image: url("/public/assets/tileable-cubes.svg");
+      background-image: url("/public/assets/tileable-cubes.svg");
       background-size: 50px;
     }
     main {
       margin: 50px;
-
-    }.title {
+    }
+    .title {
       border: 2px solid #000;
       box-shadow: 6px 6px 0px 0px #000;
     }
-   
   </style>
-</Layout> 
+</Layout>
+
