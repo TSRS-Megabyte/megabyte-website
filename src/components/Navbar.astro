@@ -12,14 +12,17 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/" class="navHome" title="Home">
         <div class="flex h-full w-full flex-row items-center justify-center">
           <img
-            class="w-[5vw] min-w-[70px]"
+            class="w-[3.6vw] min-w-[60px] mr-[-0.35em]"
             src="/assets/tsrs.svg"
             alt="tsrs logo"
           />
-          <div class="">
-            <p class="mb-[0.03em] text-2xl font-bold uppercase">Megabyte</p>
-            <!-- <div id="mgbt-underline" class="w-1/2 h-1 bg-[#74bcffb4]"></div> -->
-          </div>
+          <img
+          class="w-[3.5vw] min-w-[50px] mr-3"
+          src="/final/mega-bw.svg"
+          alt="megabyte logo"
+        />
+          <p class="mb-[0.03em] text-2xl font-bold uppercase">Megabyte</p>
+          <!-- <div id="mgbt-underline" class="w-1/2 h-1 bg-[#74bcffb4]"></div> -->
         </div>
       </a>
       <button aria-controls="navlinks" aria-expanded="false" class="nav-toggle">
