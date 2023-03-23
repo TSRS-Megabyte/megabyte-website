@@ -1,28 +1,45 @@
 ---
 //schena for each blogpost
-import AccomplishmentMain from '../../components/AccomplishmentMain.astro';
-import Layout from '../../layouts/Layout.astro'
+import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
+import Layout from "../../layouts/Layout.astro";
+const slug = Astro.params.slug;
+let data = await fetch(
+  `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${slug}`
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+if (data.length === 0 || !data) {
+  console.log("Empty page.");
+}
 
+data = data[0].attributes
+
+console.log("New data",data)
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 const colour = colours[Math.floor(Math.random() * colours.length)];
 ---
+{
+  data.length === 0 || !data ? (
+    <div>No event.</div>
+  ) : (
+<Layout title={`${data.title} | MEGABYTE`}>
+  <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
 
-
-<Layout title="<PLACEHOLDER FOR TITLE> | MEGABYTE">
-<div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
-  <AccomplishmentMain
-  title="<PLACEHOLDER FOR TITLE>"
-  body="<PLACEHOLDER FOR CONTENT>"
-  tColour={colour}
-  date='<PLACEHOLDER FOR DATE>'
-  />
-</div>
-<style>
-.bg-cube {
-    background-image: url("/assets/tileable-cubes.svg");
-    background-size: 50px;
-    background-repeat: repeat;
-}
-</style>
-
+        <AccomplishmentMain
+          title={data.title}
+          rawContent={data.content}
+          tColour={colour}
+          date={data.publishedAt}
+        />
+  </div>
+  <style>
+    .bg-cube {
+      background-image: url("/assets/tileable-cubes.svg");
+      background-size: 50px;
+      background-repeat: repeat;
+    }
+  </style>
 </Layout>
+)}
