@@ -11,6 +11,7 @@ let data = await fetch(
   });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
+import { log } from "astro/dist/core/logger/core";
 ---
 
 <!-- <Maintain /> --><!-- 
@@ -48,6 +49,7 @@ heroImage: "/public/assets/tsrs.svg"
         // map each event to its own block
         data.map((event) => {
           let details = event.attributes;
+          console.log(details);
           return (
             <div>
               <AccomplishmentCard

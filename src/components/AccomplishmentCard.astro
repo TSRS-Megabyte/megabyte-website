@@ -8,11 +8,11 @@ export interface Props {
   tColour: string;
 }
 const { tColour, title, link, date, body, imgLink } = Astro.props;
-
 ---
 
+
 <div class="card bg-white flex h-full w-full flex-col">
-  <div class="flex-shrink p-5 text-center title">
+  <div class="title flex-shrink p-5 text-center">
     <p class="mb-2 text-xl font-bold">
       {title}
     </p>
@@ -22,12 +22,18 @@ const { tColour, title, link, date, body, imgLink } = Astro.props;
   </div>
   <div class="flex flex-grow flex-col gap-5 px-6 py-6">
     <div class="flex-grow">
-      <img
-        class="mb-4 w-full"
-        style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
-        alt="fbdbfsd"
-        src={imgLink}
-      />
+    {imgLink}
+      {
+        imgLink ? (
+          <img
+            class="mb-4 w-full"
+            style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
+            src={imgLink}
+          />
+        ) : (
+          <div />
+        )
+      }
       <p class="text-md text-gray-700">
         {body}
       </p>
@@ -35,22 +41,19 @@ const { tColour, title, link, date, body, imgLink } = Astro.props;
     <button
       class="hover:pointer bg-white link-button py-2 text-center font-mono text-lg"
     >
-      <a href={link} class="h-full w-full px-4 font-bold font-mono uppercase">Read more</a
+      <a href={link} class="h-full w-full px-4 font-mono font-bold uppercase"
+        >Read more</a
       >
     </button>
   </div>
 </div>
 
-
-
-<style define:vars={{tColour}}>
+<style define:vars={{ tColour }}>
   .card {
     box-shadow: 6px 6px 0px 0px;
     border: 2px solid black;
     transition: ease 0.2s;
-
   }
-
 
   body {
     font-family: "Lexend";
