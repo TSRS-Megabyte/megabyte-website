@@ -20,11 +20,11 @@ const { tColour, title, link, date, body, img } = Astro.props;
     </p>
   </div>
   <div class="flex flex-grow flex-col gap-5 px-6 py-6">
-    <div class="flex md:h-[250px] flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center md:h-[250px]">
       {
         img ? (
           <img
-            class="mb-4 h-auto w-full"
+            class="mb-4 w-auto h-auto max-h-[250px] max-w-full"
             style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
             src={img.formats.medium.url}
             alt={img.name}
@@ -40,9 +40,9 @@ const { tColour, title, link, date, body, img } = Astro.props;
       </p>
       <a
         href={link}
-        class="hover:pointer bg-white link-button h-full w-full px-4 py-2 text-center font-mono font-mono text-lg font-bold uppercase"
+        class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-lg font-bold uppercase"
       >
-        <button> Read more</button>
+        Read more
       </a>
     </div>
   </div>
