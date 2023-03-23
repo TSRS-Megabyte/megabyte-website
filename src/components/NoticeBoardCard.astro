@@ -11,6 +11,25 @@ export interface Props {
 }
 
 const { title, body,  tColour, date } = Astro.props;
+const options = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+const formattedDate = new Date(date).toLocaleDateString("en-GB", options);
+const ordinalDay = formattedDate.replace(/(\d{1,2})(st|nd|rd|th)/, (match, day, suffix) => {
+  if (day >= 11 && day <= 19) {
+    return day + 'th';
+  } else {
+    switch (day % 10) {
+      case 1: return day + 'st';
+      case 2: return day + 'nd';
+      case 3: return day + 'rd';
+      default: return day + 'th';
+    }
+  }
+});
+
 ---
 
 <div class="card w-full flex flex-col h-full">
@@ -18,7 +37,7 @@ const { title, body,  tColour, date } = Astro.props;
     <h3 class="text-xl font-bold mb-2">
       {title}
     </h3>
-    <p class="text-base font-light uppercase">Posted 12th October {date}</p>
+    <p class="text-base font-light uppercase">Posted {ordinalDay}</p>
   </div>
   <div class="flex-grow bg-white py-5 flex flex-col items-start gap-3 px-4 md:px-8">
     <p class="text-left text-lg">{body}</p>
