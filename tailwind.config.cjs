@@ -6,7 +6,7 @@ module.exports = {
         fontFamily: {
             'body': ['Lexend', 'sans-serif'],
             'sans': ['Lexend', 'sans-serif'],
-            'mono': ['Robot Mono', 'monospace'],
+            'mono': ['Roboto Mono', 'monospace'],
         },
         screens: {
             'sm': '640px',
