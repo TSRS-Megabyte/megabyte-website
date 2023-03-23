@@ -5,17 +5,22 @@ import Layout from "../layouts/Layout.astro";
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 // import favicon.ico from ''
 // import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
-let notice = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/notices"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
-if (notice.length > 3) {
-  var notice_data_new = notice.slice(0, 3);
-} else {
-  var notice_data_new = notice;
+let notice;
+try {
+  notice = await fetch(
+    "https://megabyte-website-backend.onrender.com/api/notices"
+  )
+    .then((res) => res.json())
+    .then((d) => {
+      return d.data;
+    });
+  if (notice.length > 3) {
+    var notice_data_new = notice.slice(0, 3);
+  } else {
+    var notice_data_new = notice;
+  }
+} catch {
+  notice = null;
 }
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 let accomp = await fetch(
@@ -136,7 +141,7 @@ if (accomp.length > 3) {
                     title={details.title}
                     link={`/accomplishments/random`}
                     body={details.subline}
-                    imgLink={details.heroImage}
+                    img={details.media.data[0]["attributes"]}
                     tColour={colour_}
                     date={details.date}
                   />
