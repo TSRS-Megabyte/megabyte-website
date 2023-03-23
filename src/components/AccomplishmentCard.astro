@@ -9,7 +9,7 @@ export interface Props {
 }
 const { tColour, title, link, date, body, img } = Astro.props;
 const formattedDate = new Date(date).toLocaleDateString("en-GB", {
-  // year: "numeric",
+  year: "numeric",
   month: "long",
   day: "numeric",
 });

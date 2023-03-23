@@ -3,8 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 let data;
 try {
   data = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
-  )
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
+)
     .then((res) => res.json())
     .then((d) => {
       return d.data;
@@ -74,15 +74,15 @@ heroImage: "/public/assets/tsrs.svg"
           // map each event to its own block
           data.map((event, num) => {
             let details = event.attributes;
-            var str = JSON.stringify(
+            var attributes = JSON.stringify(
               details.media.data[0]["attributes"],
               null,
               4
             ); // (Optional) beautiful indented output.
+            console.log(attributes["formats"]);
 
             return (
-              <div>
-                <AccomplishmentCard
+            <AccomplishmentCard
                   title={details.title}
                   link={`/accomplishments/${details.slug}`}
                   body={details.subline}
@@ -90,7 +90,6 @@ heroImage: "/public/assets/tsrs.svg"
                   tColour={colours[num]}
                   date={details.date}
                 />
-              </div>
             );
           })
         )
