@@ -24,7 +24,7 @@ try {
 }
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 let accomp = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments"
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
 )
   .then((res) => res.json())
   .then((d) => {
@@ -131,15 +131,17 @@ if (accomp.length > 3) {
             <div />
           ) : (
             // map each event to its own block
-            accomp_data_new.map((event) => {
+            accomp_data_new.map((accomplishment) => {
+              let details = accomplishment.attributes;
               const colour_ =
                 colours[Math.floor(Math.random() * colours.length)];
-              let details = event.attributes;
+              console.log(JSON.stringify(details.slug));
+
               return (
                 <div>
                   <AccomplishmentCard
                     title={details.title}
-                    link={`/accomplishments/random`}
+                    link={`/accomplishments/${details.slug}`}
                     body={details.subline}
                     img={details.media.data[0]["attributes"]}
                     tColour={colour_}
