@@ -40,7 +40,7 @@ import VerticalCard from "../components/VerticalCard.astro";
     <div class="notice mb-16 px-8 md:px-24">
       <div class="section-title-box mb-6 w-fit p-5 text-left">
         <p
-          class="notice-title mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
+          class=" mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
         >
           Notice Board
         </p>
@@ -81,9 +81,9 @@ import VerticalCard from "../components/VerticalCard.astro";
       </div>
     </div>
     <div class="acc mb-16 px-8 md:px-24">
-      <div class="section-title-box mb-6 w-fit p-[2.25vmin] text-left">
+      <div class="section-title-box mb-6 w-fit p-[2.25vmin] text-left" id="accomplishments-title-box">
         <p
-          class="notice-title mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
+          class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl"
         >
           Accomplishments
         </p>
@@ -134,7 +134,7 @@ import VerticalCard from "../components/VerticalCard.astro";
     <div class="px-8 md:px-24 mb-16">
       <div class="section-title-box w-fit py-8 px-8 text-left mb-6">
         <p
-          class="notice-title mb-2 font-semibold text-2xl md:text-3xl tracking-wider"
+          class=" mb-2 font-semibold text-2xl md:text-3xl tracking-wider"
         >
           Resources
         </p>
@@ -245,11 +245,8 @@ import VerticalCard from "../components/VerticalCard.astro";
     box-shadow: 4px 4px 0px #000000;
     background-color: white;
   }
-  .notice:active .section-title-box {
-    transform: rotate(-5deg);
-    transition: ease 0.4s;
-  }
-  .acc:active .section-title-box {
+  
+  .section-title-box:active {
     transform: rotate(-5deg);
     transition: ease 0.4s;
   }
@@ -274,6 +271,7 @@ import VerticalCard from "../components/VerticalCard.astro";
     align-items: center;
     display: flex;
   }
+  
 </style>
 <script>
  function TextScramble(el) {
