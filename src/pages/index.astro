@@ -8,7 +8,7 @@ import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 let notice;
 try {
   notice = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/notices?sort=date:des"
+    "https://megabyte-website-backend.onrender.com/api/notices?sort=date:desc"
   )
     .then((res) => res.json())
     .then((d) => {
