@@ -20,17 +20,20 @@ const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?
 )}`;
 const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
 ---
-<!-- <Maintain /> Use when site under Maintainance -->
 
-<!-- <Maintain /> --><!-- 
+<!-- <Maintain /> Use when site under Maintainance --><!-- <Maintain /> --><!-- 
   structure of the post
   title: "this is the title"
 description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
+<<<<<<< HEAD
 <!-- `/accomplishments/${post.slug}/`} -->
 
+=======
+          <!-- `/accomplishments/${post.slug}/`} -->
+>>>>>>> 1099c5d5936d619dee19da3dbb717ffcce6753bd
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
     <div class="mb-8 flex flex-row items-center justify-center">
@@ -43,7 +46,14 @@ heroImage: "/public/assets/tsrs.svg"
           school.
         </p>
 
+<<<<<<< HEAD
         <p>Write an email to <a class="cursor-pointer underline">tsrs.mgbt@gmail.com</a> in case you would like one of your tech-related accomplishments to be featured on the website.</p>
+=======
+        <p>
+          Email tsrs.mgbt@gmail.com in case you would like one of your
+          tech-related accomplishments to be featured on the website.
+        </p>
+>>>>>>> 1099c5d5936d619dee19da3dbb717ffcce6753bd
       </div>
     </div>
 
@@ -56,10 +66,13 @@ heroImage: "/public/assets/tsrs.svg"
           <div />
         ) : (
           // map each event to its own block
-          data.map((event) => {
+          data.map((event, num) => {
             let details = event.attributes;
-            var str = JSON.stringify(details.media.data[0]["attributes"], null, 4); // (Optional) beautiful indented output.
-            console.log(str); // Logs output to dev tools console.
+            var str = JSON.stringify(
+              details.media.data[0]["attributes"],
+              null,
+              4
+            ); // (Optional) beautiful indented output.
 
             return (
               <div>
@@ -68,7 +81,7 @@ heroImage: "/public/assets/tsrs.svg"
                   link={`/accomplishments/${details.slug}`}
                   body={details.subline}
                   img={details.media.data[0]["attributes"]}
-                  tColour={details.bg_color}
+                  tColour={colours[num]}
                   date={details.date}
                 />
               </div>
