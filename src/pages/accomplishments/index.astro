@@ -3,7 +3,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 let data = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments"
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
 )
   .then((res) => res.json())
   .then((d) => {
@@ -40,34 +40,37 @@ heroImage: "/public/assets/tsrs.svg"
       </div>
     </div>
 
-  <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-    {
-      !data ? (
-        // if there are no events found
-        <div />
-      ) : (
-        // map each event to its own block
-        data.map((event) => {
-          let details = event.attributes;
-          console.log(details);
-          return (
-            <div>
-              <AccomplishmentCard
-                title={details.title}
-                link={`/accomplishments`}
-                body={details.subline}
-                imgLink={details.heroImage}
-                tColour={details.bg_color}
-                date={details.date}
-              />
-            </div>
-          );
-        })
-      )
-    }
-  </div>
-  </div>
+    <div
+      class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        !data ? (
+          // if there are no events found
+          <div />
+        ) : (
+          // map each event to its own block
+          data.map((event) => {
+            let details = event.attributes;
+            var str = JSON.stringify(details.media.data[0]["attributes"], null, 4); // (Optional) beautiful indented output.
+            console.log(str); // Logs output to dev tools console.
 
+            return (
+              <div>
+                <AccomplishmentCard
+                  title={details.title}
+                  link={`/accomplishments`}
+                  body={details.subline}
+                  img={details.media.data[0]["attributes"]}
+                  tColour={details.bg_color}
+                  date={details.date}
+                />
+              </div>
+            );
+          })
+        )
+      }
+    </div>
+  </div>
 
   <style>
     .title-box {

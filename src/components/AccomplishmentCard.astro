@@ -4,12 +4,11 @@ export interface Props {
   link: string;
   body: string;
   date: string;
-  imgLink: string;
+  img: object;
   tColour: string;
 }
-const { tColour, title, link, date, body, imgLink } = Astro.props;
+const { tColour, title, link, date, body, img } = Astro.props;
 ---
-
 
 <div class="card bg-white flex h-full w-full flex-col">
   <div class="title flex-shrink p-5 text-center">
@@ -21,30 +20,32 @@ const { tColour, title, link, date, body, imgLink } = Astro.props;
     </p>
   </div>
   <div class="flex flex-grow flex-col gap-5 px-6 py-6">
-    <div class="flex-grow">
-    {imgLink}
+    <div class="flex h-[250px] flex-col items-center justify-center">
       {
-        imgLink ? (
+        img ? (
           <img
-            class="mb-4 w-full"
+            class="mb-4 h-auto w-full"
             style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
-            src={imgLink}
+            src={img.formats.medium.url}
+            alt={img.name}
           />
         ) : (
           <div />
         )
       }
-      <p class="text-md text-gray-700">
+    </div>
+    <div class="flex-grow flex flex-col justify-between">
+      <p class="text-md text-gray-700 flex-grow mb-6">
         {body}
       </p>
-    </div>
-    <button
-      class="hover:pointer bg-white link-button py-2 text-center font-mono text-lg"
-    >
-      <a href={link} class="h-full w-full px-4 font-mono font-bold uppercase"
-        >Read more</a
+      <button
+        class="hover:pointer bg-white link-button py-2 text-center font-mono text-lg"
       >
-    </button>
+        <a href={link} class="h-full w-full px-4 font-mono font-bold uppercase"
+          >Read more</a
+        >
+      </button>
+    </div>
   </div>
 </div>
 
