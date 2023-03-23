@@ -11,14 +11,29 @@ let data = await fetch(
   });
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 import NoticeBoardCard from "../components/NoticeBoardCard.astro";
-const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
-
+const colours = [
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+];
 ---
 
 <!-- <Maintain /> -->
 <Layout title="Notice Board | Megabyte">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
-    <div class="flex flex-row items-center justify-center mb-8">
+    <div class="mb-8 flex flex-row items-center justify-center">
       <div class="title-box w-fit bg-[#ceff1b] py-6 px-6">
         <h1 class="mb-5 text-center text-2xl font-bold md:text-3xl xl:text-4xl">
           Notice board
@@ -44,7 +59,6 @@ const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"
                 <NoticeBoardCard
                   title={details.title}
                   body={details.content}
-
                   tColour={colour}
                   date={details.publishedAt}
                 />
@@ -63,11 +77,9 @@ const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"
     }
 
     .bg-cube {
-        background-image: url("/assets/tileable-cubes.svg");
-        background-size: 50px 70px;
-        background-repeat: repeat;
-      }
-
+      background-image: url("/assets/tileable-cubes.svg");
+      background-size: 50px 70px;
+      background-repeat: repeat;
+    }
   </style>
-
 </Layout>
