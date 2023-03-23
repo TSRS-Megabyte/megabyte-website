@@ -4,7 +4,7 @@ export interface Props {
   link: string;
   body: string;
   date: string;
-  img: object;
+  img: string;
   tColour: string;
 }
 const { tColour, title, link, date, body, img } = Astro.props;
@@ -54,8 +54,8 @@ const ordinalDay = formattedDate.replace(
           <img
             class="mb-4 h-auto max-h-[250px] w-auto max-w-full"
             style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
-            src={img.formats.medium.url}
-            alt={img.name}
+            src={img}
+            alt={img}
           />
         ) : (
           <div />

@@ -22,7 +22,23 @@ try {
 } catch {
   notice = null;
 }
-const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
+const colours = [
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+];
 let accomp = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
@@ -85,10 +101,9 @@ if (accomp.length > 3) {
           ) : (
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
-            
+
             notice_data_new.map((event, num) => {
-              const colour =
-                colours[num];
+              const colour = colours[num];
               let details = event.attributes;
               return (
                 <div class="mb-[2em]">
@@ -134,8 +149,11 @@ if (accomp.length > 3) {
             // map each event to its own block
             accomp_data_new.map((accomplishment, num) => {
               let details = accomplishment.attributes;
-              const colour_ =
-                colours[num];
+              const colour_ = colours[num];
+              let imgSrc = "";
+              if (details.media.data.length != 0) {
+                imgSrc = details.media.data[0].attributes.formats.medium.url;
+              }
 
               return (
                 <div>
@@ -143,7 +161,7 @@ if (accomp.length > 3) {
                     title={details.title}
                     link={`/accomplishments/${details.slug}`}
                     body={details.subline}
-                    img={details.media.data[0]["attributes"]}
+                    img={imgSrc}
                     tColour={colour_}
                     date={details.date}
                   />
@@ -210,7 +228,6 @@ if (accomp.length > 3) {
 </Layout>
 
 <style>
-
   .topMain {
     display: flex;
     align-items: center;

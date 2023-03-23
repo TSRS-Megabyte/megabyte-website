@@ -1,17 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 let data;
-try {
-  data = await fetch(
+data =await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
-    .then((res) => res.json())
-    .then((d) => {
-      return d.data;
-    });
-} catch {
-  data = null;
-}
+  .then((res) => res.json())
+  .then((d) => {
+    console.log(d.data);
+    return d.data;
+  });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(
@@ -77,22 +74,22 @@ heroImage: "/public/assets/tsrs.svg"
           // map each event to its own block
           data.map((event, num) => {
             let details = event.attributes;
-            var attributes = JSON.stringify(
-              details.media.data[0]["attributes"],
-              null,
-              4
-            ); // (Optional) beautiful indented output.
-            console.log(attributes["formats"]);
+            let imgSrc = "";
+            if (details.media && details.media.data) {
+              imgSrc = details.media.data[0].attributes.formats.medium.url;
+            }
 
             return (
-            <AccomplishmentCard
+              <div>
+                <AccomplishmentCard
                   title={details.title}
                   link={`/accomplishments/${details.slug}`}
                   body={details.subline}
-                  img={details.media.data[0]["attributes"]}
+                  img={imgSrc}
                   tColour={colours[num]}
                   date={details.date}
                 />
+              </div>
             );
           })
         )
