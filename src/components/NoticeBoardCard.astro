@@ -36,9 +36,7 @@ let hoursMin = dateObj.toLocaleTimeString("en-US", {
   minute: "2-digit",
 });
 
-const formattedDatetime = `${month} ${day}${nthNumber(
-  day
-)} ${year}, ${hoursMin}`;
+const formattedDatetime = `${month} ${day}${nthNumber(day)} ${year}`; // + `, ${hoursMin}`
 ---
 
 <div class="card flex h-full w-full flex-col">
