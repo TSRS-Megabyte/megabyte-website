@@ -5,16 +5,30 @@ import Layout from "../layouts/Layout.astro";
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 // import favicon.ico from ''
 // import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
-let data = await fetch(
+let notice = await fetch(
   "https://megabyte-website-backend.onrender.com/api/notices"
 )
   .then((res) => res.json())
   .then((d) => {
     return d.data;
   });
-const data_new = [data["0"], data["1"], data["2"]];
-console.log(data_new)
+if (notice.length > 3) {
+  var notice_data_new = notice.slice(0, 3);
+} else {
+  var notice_data_new = notice;}
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+let accomp = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/accomplishments"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+if (accomp.length > 3) {
+  var accomp_data_new = accomp.slice(0, 3);
+} else {
+  var accomp_data_new = accomp;}
+// const data = [accomp["0"], accomp["1"], accomp["2"]];
 ---
 
 <Layout title="Megabyte" class="w-screen h-screen =-mandatory">
@@ -61,12 +75,12 @@ const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 
       <div class="mb-4">
         {
-        !data ? (
+        !notice_data_new ? (
           <div />
         ) : (
           // <h1 class="text-center text-xl">().</h1>
           // map each event to its own block
-          data.map((event) => {
+          notice_data_new.map((event) => {
             const colour = colours[Math.floor(Math.random() * colours.length)];
             let details = event.attributes;
             return (
@@ -104,36 +118,30 @@ const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
       <div
         class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
-        <div>
-          <AccomplishmentCard
-            tColour="#82e8ff"
-            date="12 MARCH"
-            imgLink=""
-            title="Pathways School Noida Hackathon"
-            body=""
-            link="/"
-          />
-        </div>
-        <div>
-          <AccomplishmentCard
-            tColour="#ffe81b"
-            date="12 MARCH"
-            imgLink=""
-            title="Shriteq 2022 tryouts"
-            body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-            link="/"
-          />
-        </div>
-        <div>
-          <AccomplishmentCard
-            tColour="#ff7474"
-            date="12 MARCH"
-            imgLink=""
-            title="Shriteq 2022 tryouts"
-            body="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit. Et duis cupidatat commodo nisi sint sit laborum excepteur. Quis nisi voluptate cillum ea culpa anim dolore anim. "
-            link="/"
-          />
-        </div>
+        {
+      !accomp_data_new ? (
+        // if there are no events found
+        <div />
+      ) : (
+        // map each event to its own block
+        accomp_data_new.map((event) => {
+          const colour_ = colours[Math.floor(Math.random() * colours.length)];
+          let details = event.attributes;
+          return (
+            <div>
+              <AccomplishmentCard
+                title={details.title}
+                link={`/accomplishments/random`}
+                body={details.subline}
+                imgLink={details.heroImage}
+                tColour={colour_}
+                date={details.date}
+              />
+            </div>
+          );
+        })
+      )
+    }
       </div>
       <div class="w-full p-3 text-right">
         <Button color="#ceff1b" text="See All" link="/accomplishments" />
