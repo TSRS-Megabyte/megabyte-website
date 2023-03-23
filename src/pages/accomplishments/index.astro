@@ -1,6 +1,5 @@
 ---
-//PAGE TO RENDER ALL AVAILABLE POSTS
-import { getCollection } from "astro:content";
+
 import Layout from "../../layouts/Layout.astro";
 let data = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments"
@@ -11,6 +10,7 @@ let data = await fetch(
   });
 import VerticalCard from "../../components/VerticalCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
+const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(/^-*|-*$/g, '')}`;
 ---
 <!-- <Maintain /> -->
 <!-- 
@@ -43,7 +43,7 @@ heroImage: "/public/assets/tsrs.svg"
           <div>
             <VerticalCard
               title={details.title}
-              link={`/accomplishments`}
+              link={`/accomplishments/${details.title}`}
               body={details.subline}
               imgLink={details.heroImage}
              tColour={details.bg_color}
