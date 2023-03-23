@@ -49,9 +49,7 @@ heroImage: "/public/assets/tsrs.svg"
           // map each event to its own block
           data.map((event) => {
             let details = event.attributes;
-            var str = JSON.stringify(details.media.data[0]["attributes"], null, 4); // (Optional) beautiful indented output.
-            console.log(str); // Logs output to dev tools console.
-
+            
             return (
               <div>
                 <AccomplishmentCard
