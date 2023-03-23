@@ -22,7 +22,7 @@ try {
 } catch {
   notice = null;
 }
-const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
 let accomp = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
@@ -132,10 +132,10 @@ if (accomp.length > 3) {
             <div />
           ) : (
             // map each event to its own block
-            accomp_data_new.map((accomplishment) => {
+            accomp_data_new.map((accomplishment, num) => {
               let details = accomplishment.attributes;
               const colour_ =
-                colours[Math.floor(Math.random() * colours.length)];
+                colours[num];
 
               return (
                 <div>
