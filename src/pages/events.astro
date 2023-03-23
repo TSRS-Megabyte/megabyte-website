@@ -14,14 +14,7 @@ import HoriCard from "../components/HoriCard.astro";
 import EventCard from "../layouts/EventCard.astro";
 ---
 <!-- <Maintain /> -->
-<!-- 
-  structure of the post
-  title: "this is the title"
-description: "this is a description of the post"
-pubDate: "this is pubdate"
-updatedDate: ""
-heroImage: "/public/assets/tsrs.svg"
-          <!-- `/accomplishments/${post.slug}/`} -->
+
 <Layout title="Events"  >
   <main>
     <div class="bg-[#ceff1b] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
@@ -41,22 +34,14 @@ heroImage: "/public/assets/tsrs.svg"
         let details = event.attributes;
         return (
           <div>
-            <EventCard 
+            <HoriCard
               title={details.title}
               body={details.description}
-              link={details.url}
-              tColour="#cce"
-              say="Event Site"
-            >
-            <div class="text-left w-full px-8">
-            Hosted By: {details.host}            </div>
-            <div class="text-left w-full px-8">
-            Event Date: {details.eventDate}</div>
-             <div class="text-left w-full px-8">
-            Register By: {details.registrationBy}</div>
-            
 
-            </EventCard>
+              tColour="#cce"
+
+              date={details.publishedAt}
+/>
             
           </div>
         );
@@ -80,33 +65,3 @@ heroImage: "/public/assets/tsrs.svg"
   </style>
 </Layout> 
 
-<!--
-    // import Maintain from "../components/Maintain.astro";
-
-import Layout from "../layouts/Layout.astro";
-
-// console.log(response);
-
-
-
-<Layout title="Events">
-  {
-    !data ? (
-      // if there are no events found
-      <h1>No events.</h1>
-    ) : (
-      // map each event to its own block
-      data.map((event) => {
-        let details = event.attributes;
-        return (
-          <div>
-            <h1>{details.title}</h1>
-            <ul class="text-black">
-              <li />
-            </ul>
-          </div>
-        );
-      })
-    )
-  }
-</Layout> -->

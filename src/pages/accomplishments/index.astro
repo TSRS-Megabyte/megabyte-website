@@ -2,9 +2,13 @@
 //PAGE TO RENDER ALL AVAILABLE POSTS
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-const posts = (await getCollection("accomplishmentsinfo")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+let data = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/accomplishments"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
 import VerticalCard from "../../components/VerticalCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 ---
@@ -26,24 +30,39 @@ heroImage: "/public/assets/tsrs.svg"
 </div>
     
     <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-    {
-      posts.map((post) => (
-        <div>
+  
+{
+    !data ? (
+      // if there are no events found
+      <h1>No events.</h1>
+    ) : (
+      // map each event to its own block
+      data.map((event) => {
+        let details = event.attributes;
+        return (
+          <div>
+            <VerticalCard
+              title={details.title}
+              link={`/accomplishments`}
+              body={details.subline}
+              imgLink={details.heroImage}
+             tColour={details.bg_color}
+             date={details.date}
 
-         <VerticalCard
-              title={post.data.title}
-              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              body={post.data.description}
-              imgLink={post.data.heroImage}
-             tColour={post.data.titleColour}
          />
-        </div>
-      ))
-    }</div>
+           
+            
+          </div>
+        );
+      })
+    )
+  }
+
+    </div>
   </main>
   <style>
     body {
-            background-image: url("/public/assets/tileable-cubes.svg");
+            background-image: url("/assets/tileable-cubes.svg");
       background-size: 50px;
     }
     main {

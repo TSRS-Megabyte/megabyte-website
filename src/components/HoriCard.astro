@@ -4,11 +4,13 @@ import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
 export interface Props {
   title: string;
   body: string;
-  link: string;
+
   tColour: string;
+
+  date: string
 }
 
-const { title, body, link, tColour } = Astro.props;
+const { title, body,  tColour, date } = Astro.props;
 ---
 
 <div class="card w-full flex flex-col">
@@ -17,13 +19,11 @@ const { title, body, link, tColour } = Astro.props;
       {title}
     </h3>
   </div>
-  <div class="flex-grow bg-white px-6 py-5 flex flex-col items-end gap-6">
-    <p class="text-justify text-lg">{body}</p>
-    <button
-      class="bg-white link-button font-bold py-2 text-center font-mono text-xs md:text-sm tracking-wider uppercase"
-    >
-      <a href={link} class="h-full w-full px-4 uppercase">Read more</a>
-    </button>
+  <div class="flex-grow bg-white px-3 py-5 flex flex-col items-start gap-3">
+    <p class="text-left text-lg">{body}</p>
+
+        <p class="text-left text-sm">Published on: {date}</p>
+
   </div>
   
 </div>
