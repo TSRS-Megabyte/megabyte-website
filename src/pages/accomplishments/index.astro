@@ -1,18 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-let data = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
+let data;
+try {
+  data = await fetch(
+    "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
+  )
+    .then((res) => res.json())
+    .then((d) => {
+      return d.data;
+    });
+} catch {
+  data = null;
+}
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
-const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(/^-*|-*$/g, '')}`;
+const slug = `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${Astro.url.pathname.replace(
+  /^-*|-*$/g,
+  ""
+)}`;
 const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
 ---
-
 <Layout>
   <main>
     {
@@ -23,6 +30,65 @@ const colours = ["#ccef1b", "#ffe874", "#74ff74", "#74d4ff"];
       ))
     }
   </main>
+</Layout>
+<!-- <Maintain /> Use when site under Maintainance -->
+
+<!-- <Maintain /> --><!-- 
+  structure of the post
+  title: "this is the title"
+description: "this is a description of the post"
+pubDate: "this is pubdate"
+updatedDate: ""
+heroImage: "/public/assets/tsrs.svg"
+          <!-- `/accomplishments/${post.slug}/`} -->
+
+<Layout title="Accomplishments | Megabyte">
+  <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
+    <div class="mb-8 flex flex-row items-center justify-center">
+      <div class="title-box bg-[#ceff1b] py-6 px-6 text-center md:w-3/4">
+        <h1 class="mb-5 text-center text-2xl font-bold md:text-3xl xl:text-4xl">
+          Accomplishments
+        </h1>
+        <p class="mb-3 text-center text-lg md:text-xl xl:text-xl">
+          What the society and its members have been up to, in and outside
+          school.
+        </p>
+
+      </div>
+    </div>
+
+    <div
+      class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        !data ? (
+          // if there are no events found
+          <div />
+        ) : (
+          // map each event to its own block
+          data.map((event) => {
+            let details = event.attributes;
+            var str = JSON.stringify(details.media.data[0]["attributes"], null, 4); // (Optional) beautiful indented output.
+            console.log(str); // Logs output to dev tools console.
+
+            return (
+              <div>
+                <AccomplishmentCard
+                  title={details.title}
+                  link={`/accomplishments`}
+                  body={details.subline}
+                  img={details.media.data[0]["attributes"]}
+                  tColour={details.bg_color}
+                  date={details.date}
+                />
+              </div>
+            );
+          })
+        )
+      }
+    </div>
+  </div>
+
   <style>
     .title-box {
       border: 3px solid #000;
