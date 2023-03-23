@@ -36,7 +36,7 @@ const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
 
 <div class="card flex h-full w-full flex-col">
   <div
-    class="bg-var bg-blue-500 flex-shrink border-b-2 py-4 px-4 leading-5 md:px-8"
+    class={`bg-var flex-shrink border-b-2 py-4 px-4 leading-5 md:px-8`}
   >
     <h3 class="mb-2 text-xl font-bold">
       {title}
@@ -46,7 +46,7 @@ const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pb-3 md:px-8"
   >
-    <div class="text-left text-lg" set:html={parsedContent} />
+    <div class="text-left text-lg pt-5 mb-5" set:html={parsedContent} />
   </div>
 </div>
 
