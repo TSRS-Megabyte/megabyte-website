@@ -24,7 +24,7 @@ try {
 }
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 let accomp = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
   .then((res) => res.json())
   .then((d) => {

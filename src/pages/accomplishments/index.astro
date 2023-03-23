@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 let data;
 try {
   data = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/accomplishments?populate=*"
+    "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
   )
     .then((res) => res.json())
     .then((d) => {
