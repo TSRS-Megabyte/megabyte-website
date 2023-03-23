@@ -19,24 +19,28 @@ updatedDate: ""
 heroImage: "/public/assets/tsrs.svg"
           <!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments"  >
+  <body >
   <main>
-    <div class="bg-[#ff7474] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
-<h1 class="text-4xl font-bold text-center">Accomplishments</h1>
-<h1 class="text-xl pt-5 text-center">What the society and its members have been up to, in and outside school.</h1>
+    <div class="bg-[#ff7474] max-w-screen w-full p-10  h-fit mt-[100px]  mb-[70px] lg:mt-[10em] lg:mb-[5em] title">
+  
+      <h1 class="text-4xl font-bold text-left">ACCOMPLISHMENTS</h1>
+<h1 class="text-xl pt-5 text-left">What the society and its members have been up to, in and outside school.</h1>
+
+
 
 </div>
     
-    <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+    <div class="mb-5 px-5 grid w-full grid-cols-1 gap-5 md:gap-12 lg:gap-14 md:grid-cols-2 lg:grid-cols-3 ">
     {
       posts.map((post) => (
-        <div>
+        <div class="m-5">
 
          <VerticalCard
               title={post.data.title}
               link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               body={post.data.description}
               imgLink={post.data.heroImage}
-             tColour={post.data.titleColour}
+             tColour={post.data.bg_colour}
          />
         </div>
       ))
@@ -44,8 +48,9 @@ heroImage: "/public/assets/tsrs.svg"
   </main>
   <style>
     body {
-            background-image: url("/public/assets/tileable-cubes.svg");
+            background-image: url("/assets/tileable-cubes.svg");
       background-size: 50px;
+      background-repeat: repeat;
     }
     main {
       margin: 50px;
@@ -54,6 +59,6 @@ heroImage: "/public/assets/tsrs.svg"
       border: 2px solid #000;
       box-shadow: 6px 6px 0px 0px #000;
     }
-   
-  </style>
+
+  </style></body>
 </Layout> 
