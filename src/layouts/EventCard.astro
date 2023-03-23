@@ -1,0 +1,63 @@
+---
+import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
+
+export interface Props {
+  title: string;
+  body: string;
+  link: string;
+  tColour: string;
+  say: string;
+}
+
+const { title, body, link, tColour, say } = Astro.props;
+---
+
+<div class="card w-full flex flex-col">
+  <div class="flex-shrink bg-var bg-blue-500 px-6 py-7 border-b-2 leading-5">
+    <h3 class="text-xl font-bold ">
+      {title}
+    </h3>
+  </div>
+  <div class="flex-grow bg-white px-6 py-5 flex flex-col items-end gap-6">
+ 
+    <p class="text-justify text-lg">{body}</p>
+        <slot></slot>  
+    <button
+      class="bg-white link-button font-bold py-2 text-center font-mono text-xs md:text-sm tracking-wider uppercase"
+    >
+      <a href={link} class="h-full w-full px-4 uppercase">{say}</a>
+    </button>
+  </div>
+  
+</div>
+
+<style define:vars={{tColour}}>
+  .bg-var {
+    background: var(--tColour);
+  }
+  .bg-white {
+    background: #ffffff;
+  }
+  .card {
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+    /* transition: ease 0.2s; */
+  }
+
+  .card:hover .title {
+    background-image: linear-gradient(
+      rgba(210, 210, 210, 0.1),
+      rgba(210, 210, 210, 20%)
+    );
+    transition: ease 0.2s;
+  }
+  .link-button {
+    background: #ffffff;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px 0px;
+  }
+  .link-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px;
+  }
+</style>
