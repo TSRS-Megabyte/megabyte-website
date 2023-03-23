@@ -47,9 +47,9 @@ const ordinalDay = formattedDate.replace(
     <p class="text-base font-light">Posted {ordinalDay}</p>
   </div>
   <div
-    class="bg-white flex flex-grow flex-col items-start gap-3 pb-3 px-4 md:px-8"
+    class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pb-3 md:px-8"
   >
-    <p class="text-left text-lg" set:html={parsedContent} />
+    <div class="text-left text-lg" set:html={parsedContent} />
   </div>
 </div>
 

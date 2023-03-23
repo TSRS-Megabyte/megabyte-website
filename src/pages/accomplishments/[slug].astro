@@ -8,11 +8,13 @@ let data = await fetch(
 )
   .then((res) => res.json())
   .then((d) => {
-    return d.data[0].attributes;
+    return d.data;
   });
 if (data.length === 0 || !data) {
   console.log("Empty page.");
 }
+
+data = data[0].attributes
 
 console.log("New data",data)
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];

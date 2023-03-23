@@ -26,7 +26,7 @@ const parsedContent = marked.parse(rawContent);
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
   >
-    <p class="text-left text-lg" set:html={parsedContent} />
+    <div class="text-left text-lg" set:html={parsedContent} />
   </div>
 </div>
 
