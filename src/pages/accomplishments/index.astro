@@ -9,7 +9,7 @@ let data = await fetch(
   .then((d) => {
     return d.data;
   });
-import VerticalCard from "../../components/VerticalCard.astro";
+import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 ---
 
@@ -51,7 +51,7 @@ heroImage: "/public/assets/tsrs.svg"
           let details = event.attributes;
           return (
             <div>
-              <VerticalCard
+              <AccomplishmentCard
                 title={details.title}
                 link={`/accomplishments`}
                 body={details.subline}
