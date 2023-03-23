@@ -9,72 +9,51 @@ import VerticalCard from "../../components/VerticalCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 import database from "../../../megabyte-cms/config/database";
 ---
-
-<!-- <Maintain /> --><!-- 
+<!-- <Maintain /> -->
+<!-- 
   structure of the post
   title: "this is the title"
 description: "this is a description of the post"
 pubDate: "this is pubdate"
 updatedDate: ""
-heroImage: "/public/assets/tsrs.svg" -->
-<Layout title="Accomplishments">
-  <div class="mt-24 md:mt-36 px-4 sm:px-8 md:px-24 pb-12">
 heroImage: "/public/assets/tsrs.svg"
           <!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments"  >
-  <body >
   <main>
-<div class="">
+    <div class="bg-[#ff7474] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
+<h1 class="text-4xl font-bold text-center">Accomplishments</h1>
+<h1 class="text-xl pt-5 text-center">What the society and its members have been up to, in and outside school.</h1>
 
-    <div class="flex flex-row justify-center items-center w-full">
-      <div class="bg-[#ff7474] title w-fit py-6 px-8 mb-8 md:mb-12 ">
-      <div class="bg-[#ff7474] max-w-screen w-full p-10  h-fit mt-[70px]  mb-[30px] lg:mt-[10em] lg:mb-[5em] title ">
-        <h1 class="text-center font-bold text-2xl md:text-4xl">Accomplishments</h1>
-        <p class="pt-5 text-center text-lg md:text-2xl">
-          What the society and its members have been up to, in and outside school.
-        </p>
-      </div>
-    </div>
-
-
-    <div
-      class="mb-5 grid w-full grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4"
-    >
-      {
-        posts.map((post) => (
-          <div>
-            <VerticalCard
 </div>
     
-    <div class="mb-5 px-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 ">
+    <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
     {
       posts.map((post) => (
-        <div class="md:m-3  lg:m-5">
+        <div>
 
          <VerticalCard
               title={post.data.title}
-              link={ `/accomplishments/${post.slug}/`}
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               body={post.data.description}
               imgLink={post.data.heroImage}
-             tColour={post.data.bg_colour}
+             tColour={post.data.titleColour}
          />
         </div>
       ))
     }</div>
   </main>
-  <style >
+  <style>
     body {
-            background-image: url("/assets/tileable-cubes.svg");
+            background-image: url("/public/assets/tileable-cubes.svg");
       background-size: 50px;
-      background-repeat: repeat;
     }
     main {
       margin: 50px;
-    }
-    .title {
+
+    }.title {
       border: 2px solid #000;
       box-shadow: 6px 6px 0px 0px #000;
     }
-
-  </style></body>
+   
+  </style>
 </Layout> 

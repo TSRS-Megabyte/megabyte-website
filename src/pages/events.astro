@@ -1,9 +1,7 @@
 ---
-// import Maintain from "../components/Maintain.astro";
-
+//PAGE TO RENDER ALL AVAILABLE POSTS
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-
-// console.log(response);
 let data = await fetch(
   "https://megabyte-website-backend.onrender.com/api/events"
 )
@@ -11,9 +9,87 @@ let data = await fetch(
   .then((d) => {
     return d.data;
   });
+import VerticalCard from "../components/VerticalCard.astro";
+import HoriCard from "../components/HoriCard.astro";
+import EventCard from "../layouts/EventCard.astro";
 ---
+<!-- <Maintain /> -->
+<!-- 
+  structure of the post
+  title: "this is the title"
+description: "this is a description of the post"
+pubDate: "this is pubdate"
+updatedDate: ""
+heroImage: "/public/assets/tsrs.svg"
+          <!-- `/accomplishments/${post.slug}/`} -->
+<Layout title="Events"  >
+  <main>
+    <div class="bg-[#ceff1b] w-fit p-10 h-fit mx-auto  mt-[200px] mb-[100px] title">
+<h1 class="text-4xl font-bold text-center">Upcoming Events</h1>
+<h1 class="text-xl pt-5 text-center">What the society and its members have been up to, in and outside school.</h1>
 
-<Layout title="EVENTS">
+</div>
+    
+    <div class="">
+    {
+    !data ? (
+      // if there are no events found
+      <h1>No events.</h1>
+    ) : (
+      // map each event to its own block
+      data.map((event) => {
+        let details = event.attributes;
+        return (
+          <div>
+            <EventCard 
+              title={details.title}
+              body={details.description}
+              link={details.url}
+              tColour="#cce"
+              say="Event Site"
+            >
+            <div class="text-left w-full px-8">
+            Hosted By: {details.host}            </div>
+            <div class="text-left w-full px-8">
+            Event Date: {details.eventDate}</div>
+             <div class="text-left w-full px-8">
+            Register By: {details.registrationBy}</div>
+            
+
+            </EventCard>
+            
+          </div>
+        );
+      })
+    )
+  }</div>
+  </main>
+  <style>
+    body {
+            background-image: url("/public/assets/tileable-cubes.svg");
+      background-size: 50px;
+    }
+    main {
+      margin: 50px;
+
+    }.title {
+      border: 2px solid #000;
+      box-shadow: 6px 6px 0px 0px #000;
+    }
+   
+  </style>
+</Layout> 
+
+<!--
+    // import Maintain from "../components/Maintain.astro";
+
+import Layout from "../layouts/Layout.astro";
+
+// console.log(response);
+
+
+
+<Layout title="Events">
   {
     !data ? (
       // if there are no events found
@@ -33,4 +109,4 @@ let data = await fetch(
       })
     )
   }
-</Layout>
+</Layout> -->
