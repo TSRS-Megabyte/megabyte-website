@@ -6,10 +6,10 @@ import Maintain from "../../components/Maintain.astro"; // Use when site under m
 
 <!-- <Maintain /> -->
 <Layout title="Resources | MEGABYTE">
-  <h1>Yo</h1>
+  
   <div class="pageNavWrapper">
-    <button class="backward pageChange text-center">{"<"}</button>
-    <button class="forward pageChange text-center">{">"}</button>
+    <button class="backward cursor-pointer pageChange bg-[#000] rounded-xl text-[#fff] text-xl text-center px-5 py-2.5 relative top-[20em]">{"<"}</button>
+    <button class="forward cursor-pointer pageChange bg-[#000] rounded-xl text-[#fff] text-xl text-center px-5 py-2.5 relative top-[20em] text-center">{">"}</button>
   </div>
 </Layout>
 
@@ -71,24 +71,3 @@ import Maintain from "../../components/Maintain.astro"; // Use when site under m
     }
   }
 </script>
-
-<style>
-  button {
-    cursor: pointer;
-  }
-  .pageChange {
-    border-radius: 1em;
-    color: white;
-    font-size: 1em;
-    background-color: rgb(43, 43, 43);
-    padding-right: 1em;
-    padding-left: 1em;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
-
-    top: 20em;
-    position: relative;
-  }
-  .pageNavWrapper {
-  }
-</style>
