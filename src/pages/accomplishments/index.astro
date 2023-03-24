@@ -69,9 +69,13 @@ heroImage: "/public/assets/tsrs.svg"
           {fetchData.map((notice, num) => {
             let details = notice.attributes;
             let imgSrc = "";
-            if (details.media.data.length != 0) {
-              imgSrc = details.media.data[0].attributes.url;
-            }
+              try {
+                if (details.media.data.length != 0) {
+                  imgSrc = details.media.data[0].attributes.url;
+                }
+              } catch (err) {
+                imgSrc = "";
+              }
 
             return (
               <div>
