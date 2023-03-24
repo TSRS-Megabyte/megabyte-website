@@ -88,7 +88,7 @@ let accomplishments = await fetch(
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
 
-            await notices.map(async (event, num) => {
+            notices.map(async (event, num) => {
               const colour = colours[num];
               let details = event.attributes;
               return (
@@ -133,7 +133,7 @@ let accomplishments = await fetch(
             <div>No accomplishments to display at the moment.</div>
           ) : (
             // map each event to its own block
-            await accomplishments.map(async (accomplishment, num) => {
+            accomplishments.map(async (accomplishment, num) => {
               let details = accomplishment.attributes;
               const colour_ = colours[num];
               let imgSrc = "";
