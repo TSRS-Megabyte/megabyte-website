@@ -1,6 +1,7 @@
 ---
 import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
 import { marked } from "marked";
+import { formatDate } from "../../libs/dateFormat";
 export interface Props {
   title: string;
   rawContent: string;
@@ -10,27 +11,6 @@ export interface Props {
 
 const { title, rawContent, tColour, date } = Astro.props;
 const parsedContent = marked.parse(rawContent);
-
-const dateObj = new Date(date);
-const day = dateObj.getDate();
-const month = dateObj.toLocaleString("default", { month: "long" });
-const year = dateObj.getFullYear();
-
-const nthNumber = (number) => {
-  if (number > 3 && number < 21) return "th";
-  switch (number % 10) {
-    case 1:
-      return "st";
-    case 2:
-      return "nd";
-    case 3:
-      return "rd";
-    default:
-      return "th";
-  }
-};
-
-const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
 ---
 
 <div class="card flex h-full w-full flex-col rounded-lg">
@@ -41,7 +21,7 @@ const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
       {title}
     </h3>
     <h3 class="text-md mb-2 font-bold">
-      {formattedDate}
+      {formatDate(date)}
     </h3>
   </div>
   <div
@@ -58,8 +38,6 @@ const formattedDate = `${month} ${day}${nthNumber(day)}, ${year}`;
   .bg-var {
     background: var(--tColour);
   }
-
-
 
   .card:hover .title {
     background-image: linear-gradient(

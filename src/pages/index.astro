@@ -6,18 +6,13 @@ import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 // import favicon.ico from ''
 // import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
 let notices = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/notices?sort[0]=date:desc"
+  "https://megabyte-website-backend.onrender.com/api/notices?sort[0]=date:desc&pagination[start]=0&pagination[limit]=3"
 )
   .then((res) => res.json())
   .then((d) => {
     return d.data;
   });
 
-if (notices.length > 3) {
-  var notice_data_new = notices.slice(0, 3);
-} else {
-  var notice_data_new = notices;
-}
 const colours = [
   "#81effc",
   "#ffe81b",
@@ -35,19 +30,14 @@ const colours = [
   "#ffe81b",
   "#ff7474",
 ];
+
 let accomplishments = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
+  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*&pagination[start]=0&pagination[limit]=3"
 )
   .then((res) => res.json())
   .then((d) => {
     return d.data;
   });
-if (accomplishments.length > 3) {
-  var accomp_data_new = accomplishments.slice(0, 3);
-} else {
-  var accomp_data_new = accomplishments;
-}
-// const data = [accomp["0"], accomp["1"], accomp["2"]];
 ---
 
 <Layout title="Megabyte" class="=-mandatory h-screen w-screen">
@@ -92,13 +82,13 @@ if (accomplishments.length > 3) {
 
       <div class="mb-2">
         {
-          !notice_data_new ? (
-            <div />
+          !notices || notices.length == 0 ? (
+            <div>No notices to display.</div>
           ) : (
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
 
-            notice_data_new.map((event, num) => {
+            notices.map((event, num) => {
               const colour = colours[num];
               let details = event.attributes;
               return (
@@ -135,15 +125,15 @@ if (accomplishments.length > 3) {
       </div>
 
       <div
-        class={`mb-5 grid w-full gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-${accomp_data_new.length}`}
+        class={`mb-5 grid w-full gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-${accomplishments.length}`}
       >
         {
-          !accomp_data_new ? (
+          !accomplishments || accomplishments.length == 0 ? (
             // if there are no events found
-            <div />
+            <div>No accomplishments to display at the moment.</div>
           ) : (
             // map each event to its own block
-            accomp_data_new.map((accomplishment, num) => {
+            accomplishments.map((accomplishment, num) => {
               let details = accomplishment.attributes;
               const colour_ = colours[num];
               let imgSrc = "";

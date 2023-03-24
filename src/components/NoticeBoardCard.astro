@@ -1,6 +1,7 @@
 ---
 import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
 import { marked } from "marked";
+import { formatDate } from "../../libs/dateFormat";
 
 export interface Props {
   title: string;
@@ -11,32 +12,6 @@ export interface Props {
 
 const { title, body, tColour, date } = Astro.props;
 const parsedContent = marked.parse(body);
-
-const dateObj = new Date(date);
-const day = dateObj.getDate();
-const month = dateObj.toLocaleString("default", { month: "long" });
-const year = dateObj.getFullYear();
-
-const nthNumber = (number) => {
-  if (number > 3 && number < 21) return "th";
-  switch (number % 10) {
-    case 1:
-      return "st";
-    case 2:
-      return "nd";
-    case 3:
-      return "rd";
-    default:
-      return "th";
-  }
-};
-
-// let hoursMin = dateObj.toLocaleTimeString("en-US", {
-//   hour: "2-digit",
-//   minute: "2-digit",
-// });
-
-const formattedDatetime = `${month} ${day}${nthNumber(day)} ${year}`; // + `, ${hoursMin}`;
 ---
 
 <div class="card flex h-full w-full flex-col">
@@ -44,7 +19,7 @@ const formattedDatetime = `${month} ${day}${nthNumber(day)} ${year}`; // + `, ${
     <h3 class="mb-2 text-xl font-bold">
       {title}
     </h3>
-    <p class="text-base font-medium">Posted {formattedDatetime}</p>
+    <p class="text-base font-medium">Posted {formatDate(date)}</p>
   </div>
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pt-4 pb-4 md:px-8"

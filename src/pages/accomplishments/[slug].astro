@@ -11,31 +11,27 @@ let data = await fetch(
     return d.data;
   });
 if (data.length === 0 || !data) {
-  return Astro.redirect("/404")
+  return Astro.redirect("/404");
 }
 
-data = data[0].attributes
+data = data[0].attributes;
 
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 const colour = colours[Math.floor(Math.random() * colours.length)];
-
 ---
-{
-  data.length === 0 || !data ? (
-    <div>No event.</div>
-  ) : (
-<Layout title={`${data.title} | Megabyte`}>
-  <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
 
+{
+  (
+    <Layout title={`${data.title} | Megabyte`}>
+      <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
         <AccomplishmentMain
           title={data.title}
           rawContent={data.content}
           tColour={colour}
           date={data.date}
         />
-  </div>
-  <style>
-
-  </style>
-</Layout>
-)}
+      </div>
+      <style />
+    </Layout>
+  )
+}

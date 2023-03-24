@@ -1,22 +1,94 @@
 ---
-//PAGE TO RENDER ALL AVAILABLE POSTS
-// import { getCollection } from "astro:content";
-// import Layout from "../../layouts/Layout.astro";
-// const posts = (await getCollection("blog")).sort(
-// (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-// );
-// import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 ---
 
-<!-- <Layout> --><!-- <title>Megabyte | Resources</title> --><!-- </Layout> --><!-- <Maintain /> --><!-- <Layout>
->>>>>>> 666125736f59fb7fe61701a483e5b7dca213cc72
-  <main>
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/resources/${post.slug}/`}>{post.data.title}</a>
-        </li>
-      ))
+<!-- <Maintain /> -->
+<Layout title="Resources | MEGABYTE">
+  <h1>Yo</h1>
+  <div class="pageNavWrapper">
+    <button class="backward pageChange text-center">{"<"}</button>
+    <button class="forward pageChange text-center">{">"}</button>
+  </div>
+</Layout>
+
+<script>
+  let page = 1;
+  let paginationSize = 5;
+
+  if (localStorage.paginationSize) {
+    paginationSize = localStorage.paginationSize;
+  } else {
+    localStorage.paginationSize = paginationSize;
+  }
+
+  let data = await fetch(
+    `https://megabyte-website-backend.onrender.com/api/resources?sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${paginationSize}`
+  )
+    .then((res) => res.json())
+    .then((d) => {
+      return d.data;
+    });
+  console.log(data);
+  const forwardButton = document.querySelector(".forward");
+  const backwardButton = document.querySelector(".backward");
+
+  forwardButton?.addEventListener("click", (e) => {
+    e.preventDefault();
+    fetchData("forward");
+  });
+  backwardButton?.addEventListener("click", (e) => {
+    e.preventDefault();
+    fetchData("backward");
+  });
+  async function fetchData(type) {
+    if (type != "backward" && type != "forward") {
+      location.reload();
     }
-  </main>
-</Layout> -->
+
+    if (type == "forward") {
+      page += 1;
+      data = await fetch(
+        `https://megabyte-website-backend.onrender.com/api/resources?sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${paginationSize}`
+      )
+        .then((res) => res.json())
+        .then((d) => {
+          console.log(d.data);
+          return d.data;
+        });
+    } else {
+      if (page == 1) return;
+      page -= 1;
+      data = await fetch(
+        `https://megabyte-website-backend.onrender.com/api/resources?sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${paginationSize}`
+      )
+        .then((res) => res.json())
+        .then((d) => {
+          console.log(d.data);
+          return d.data;
+        });
+    }
+  }
+</script>
+
+<style>
+  button {
+    cursor: pointer;
+  }
+  .pageChange {
+    border-radius: 1em;
+    color: white;
+    font-size: 1em;
+    background-color: rgb(43, 43, 43);
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+
+    top: 20em;
+    position: relative;
+  }
+  .pageNavWrapper {
+  }
+</style>

@@ -1,17 +1,16 @@
 ---
-interface Props {
-  title: string;
-  logo: string;
-  colour1: string;
-  colour2: string;
-  description: string;
-}
+// interface Props {
+//   title: string;
+//   logo: string;
+//   colour1: string;
+//   colour2: string;
+//   description: string;
+// }
 
-const { title, logo, colour1, colour2, description } = Astro.props;
-const props = { title, logo, colour1, colour2, description } as Props;
+// const { title, logo, colour1, colour2, description } = Astro.props;
 ---
 
 <div class="container">
   <div class="card"></div>
-  <style define:vars={props}></style>
+  <style define:vars=""></style>
 </div>

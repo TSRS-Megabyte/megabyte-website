@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-let data = await fetch(
+let fetchData = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
   .then((res) => res.json())
@@ -59,21 +59,19 @@ heroImage: "/public/assets/tsrs.svg"
       </div>
     </div>
 
-    <div
-      class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-    >
-      {
-        !data ? (
-          // if there are no events found
-          <div />
-        ) : (
-          // map each event to its own block
-          data.map((event, num) => {
-            let details = event.attributes;
+    {
+      !fetchData || fetchData.length == 0 ? (
+        // if there are no events found
+        <div class="">No accomplishments to display at the moment.</div>
+      ) : (
+        // map each event to its own block
+        <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {fetchData.map((notice, num) => {
+            let details = notice.attributes;
             let imgSrc = "";
-              if (details.media.data.length != 0) {
-                imgSrc = details.media.data[0].attributes.url;
-              }
+            if (details.media.data.length != 0) {
+              imgSrc = details.media.data[0].attributes.url;
+            }
 
             return (
               <div>
@@ -87,20 +85,20 @@ heroImage: "/public/assets/tsrs.svg"
                 />
               </div>
             );
-          })
-        )
+          })}
+        </div>
+      )
+    }
+
+    <style>
+      .title-box {
+        border: 3px solid #000;
+        box-shadow: 6px 6px 0px 0px #000;
       }
-    </div>
+
+      a {
+        text-decoration: underline;
+      }
+    </style>
   </div>
-
-  <style>
-    .title-box {
-      border: 3px solid #000;
-      box-shadow: 6px 6px 0px 0px #000;
-    }
-
-    a {
-      text-decoration: underline;
-    }
-  </style>
 </Layout>
