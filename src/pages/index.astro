@@ -357,12 +357,5 @@ let accomplishments = await fetch(
   const fx = TextScramble(el);
 
   let counter = 0;
-  function next() {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 1400);
-    });
-    counter = (counter + 1) % phrases.length;
-  }
-
-  next();
+  fx.setText(phrases[counter])
 </script>
