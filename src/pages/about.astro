@@ -1,12 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Resource from "../components/Resource.astro";
-import Maintain from "../components/Maintain.astro";
 ---
 
 <Layout title="About | Megabyte" class="">
   <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
-    <div class="mb-12 flex w-full flex-col gap-6 md:flex-row">
+    <!-- <div class="card w-full bg-[#81effc] p-5 mb-10 p-12">
+        <h1 class="mb-5 text-center text-2xl font-bold md:text-3xl xl:text-4xl">
+          About Megabyte
+        </h1>
+        <p class="mb-3 text-center text-lg md:text-xl xl:text-xl mt-6 font-bold">
+          What the society and its members have been up to, in and outside
+          school.
+        </p>
+
+        <p class="text-center mt-8">
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+          THis is random text
+        </p>
+      </div> -->
+    <div class="flex w-full flex-col gap-6 md:flex-row">
+      
+      
       <div class="card w-full bg-[#ceff1b] p-5">
         <h3 class="mb-3 text-xl font-bold md:text-2xl">Head of Society</h3>
         <p class="text-justify text-lg font-[500] md:text-xl">Arjun Sharma</p>
@@ -28,7 +71,9 @@ import Maintain from "../components/Maintain.astro";
         <!-- <p class="text-justify text-lg md:text-xl font-[500]"> put ma'am's designation here </p> -->
       </div>
     </div>
-    <div class="bg-white about-div w-fit py-3 px-5 text-center">
+    <img src="/final/mega-bw.svg" class="h-[50vh] mx-auto w-auto mt-3 mb-2 md:mt-11 md:mb-8"/>
+
+    <div class="bg-[#ffe81b] about-div w-fit py-3 px-5 text-center">
       <p class="text-center text-lg font-medium">
         This site was built by <a
           target="_blank"
@@ -39,7 +84,8 @@ import Maintain from "../components/Maintain.astro";
         >, <a target="_blank" href="https://github.com/shreedhar-raj">
           Shreedhar Raj</a
         >, and <a target="_blank" href="https://github.com/notskamr"
-          >Varun Sahni</a>
+          >Varun Sahni</a
+        >
       </p>
     </div>
   </div>
@@ -53,7 +99,7 @@ import Maintain from "../components/Maintain.astro";
   a:hover {
     color: rgba(0, 0, 0, 0.5);
   }
-  
+
   .about-div {
     margin: auto;
     border: 3px solid black;

@@ -5,35 +5,47 @@ import Layout from "../layouts/Layout.astro";
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 // import favicon.ico from ''
 // import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
-let notice;
-try {
-  notice = await fetch(
-    "https://megabyte-website-backend.onrender.com/api/notices?sort=date:des"
-  )
-    .then((res) => res.json())
-    .then((d) => {
-      return d.data;
-    });
-  if (notice.length > 3) {
-    var notice_data_new = notice.slice(0, 3);
-  } else {
-    var notice_data_new = notice;
-  }
-} catch {
-  notice = null;
+let notices = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/notices?sort[0]=date:desc"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
+
+if (notices.length > 3) {
+  var notice_data_new = notices.slice(0, 3);
+} else {
+  var notice_data_new = notices;
 }
-const colours = ["#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474","#81effc", "#ffe81b", "#ff7474"];
-let accomp = await fetch(
+const colours = [
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+];
+let accomplishments = await fetch(
   "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
 )
   .then((res) => res.json())
   .then((d) => {
     return d.data;
   });
-if (accomp.length > 3) {
-  var accomp_data_new = accomp.slice(0, 3);
+if (accomplishments.length > 3) {
+  var accomp_data_new = accomplishments.slice(0, 3);
 } else {
-  var accomp_data_new = accomp;
+  var accomp_data_new = accomplishments;
 }
 // const data = [accomp["0"], accomp["1"], accomp["2"]];
 ---
@@ -85,10 +97,9 @@ if (accomp.length > 3) {
           ) : (
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
-            
+
             notice_data_new.map((event, num) => {
-              const colour =
-                colours[num];
+              const colour = colours[num];
               let details = event.attributes;
               return (
                 <div class="mb-[2em]">
@@ -134,8 +145,11 @@ if (accomp.length > 3) {
             // map each event to its own block
             accomp_data_new.map((accomplishment, num) => {
               let details = accomplishment.attributes;
-              const colour_ =
-                colours[num];
+              const colour_ = colours[num];
+              let imgSrc = "";
+              if (details.media.data.length != 0) {
+                imgSrc = details.media.data[0].attributes.url;
+              }
 
               return (
                 <div>
@@ -143,7 +157,7 @@ if (accomp.length > 3) {
                     title={details.title}
                     link={`/accomplishments/${details.slug}`}
                     body={details.subline}
-                    img={details.media.data[0]["attributes"]}
+                    img={imgSrc}
                     tColour={colour_}
                     date={details.date}
                   />
@@ -210,7 +224,6 @@ if (accomp.length > 3) {
 </Layout>
 
 <style>
-
   .topMain {
     display: flex;
     align-items: center;

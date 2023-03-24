@@ -44,7 +44,7 @@ const colours = [
       </div>
     </div>
 
-    <div class={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6`}>
+    <div class={``}>
       {
         !data ? (
           <div />
@@ -55,7 +55,7 @@ const colours = [
             const colour = colours[num];
             let details = event.attributes;
             return (
-              <div>
+              <div class="mt-12">
                 <NoticeBoardCard
                   title={details.title}
                   body={details.content}
@@ -63,6 +63,7 @@ const colours = [
                   date={details.publishedAt}
                 />
               </div>
+              
             );
           })
         )
