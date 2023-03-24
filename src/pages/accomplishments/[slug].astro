@@ -10,7 +10,7 @@ let data = await fetch(
   .then((d) => {
     return d.data;
   });
-if (data.length === 0 || !data) {
+if (data.length == 0 || !data) {
   return Astro.redirect("/404");
 }
 
