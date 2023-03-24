@@ -11,7 +11,7 @@ let data = await fetch(
     return d.data;
   });
 if (data.length === 0 || !data) {
-  console.log("Empty page.");
+  return Astro.redirect("/404")
 }
 
 data = data[0].attributes
