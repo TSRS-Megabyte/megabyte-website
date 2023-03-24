@@ -356,13 +356,13 @@ let accomplishments = await fetch(
   const el = document.querySelector(".text");
   const fx = TextScramble(el);
 
-  let counter = 0;
-  function next() {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 1400);
-    });
-    counter = (counter + 1) % phrases.length;
-  }
+  // let counter = 0;
+  // function next() {
+  //   fx.setText(phrases[counter]).then(() => {
+  //     setTimeout(next, 1400);
+  //   });
+  //   counter = (counter + 1) % phrases.length;
+  // }
 
-  next();
+  // next();
 </script>
