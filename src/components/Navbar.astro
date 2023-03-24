@@ -12,15 +12,15 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/" class="navHome" title="Home">
         <div class="flex h-full w-full flex-row items-center justify-center">
           <img
-            class="w-[3.6vw] min-w-[60px] mr-[-0.35em]"
+            class="mr-[-0.35em] w-[3.6vw] min-w-[60px]"
             src="/assets/tsrs.svg"
             alt="tsrs logo"
           />
           <img
-          class="w-[3.5vw] min-w-[50px] mr-3"
-          src="/final/mega-bw.svg"
-          alt="megabyte logo"
-        />
+            class="mr-3 w-[3.5vw] min-w-[50px]"
+            src="/final/mega-bw.svg"
+            alt="megabyte logo"
+          />
           <p class="mb-[0.03em] text-2xl font-bold uppercase">Megabyte</p>
           <!-- <div id="mgbt-underline" class="w-1/2 h-1 bg-[#74bcffb4]"></div> -->
         </div>
@@ -50,7 +50,7 @@ const pathname = new URL(Astro.request.url).pathname;
       data-visible="false"
     >
       <ul
-        class="navlinks hiddenNavlinks flex h-full flex-col justify-around lg:h-auto lg:flex-row lg:justify-start"
+        class="navlinks hiddenNavlinks flex h-full flex-col justify-around text-center lg:h-auto lg:flex-row lg:justify-start"
       >
         {
           Object.entries(navPages).map((page) => (
@@ -75,7 +75,6 @@ const pathname = new URL(Astro.request.url).pathname;
   .current {
     font-weight: 600;
   }
-
 
   .navlink {
     text-decoration: none;
