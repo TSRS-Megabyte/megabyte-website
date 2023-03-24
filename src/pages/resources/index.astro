@@ -1,58 +1,73 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import * as DOMPurify from "dompurify";
 
-// let fetchData = await fetch(
-//   "https://megabyte-website-backend.onrender.com/api/resources?sort=date:desc&populate=*"
-// )
-//   .then((res) => res.json())
-//   .then((d) => {
-//     return d.data;
-//   });
+let fetchData = await fetch(
+  "https://megabyte-website-backend.onrender.com/api/resources?sort=date:desc&populate=*"
+)
+  .then((res) => res.json())
+  .then((d) => {
+    return d.data;
+  });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 import Resource from "../../components/Resource.astro";
-
 ---
-
 
 <Layout title="Resources | Megabyte">
   <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
     <div class="mb-8 flex flex-row items-center justify-center">
-      <div class="border-[3px] border-[#000] shadow-[6px_6px_0px_0px_#000] bg-[#81effc] py-6 px-6 text-center md:w-3/4">
+      <div
+        class="border-[3px] border-[#000] bg-[#81effc] py-6 px-6 text-center shadow-[6px_6px_0px_0px_#000] md:w-3/4"
+      >
         <h1 class="mb-5 text-center text-2xl font-bold md:text-3xl xl:text-4xl">
           Resources
         </h1>
         <p class="mb-3 text-center text-lg md:text-xl xl:text-xl">
-          Resources to get started in tech, learn new technologies and improve your skills.
+          Resources to get started in tech, learn new technologies and improve
+          your skills.
         </p>
 
         <p>
           Email <span
-            ><a class="underline" target="_blank" href="mailto:tsrs.mgbt@gmail.com"
-              >tsrs.mgbt@gmail.com</a
+            ><a
+              class="underline"
+              target="_blank"
+              href="mailto:tsrs.mgbt@gmail.com">tsrs.mgbt@gmail.com</a
             ></span
-          > in case you would like to suggest any topics we should cover, or any additions to the content.
+          > in case you would like to suggest any topics we should cover, or any
+          additions to the content.
         </p>
       </div>
     </div>
-     <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
-          <Resource 
-          title="Getting Started with Web Development"
-          description="Commodo fugiat nulla qui ut in sint ipsum id ullamco aliqua id exercitation. Reprehenderit magna dolore ea excepteur veniam officia mollit."
-          colour1="#32a9ff"
-          colour2="#88f"
-          logo="/assets/final/mega-bw.svg"
-          count={1}
-          />
-        </div>
+    <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+      {
+        fetchData.length === 0 || !fetchData ? (
+          <div>No resources to display</div>
+        ) : (
+          fetchData.map((resource) => {
+            return (
+              <Resource
+                id={resource.id}
+                title={resource.attributes.title}
+                description={resource.attributes.description}
+                colour1={resource.attributes.color1}
+                colour2={resource.attributes.color2}
+                icon={resource.attributes.img.data.attributes.url}
+                slug={resource.attributes.slug}
+              />
+            );
+          })
+        )
+      }
+    </div>
 
     <style>
-      .bg-line  {
+      .bg-line {
         background-image: url("https://svgshare.com/i/rQx.svg");
         background-size: 350px;
         background-repeat: repeat;
       }
     </style>
-
   </div>
 </Layout>
