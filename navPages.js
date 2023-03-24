@@ -2,7 +2,7 @@
 const navPages = {
     "Notice Board": "/notice-board",
     "Accomplishments": "/accomplishments",
-    // "Resources": "/resources",
+    "Resources": "/resources",
     "About": "/about",
 };
 export default navPages;
