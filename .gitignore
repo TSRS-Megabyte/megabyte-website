@@ -20,3 +20,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 Strapi Auth.txt
+
+# Local Netlify folder
+.netlify
