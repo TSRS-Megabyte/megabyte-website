@@ -137,8 +137,12 @@ let accomplishments = await fetch(
               let details = accomplishment.attributes;
               const colour_ = colours[num];
               let imgSrc = "";
-              if (details.media.data.length != 0) {
-                imgSrc = details.media.data[0].attributes.url;
+              try {
+                if (details.media.data.length != 0) {
+                  imgSrc = details.media.data[0].attributes.url;
+                }
+              } catch (err) {
+                imgSrc = "";
               }
 
               return (
