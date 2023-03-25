@@ -44,9 +44,9 @@ const colours = [
       </div>
     </div>
 
-    <div>
+    <div class={``}>
       {
-        data.length === 0 || !data ? (
+        !data ? (
           <div />
         ) : (
           // <h1 class="text-center text-xl">().</h1>
@@ -63,6 +63,7 @@ const colours = [
                   date={details.publishedAt}
                 />
               </div>
+              
             );
           })
         )
@@ -75,5 +76,7 @@ const colours = [
       border: 2px solid #000;
       box-shadow: 6px 6px 0px 0px #000;
     }
+
+
   </style>
 </Layout>

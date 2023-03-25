@@ -1,82 +1,38 @@
 ---
 interface Props {
-  id: string;
   title: string;
-  icon: string;
+  logo: string;
   colour1: string;
   colour2: string;
   description: string;
-  slug: string;
+  count: number;
 }
 
-const { id, title, icon, colour1, colour2, description, slug } = Astro.props;
+const { title, logo, colour1, colour2, description, count } = Astro.props;
 const likes = "❤️";
 ---
 
-<div class="container rounded-2xl">
-  <div class="card h-fit rounded-2xl md:w-[100%]">
-    <div class="h-inherit w-full rounded-2xl bg-[#fff] text-right">
-      <div class="h-inherit md:flex">
-        <a
-          href={`/resources/${slug}`}
-          class="h-inherit bg-grad flex items-center justify-center rounded-tr-xl rounded-tl-xl border-b-[2px] border-[#000] p-2 text-center md:w-1/2 md:rounded-xl md:border-b-0 md:border-r-[2px]"
-        >
-          <div class="flex-colum justify-center align-middle">
-            {
-              icon ? (
-                <img
-                  class="icon m-auto w-[75px] items-center rounded-2xl text-center"
-                  src={icon}
-                />
-              ) : (
-                ""
-              )
-            }
-            <div
-              class="title m-auto mt-[1em] h-fit w-fit items-center text-center text-lg font-bold"
-              set:html={title.replace("\\n", "<br>")}
-            />
-          </div>
-        </a>
-        <div
-          class="text h-inherit text-md m-auto items-center p-5 text-left md:w-1/2"
-        >
-          {description}
-          <div class="relative bottom-0 flex justify-end">
-            <button id={`i-${id}`}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                ><rect
-                  x="0"
-                  y="0"
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="none"></rect><path
-                  fill="currentColor"
-                  d="M11 7v2h2V7h-2m3 10v-2h-1v-4h-3v2h1v2h-1v2h4m8-5c0 5.5-4.5 10-10 10S2 17.5 2 12S6.5 2 12 2s10 4.5 10 10m-2 0c0-4.42-3.58-8-8-8s-8 3.58-8 8s3.58 8 8 8s8-3.58 8-8Z"
-                ></path></svg
-              ></button
-            >
-          </div>
-        </div>
-      </div>
+<div class="container rounded-2xl  ">
+  <div class="card md:w-[500px] rounded-2xl  h-fit">
+    <div class="bg-[#fff] rounded-2xl   w-full h-inherit text-right ">
+    <div class="md:flex h-inherit">
+            <div class={` md:rounded-xl  h-inherit md:w-1/2 p-5  bg-grad rounded-tr-xl   rounded-tl-xl border-[#000] border-b-[2px] md:border-b-0 md:border-r-[2px] text-center items-end`}> 
+
+              <div class="icon items-center text-center m-auto  w-[50px] h-[50px] rounded-2xl bg-[#000]" ></div>
+              <div class="title items-center text-center  m-auto mt-5 text-lg font-bold w-fit h-fit ">{title}</div> </div>
+      <div class="text md:w-1/2 h-inherit items-center m-auto text-md text-left p-5 ">{description}
+       <div class="mt-5 text-right bottom-0 relative px-5">{likes} {count}</div></div>
+
     </div>
+         </div>
+    
   </div>
-  <style define:vars={{ colour1, colour2 }}>
+  <style define:vars={{colour1, colour2}}>
     .bg-grad {
-      background-image: linear-gradient(
-        90deg,
-        var(--colour1) 0%,
-        var(--colour1) 50%,
-        var(--colour2) 100%
-      );
+      background-image: linear-gradient(90deg, var(--colour1) 0%, var(--colour1) 50%, var(--colour2) 100%);
     }
     .container {
-      font-family: "Lexend";
+      font-family: 'Lexend';
     }
-  </style>
+ </style>
 </div>

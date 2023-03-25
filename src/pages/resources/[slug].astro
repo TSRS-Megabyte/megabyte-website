@@ -1,21 +1,7 @@
 ---
 import Resource from "../../components/Resource.astro";
-import sanitizeHtml from "sanitize-html";
-
-const slug = Astro.params.slug;
-let data = await fetch(
-  `https://megabyte-website-backend.onrender.com/api/resources?filters[slug][$eq]=${slug}`
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
-
-if (data.length == 0 || !data) {
-  return Astro.redirect("/404");
-}
-data = data[0];
-console.log(data);
 ---
 
-<div set:html={data.attributes.content} />
+<Resource>
+  <h1></h1>
+</Resource>
