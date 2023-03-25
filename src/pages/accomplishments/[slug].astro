@@ -4,7 +4,7 @@ import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
 import Layout from "../../layouts/Layout.astro";
 const slug = Astro.params.slug;
 let data = await fetch(
-  `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${slug}`
+  `https://megabyte-website-backend.onrender.com/api/accomplishments?filters[slug][$eq]=${slug}&populate=*`
 )
   .then((res) => res.json())
   .then((d) => {

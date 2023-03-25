@@ -1,4 +1,4 @@
-export function formatDate(date) {
+export function formatDate(date, addHoursMin = false) {
   const dateObj = new Date(date);
   const day = dateObj.getDate();
   const month = dateObj.toLocaleString("default", { month: "long" });
@@ -18,9 +18,16 @@ export function formatDate(date) {
     }
   };
 
-  // let hoursMin = dateObj.toLocaleTimeString("en-US", {
-  //   hour: "2-digit",
-  //   minute: "2-digit",
-  // });
-  return `${month} ${day}${nthNumber(day)}, ${year}`; // + `, ${hoursMin}`;
+  let fDate = `${month} ${day}${nthNumber(day)}, ${year}`;
+
+  if (addHoursMin) {
+    fDate +=
+      " at " +
+      dateObj.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+  }
+
+  return fDate;
 }

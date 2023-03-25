@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 // import * as DOMPurify from "dompurify";
 
 let fetchData = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/resources?sort=date:desc&populate=*"
+  "https://megabyte-website-backend.onrender.com/api/resources?sort=title:asc&populate=*"
 )
   .then((res) => res.json())
   .then((d) => {
@@ -40,31 +40,34 @@ import Resource from "../../components/Resource.astro";
         </p>
       </div>
     </div>
-    <div class="mb-5 grid w-full grid-cols-1 gap-8  ml:grid-cols-2 xl:grid-cols-3">
+    <div class="mb-5 grid w-full grid-cols-1 gap-8 ml:grid-cols-2">
       {
         fetchData.length === 0 || !fetchData ? (
           <div>No resources to display</div>
         ) : (
-          fetchData.map((resource) => {
+          fetchData.map(async (resource) => {
             return (
-              <div class=" rounded-2xl hover:translate-x-[-5px] hover:translate-y-[-5px]">
-              <Resource
-                id={resource.id}
-                title={resource.attributes.title}
-                description={resource.attributes.description}
-                colour1={resource.attributes.color1}
-                colour2={resource.attributes.color2}
-                icon={resource.attributes.img.data.attributes.url}
-                slug={resource.attributes.slug}
-              /></div>
+              <div class="rounded-2xl">
+                <Resource
+                  id={resource.id}
+                  title={resource.attributes.title}
+                  description={resource.attributes.description}
+                  colour1={resource.attributes.color1}
+                  colour2={resource.attributes.color2}
+                  icon={resource.attributes.img.data.attributes.url}
+                  slug={resource.attributes.slug}
+                  createdAt={resource.attributes.createdAt}
+                  publishedAt={resource.attributes.publishedAt}
+                  updatedAt={resource.attributes.updatedAt}
+                />
+              </div>
             );
           })
         )
       }
     </div>
-
-    <style>
-      
-    </style>
+    <style></style>
   </div>
 </Layout>
+
+<script is:inline></script>

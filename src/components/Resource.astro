@@ -7,25 +7,42 @@ interface Props {
   colour2: string;
   description: string;
   slug: string;
+  createdAt: Date;
+  publishedAt: Date;
+  updatedAt: Date;
 }
 
-const { id, title, icon, colour1, colour2, description, slug } = Astro.props;
+import { marked } from "marked";
+
+const {
+  id,
+  title,
+  icon,
+  colour1,
+  colour2,
+  description,
+  slug,
+  createdAt,
+  publishedAt,
+  updatedAt,
+} = Astro.props;
+
 const likes = "❤️";
 ---
 
-<div class="container rounded-2xl">
-  <div class="border-[3px] border-[#000] h-fit rounded-2xl md:w-[100%]">
-    <div class="h-inherit w-full rounded-2xl bg-[#fff] text-right">
+<div class="container rounded-2xl" id={`resource-${id}`}>
+  <div class="h-fit rounded-2xl border-[3px] border-[#000] md:w-[100%]">
+    <div class="h-inherit infoColor w-full rounded-2xl bg-[#fff] text-right">
       <div class="h-inherit md:flex">
         <a
           href={`/resources/${slug}`}
-          class="h-inherit bg-grad flex border-l-[1px] border-t-[1px] items-center justify-center rounded-xl border-b-[3px] md:border-r-[3px] md:border-b-[2px] border-[#000] p-2 text-center md:w-1/2 md:rounded-xl border-[2px]"
+          class="h-inherit bg-grad flex items-center justify-center rounded-xl border-[2px] border-l-[1px] border-t-[1px] border-b-[3px] border-[#000] p-2 text-center md:w-1/2 md:rounded-xl md:border-r-[3px] md:border-b-[2px]"
         >
           <div class="flex-colum justify-center align-middle">
             {
               icon ? (
                 <img
-                  class="icon m-auto w-[75px] items-center rounded-2xl text-center"
+                  class="icon m-auto w-[100px] items-center text-center"
                   src={icon}
                 />
               ) : (
@@ -41,9 +58,14 @@ const likes = "❤️";
         <div
           class="text h-inherit text-md m-auto items-center p-5 text-left md:w-1/2"
         >
-          {description}
+          <a href={`/resources/${slug}`} set:html={marked.parse(description)} />
           <div class="z-[0] flex justify-end">
-            <button id={`i-${id}`}>
+            <button
+              class="iButton"
+              id={`i-${id}`}
+              onclick="displayInfo(this.id.replace('i-', ''))"
+              title="Post Information"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -75,8 +97,27 @@ const likes = "❤️";
         var(--colour2) 100%
       );
     }
+
     .container {
       font-family: "Lexend";
+      transition: 0.3s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .container:hover {
+        transform: translateY(0.3em);
+        filter: saturate(1.5);
+      }
+    }
+
+    .full-width {
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
+    .infoColor {
+      transition: background-color 0.5s ease;
+    }
+    .infoColor:hover {
     }
   </style>
 </div>
