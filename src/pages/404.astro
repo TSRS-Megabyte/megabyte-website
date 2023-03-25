@@ -4,20 +4,20 @@ import HTMLayout from "../layouts/HTMLayout.astro";
 ---
 
 <HTMLayout title="404">
-  <div class="flex h-screen w-screen justify-center text-center align-middle">
+  <div class="bg-[rgb(246, 247, 233)] flex h-screen w-screen justify-center text-center align-middle">
     <div style="align-self: center">
-      <h1>Oops. You seem to have lost your way.</h1>
+      <h1 class="text-[ rgb(41, 41, 41)] text-[6vmin] ">Oops. You seem to have lost your way.</h1>
       <div
         style="display: flex; margin-top: 2em; flex-direction: column;"
         class="flex-column"
       >
-        <a id="home" href="/" class="px-5" title="Return to Home">HOME</a>
+        <a id="home" href="/" class="p-3 text-[#ff7474] text-4xl hover:text-[#ff74ff]" title="Return to Home">HOME</a>
         {
           Object.entries(navPages).map((page) => (
             <a
               id={page[0].toLowerCase()}
               href={page[1]}
-              class="px-5"
+              class="p-3 text-[#ff7474] text-2xl  hover:text-[#ff74ff]"
               title={`Return to ${page[0]}`}
             >
               {page[0].toUpperCase()}
@@ -30,20 +30,6 @@ import HTMLayout from "../layouts/HTMLayout.astro";
 </HTMLayout>
 
 <style>
-  body {
-    background-color: rgb(246, 247, 233);
-  }
-  h1 {
-    color: rgb(41, 41, 41);
-    font-size: 5vmin;
-  }
-  a {
-    color: rgb(97, 97, 255);
-    font-size: 5vmin;
-    transition: 0.2s ease;
-  }
-  a:hover {
-    text-decoration: underline;
-    filter: brightness(75%);
-  }
+
+
 </style>

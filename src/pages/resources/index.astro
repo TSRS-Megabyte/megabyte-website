@@ -40,13 +40,14 @@ import Resource from "../../components/Resource.astro";
         </p>
       </div>
     </div>
-    <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+    <div class="mb-5 grid w-full grid-cols-1  ml:grid-cols-2 gap-8 xl:grid-cols-3">
       {
         fetchData.length === 0 || !fetchData ? (
           <div>No resources to display</div>
         ) : (
           fetchData.map((resource) => {
             return (
+              <div class="hover:shadow-[10px_10px_0px_0px_#000] rounded-xl hover:translate-x-[-5px] hover:translate-y-[-5px]">
               <Resource
                 id={resource.id}
                 title={resource.attributes.title}
@@ -56,7 +57,8 @@ import Resource from "../../components/Resource.astro";
                 icon={resource.attributes.img.data.attributes.url}
                 slug={resource.attributes.slug}
               />
-            );
+
+           </div> );
           })
         )
       }
