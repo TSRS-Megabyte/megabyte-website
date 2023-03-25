@@ -4,26 +4,32 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-
 .bg-green {
-  background-color: #ceff1b;
+    background-color: #ceff1b;
 }
+
 .bg-white {
-  background: #ffffff;
+    background: #ffffff;
 }
 
 .card {
-  border: 3px solid black;
-  box-shadow: 6px 6px 0px 0px;
-  /* transition: ease 0.2s; */
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px;
+    /* transition: ease 0.2s; */
 }
 
 .bg-blue {
-  background-color: #82e8ff;
+    background-color: #82e8ff;
 }
 
 .bg-cube {
-  background-image: url("/assets/tileable-cubes.svg");
-  background-size: 50px 70px;
-  background-repeat: repeat;
+    background-image: url("/assets/tileable-cubes.svg");
+    background-size: 50px 70px;
+    background-repeat: repeat;
+}
+
+.bg-line {
+    background-image: url("https://svgshare.com/i/rQx.svg");
+    background-size: 350px;
+    background-repeat: repeat;
 }

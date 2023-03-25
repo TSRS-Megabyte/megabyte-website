@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import * as DOMPurify from "dompurify";
+// import * as DOMPurify from "dompurify";
 
 let fetchData = await fetch(
   "https://megabyte-website-backend.onrender.com/api/resources?sort=date:desc&populate=*"
@@ -40,13 +40,14 @@ import Resource from "../../components/Resource.astro";
         </p>
       </div>
     </div>
-    <div class="mb-5 grid w-full grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
+    <div class="mb-5 grid w-full grid-cols-1 gap-8  ml:grid-cols-2 xl:grid-cols-3">
       {
         fetchData.length === 0 || !fetchData ? (
           <div>No resources to display</div>
         ) : (
           fetchData.map((resource) => {
             return (
+              <div class="hover:shadow-[10px_10px_0px_0px_#000] rounded-2xl hover:translate-x-[-5px] hover:translate-y-[-5px]">
               <Resource
                 id={resource.id}
                 title={resource.attributes.title}
@@ -55,7 +56,7 @@ import Resource from "../../components/Resource.astro";
                 colour2={resource.attributes.color2}
                 icon={resource.attributes.img.data.attributes.url}
                 slug={resource.attributes.slug}
-              />
+              /></div>
             );
           })
         )
@@ -63,11 +64,7 @@ import Resource from "../../components/Resource.astro";
     </div>
 
     <style>
-      .bg-line {
-        background-image: url("https://svgshare.com/i/rQx.svg");
-        background-size: 350px;
-        background-repeat: repeat;
-      }
+      
     </style>
   </div>
 </Layout>

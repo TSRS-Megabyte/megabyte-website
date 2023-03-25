@@ -1,6 +1,9 @@
 ---
 import Resource from "../../components/Resource.astro";
-import sanitizeHtml from "sanitize-html";
+import marked from 'marked'
+import Layout from "../../layouts/Layout.astro";
+import ResourcePost from "../../components/ResourcePost.astro";
+import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
 
 const slug = Astro.params.slug;
 let data = await fetch(
@@ -14,8 +17,14 @@ let data = await fetch(
 if (data.length == 0 || !data) {
   return Astro.redirect("/404");
 }
-data = data[0];
-console.log(data);
+
+const data_new= data[0].attributes;
+console.log(data_new)
+
 ---
 
-<div set:html={data.attributes.content} />
+<Layout title="Resources | Megabyte" >
+  <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
+    <ResourcePost logo='/assets/tsrs.svg' date={data_new.publishedAt} rawContent={data_new.content} title={data_new.title} colour1={data_new.color1} colour2={data_new.color2} />
+  </div>
+</Layout>
