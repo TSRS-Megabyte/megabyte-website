@@ -12,15 +12,15 @@ const pathname = new URL(Astro.request.url).pathname;
       <a href="/" class="navHome" title="Home">
         <div class="flex h-full w-full flex-row items-center justify-center">
           <img
-            class="w-[3.6vw] min-w-[60px] mr-[-0.35em]"
+            class="mr-[-0.35em] w-[3.6vw] min-w-[60px]"
             src="/assets/tsrs.svg"
             alt="tsrs logo"
           />
           <img
-          class="w-[3.5vw] min-w-[50px] mr-3"
-          src="/final/mega-bw.svg"
-          alt="megabyte logo"
-        />
+            class="mr-3 w-[3.5vw] min-w-[50px]"
+            src="/final/mega-bw.svg"
+            alt="megabyte logo"
+          />
           <p class="mb-[0.03em] text-2xl font-bold uppercase">Megabyte</p>
           <!-- <div id="mgbt-underline" class="w-1/2 h-1 bg-[#74bcffb4]"></div> -->
         </div>
@@ -76,7 +76,6 @@ const pathname = new URL(Astro.request.url).pathname;
     font-weight: 600;
   }
 
-
   .navlink {
     text-decoration: none;
     padding: 0 1em;
@@ -85,16 +84,6 @@ const pathname = new URL(Astro.request.url).pathname;
   li {
     font-family: "Roboto Mono", monospace;
   }
-  .navlink:not(.current) li {
-    /* padding-top: 1em;
-    margin-bottom: 1em;
-    background: ;
-    background-size: 0% 2px;
-    background-repeat: no-repeat;
-    background-position: 50% 2.4em;
-    transition: 0.2s ease; */
-  }
-
   .navlink:not(.current) li:hover {
     text-decoration: underline;
     text-underline-offset: 0.5em;
@@ -118,34 +107,12 @@ const pathname = new URL(Astro.request.url).pathname;
     box-shadow: 4px 4px 0px 0px #000;
     /* transition: 0.25s ease; */
   }
-  /* 
-  .wrapper:not(.scrolled):hover {
-    background: rgba(255, 255, 255, 1);
-  } */
 
   .scrolled {
     animation: solidify 1s linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
-
-  /* @keyframes solidify {
-    0% {
-      background: rgba(255, 255, 255, 0.8);
-    }
-    100% {
-      background: rgba(255, 255, 255, 1);
-    }
-  } */
-
-  /* .mgbt-text {
-    font-family: "Lexend", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #000;
-    vertical-align: middle;
-    align-self: center;
-  } */
 
   .mega {
     text-decoration: underline #74bcffb4 0.2em;
@@ -160,14 +127,6 @@ const pathname = new URL(Astro.request.url).pathname;
     text-decoration: underline #ff7474 0.3rem;
   }
 
-  /* #center-wrapper {
-    width: calc(100vw - 4px);
-    justify-content: center;
-
-    position: relative;
-    top: 1.5vh;
-  } */
-
   .symbol {
     display: none;
   }
@@ -181,21 +140,6 @@ const pathname = new URL(Astro.request.url).pathname;
       box-shadow: 0px 0px 0px 0px;
       transition: 0.25s ease;
     }
-    /* .wrapper:hover {
-      background: rgba(255, 255, 255, 0.75);
-    } */
-
-    /* .mgbt-text {
-      font-size: 21px;
-      font-weight: 700;
-    } */
-
-    /* .whiteBar {
-      display: flex;
-      background: white;
-      justify-content: center;
-      box-shadow: 0 0.25rem 1rem #00000075;
-    } */
 
     .navbar {
       top: 0;
