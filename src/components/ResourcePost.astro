@@ -2,17 +2,13 @@
 import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
 import { marked } from "marked";
 import { formatDate } from "../../libs/dateFormat";
+import { CollectionEntry } from "astro:content";
 export interface Props {
-  id: string;
-  title: string;
-  rawContent: string;
-  colour1: string;
-  colour2: string;
-  logo: string;
-  date: string;
+  resource: CollectionEntry<"resources">;
 }
 
-const { id, title, rawContent, logo, colour1, colour2, date } = Astro.props;
+const { resource } = Astro.props;
+const { Content } = await resource.render();
 ---
 
 <div class="card flex h-full w-full flex-col rounded-lg">
@@ -20,15 +16,21 @@ const { id, title, rawContent, logo, colour1, colour2, date } = Astro.props;
     class="bg-var bg-blue-500 flex flex-shrink items-center border-b-2 py-3 px-3 leading-5"
   >
     <div class="logo">
-      <img src={logo} alt="" class="mr-4 w-[75px]" />
+      <img
+        src={resource.data.img}
+        alt="Icon for resource"
+        class="mr-4 w-[75px]"
+      />
     </div>
     <div class="title flex items-center">
       <div>
         <h3 class="mb-1 text-xl font-bold">
-          {title}
+          {resource.data.title}
         </h3>
         <h3 class="text-md">
-          Last updated <span class="italic">{formatDate(date)}</span>
+          Last updated <span class="italic"
+            >{formatDate(resource.data.postDate)}</span
+          >
         </h3>
       </div>
     </div>
@@ -37,7 +39,7 @@ const { id, title, rawContent, logo, colour1, colour2, date } = Astro.props;
       <a
         class="mr-3 bhover:hover:scale-110"
         title="Return to Resources"
-        href={`/resources#resource-${id}`}
+        href={`/resources#resource-${resource.slug}`}
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -54,12 +56,17 @@ const { id, title, rawContent, logo, colour1, colour2, date } = Astro.props;
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
   >
-    <div class="flex flex-col gap-3 text-left text-lg" set:html={rawContent} />
+    <div class="flex flex-col gap-3 text-left text-lg"><Content /></div>
   </div>
-</div>
 
-<style define:vars={{ colour1, colour2 }}>
-  .bg-var {
-    background: linear-gradient(90deg, var(--colour1), var(--colour2));
-  }
-</style>
+  <style
+    define:vars={{
+      colour1: resource.data.colors[0],
+      colour2: resource.data.colors[1],
+    }}
+  >
+    .bg-var {
+      background: linear-gradient(90deg, var(--colour1), var(--colour2));
+    }
+  </style>
+</div>

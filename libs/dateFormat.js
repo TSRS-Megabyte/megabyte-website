@@ -1,4 +1,4 @@
-export function formatDate(date, addHoursMin = false) {
+export function formatDate(date, type = "default") {
   const dateObj = new Date(date);
   const day = dateObj.getDate();
   const month = dateObj.toLocaleString("default", { month: "long" });
@@ -19,15 +19,18 @@ export function formatDate(date, addHoursMin = false) {
   };
 
   let fDate = `${month} ${day}${nthNumber(day)}, ${year}`;
-
-  if (addHoursMin) {
-    fDate +=
+  if (type == "default") return fDate;
+  else if (type == "hm")
+    return (
+      fDate +
       " at " +
       dateObj.toLocaleTimeString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
-      });
-  }
+      })
+    );
+  else if (type == "accomplishment-card")
+    return `${day}${nthNumber(day)} ${month} ${year}`.toUpperCase();
 
   return fDate;
 }

@@ -1,15 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-let fetchData = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
+import { getCollection } from "astro:content";
 
 const colours = [
   "#81effc",
@@ -25,6 +19,11 @@ const colours = [
   "#ffe81b",
   "#ff7474",
 ];
+
+const accomplishments = await getCollection("accomplishments");
+accomplishments.sort(function (a, b) {
+  return b.data.date.getTime() - a.data.date.getTime();
+});
 ---
 
 <!-- <Maintain /> Use when site under Maintainance --><!-- <Maintain /> --><!-- 
@@ -60,28 +59,18 @@ heroImage: "/public/assets/tsrs.svg"
     </div>
 
     {
-      !fetchData || fetchData.length === 0 ? (
+      !accomplishments ? (
         // if there are no events found
         <div class="">No accomplishments to display at the moment.</div>
       ) : (
         // map each event to its own block
         <div class="mb-5 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {fetchData.map((notice, num) => {
-            let details = notice.attributes;
-            let imgSrc = "";
-            if (details.media.data.length != 0) {
-              imgSrc = details.media.data[0].attributes.url;
-            }
-
+          {accomplishments.map(async (accomplishment, num) => {
             return (
               <div>
                 <AccomplishmentCard
-                  title={details.title}
-                  link={`/accomplishments/${details.slug}`}
-                  body={details.subline}
-                  img={imgSrc}
+                  accomplishment={accomplishment}
                   tColour={colours[num]}
-                  date={details.date}
                 />
               </div>
             );

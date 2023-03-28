@@ -2,16 +2,12 @@
 import Layout from "../../layouts/Layout.astro";
 // import * as DOMPurify from "dompurify";
 
-let fetchData = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/resources?sort=title:asc&populate=*"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
 import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
 import Maintain from "../../components/Maintain.astro"; // Use when site under maintainance
 import Resource from "../../components/Resource.astro";
+import { getCollection } from "astro:content";
+
+const resources = await getCollection("resources");
 ---
 
 <Layout title="Resources | Megabyte">
@@ -42,24 +38,13 @@ import Resource from "../../components/Resource.astro";
     </div>
     <div class="mb-5 grid w-full grid-cols-1 gap-8 ml:grid-cols-2">
       {
-        fetchData.length === 0 || !fetchData ? (
+        !resources ? (
           <div>No resources to display</div>
         ) : (
-          fetchData.map(async (resource) => {
+          resources.map(async (resource) => {
             return (
               <div class="rounded-2xl">
-                <Resource
-                  id={resource.id}
-                  title={resource.attributes.title}
-                  description={resource.attributes.description}
-                  colour1={resource.attributes.color1}
-                  colour2={resource.attributes.color2}
-                  icon={resource.attributes.img.data.attributes.url}
-                  slug={resource.attributes.slug}
-                  createdAt={resource.attributes.createdAt}
-                  publishedAt={resource.attributes.publishedAt}
-                  updatedAt={resource.attributes.updatedAt}
-                />
+                <Resource resource={resource} />
               </div>
             );
           })
