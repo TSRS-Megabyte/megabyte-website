@@ -3,16 +3,9 @@ import NoticeBoardCard from "../components/NoticeBoardCard.astro";
 import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
+import { getCollection } from "astro:content";
 // import favicon.ico from ''
 // import Maintain from "../components/Maintain.astro"; // Use when site under maintainance
-let notices = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/notices?sort[0]=date:desc&pagination[start]=0&pagination[limit]=3"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
-
 const colours = [
   "#81effc",
   "#ffe81b",
@@ -31,13 +24,14 @@ const colours = [
   "#ff7474",
 ];
 
-let accomplishments = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/accomplishments?sort=date:desc&populate=*&pagination[start]=0&pagination[limit]=3"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
+const notices = await getCollection("notices");
+notices.sort(function (a, b) {
+  return b.data.postDate.getTime() - a.data.postDate.getTime();
+});
+const accomplishments = await getCollection("accomplishments");
+accomplishments.sort(function (a, b) {
+  return b.data.date.getTime() - a.data.date.getTime();
+});
 ---
 
 <Layout title="Megabyte" class="=-mandatory h-screen w-screen">
@@ -82,23 +76,17 @@ let accomplishments = await fetch(
 
       <div class="mb-2">
         {
-          !notices || notices.length == 0 ? (
+          !notices ? (
             <div>No notices to display.</div>
           ) : (
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
 
-            notices.map(async (event, num) => {
+            notices.map(async (notice, num) => {
               const colour = colours[num];
-              let details = event.attributes;
               return (
                 <div class="mb-[2em]">
-                  <NoticeBoardCard
-                    title={details.title}
-                    body={details.content}
-                    tColour={colour}
-                    date={details.publishedAt}
-                  />
+                  <NoticeBoardCard notice={notice} tColour={colour} />
                 </div>
               );
             })
@@ -128,28 +116,18 @@ let accomplishments = await fetch(
         class={`mb-5 grid w-full gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-${accomplishments.length}`}
       >
         {
-          !accomplishments || accomplishments.length == 0 ? (
+          !accomplishments ? (
             // if there are no events found
             <div>No accomplishments to display at the moment.</div>
           ) : (
             // map each event to its own block
             accomplishments.map(async (accomplishment, num) => {
-              let details = accomplishment.attributes;
-              const colour_ = colours[num];
-              let imgSrc = "";
-              if (details.media.data.length != 0) {
-                imgSrc = details.media.data[0].attributes.url;
-              }
-
+              const colour = colours[num];
               return (
                 <div>
                   <AccomplishmentCard
-                    title={details.title}
-                    link={`/accomplishments/${details.slug}`}
-                    body={details.subline}
-                    img={imgSrc}
-                    tColour={colour_}
-                    date={details.date}
+                    accomplishment={accomplishment}
+                    tColour={colour}
                   />
                 </div>
               );
@@ -161,7 +139,7 @@ let accomplishments = await fetch(
         <Button color="#ceff1b" text="See All" link="/accomplishments" />
       </div>
     </div>
-    <!-- <div class="mb-16 px-8 md:px-24">
+    <div class="mb-16 px-8 md:px-24">
       <div class="section-title-box mb-6 w-fit py-8 px-8 text-left">
         <p class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl">
           Resources
@@ -176,7 +154,7 @@ let accomplishments = await fetch(
           class="bg-green py-2 px-1 text-center font-mono text-lg hover:cursor-pointer"
         >
           <a
-            href="/"
+            href="/resources"
             class="flex h-full w-full flex-row items-center justify-center gap-2 px-4"
           >
             <span class="font-body font-bold">Learn more</span>
@@ -189,7 +167,7 @@ let accomplishments = await fetch(
           </a>
         </button>
       </div>
-    </div> -->
+    </div>
 
     <style>
       #resources-learn-more-btn {
@@ -293,13 +271,7 @@ let accomplishments = await fetch(
   }
 </style>
 <script>
-  function TextScramble(el) {
-    const chars =
-      "ABCDEFGHAJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()__$$##%&*~~~";
-    let queue = [];
-    let frameRequest = null;
-    let frame = 0;
-    let resolve = () => {};
+  import { TextScramble } from "../../libs/TextScramble.js";
 
     function setText(newText) {
       const oldText = el.innerText || "";

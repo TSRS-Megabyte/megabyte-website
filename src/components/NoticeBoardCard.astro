@@ -2,32 +2,31 @@
 import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
 import { marked } from "marked";
 import { formatDate } from "../../libs/dateFormat";
-
+import { CollectionEntry } from "astro:content";
 export interface Props {
-  title: string;
-  body: string;
+  notice: CollectionEntry<"notices">;
   tColour: string;
-  date: string;
 }
 
-const { title, body, tColour, date } = Astro.props;
-const parsedContent = marked.parse(body);
+const { notice, tColour } = Astro.props;
+
+const { Content } = await notice.render();
 ---
 
 <div class="card flex h-full w-full flex-col">
   <div class={`bg-var flex-shrink border-b-2 py-4 px-4 leading-5 md:px-8`}>
     <h3 class="mb-2 text-xl font-bold">
-      {title}
+      {notice.data.title}
     </h3>
-    <p class="text-base font-medium">Posted {formatDate(date)}</p>
+    <p class="text-base font-medium">
+      Posted {formatDate(notice.data.postDate)}
+    </p>
   </div>
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pt-4 pb-4 md:px-8"
   >
-    <div
-      class="flex flex-col gap-3 text-left text-lg"
-      set:html={parsedContent}
-    />
+    <Content />
+    <div class="flex flex-col gap-3 text-left text-lg"></div>
   </div>
 </div>
 

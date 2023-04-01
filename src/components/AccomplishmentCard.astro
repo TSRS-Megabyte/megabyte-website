@@ -1,37 +1,12 @@
 ---
+import { CollectionEntry } from "astro:content";
+import { formatDate } from "../../libs/dateFormat";
+
 export interface Props {
-  title: string;
-  link: string;
-  body: string;
-  date: string;
-  img: string;
+  accomplishment: CollectionEntry<"accomplishments">;
   tColour: string;
 }
-const { tColour, title, link, date, body, img } = Astro.props;
-const formattedDate = new Date(date).toLocaleDateString("en-GB", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
-const ordinalDay = formattedDate.replace(
-  /(\d{1,2})(st|nd|rd|th)/,
-  (match, day, suffix) => {
-    if (day >= 11 && day <= 19) {
-      return day + "th";
-    } else {
-      switch (day % 10) {
-        case 1:
-          return day + "st";
-        case 2:
-          return day + "nd";
-        case 3:
-          return day + "rd";
-        default:
-          return day + "th";
-      }
-    }
-  }
-);
+const { accomplishment, tColour } = Astro.props;
 ---
 
 <div class="card bg-white flex h-full w-full flex-col">
@@ -41,10 +16,10 @@ const ordinalDay = formattedDate.replace(
     <p
       class="flex min-h-[60px] flex-grow items-center justify-center text-2xl font-bold"
     >
-      {title}
+      {accomplishment.data.title}
     </p>
     <p class="font-bold uppercase">
-      {ordinalDay}
+      {formatDate(accomplishment.data.date, "accomplishment-card")}
     </p>
   </div>
   <div class="flex flex-grow flex-col gap-5 px-6 py-6">
@@ -54,18 +29,18 @@ const ordinalDay = formattedDate.replace(
           <img
             class="mb-4 h-auto max-h-[250px] w-auto max-w-full"
             style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
-            src={img}
-            alt={img}
+            src={accomplishment.data.media[0]}
+            alt={accomplishment.data.media[0]}
           />
         )
       }
     </div>
     <div class="flex flex-grow flex-col justify-between">
       <p class="text-md text-gray-700 mb-6 flex-grow">
-        {body}
+        {accomplishment.data.subline}
       </p>
       <a
-        href={link}
+        href={`accomplishments/${accomplishment.slug}`}
         class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-sm uppercase"
       >
         <span class="font-bold"> Read more</span>

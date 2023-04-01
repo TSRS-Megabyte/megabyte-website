@@ -1,0 +1,27 @@
+---
+//schena for each blogpost
+import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+
+const { slug } = Astro.params;
+const accomplishment = await getEntryBySlug("accomplishments", slug);
+
+if (accomplishment === undefined) {
+  return Astro.redirect("/404");
+}
+
+const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
+const colour = colours[Math.floor(Math.random() * colours.length)];
+---
+
+{
+  (
+    <Layout title={`${accomplishment.data.title} | Megabyte`}>
+      <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
+        <AccomplishmentMain accomplishment={accomplishment} tColour={colour} />
+      </div>
+      <style />
+    </Layout>
+  )
+}

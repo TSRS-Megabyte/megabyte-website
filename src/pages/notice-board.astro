@@ -2,13 +2,6 @@
 //PAGE TO RENDER ALL AVAILABLE POSTS
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-let data = await fetch(
-  "https://megabyte-website-backend.onrender.com/api/notices?sort[0]=publishedAt:desc"
-)
-  .then((res) => res.json())
-  .then((d) => {
-    return d.data;
-  });
 import AccomplishmentCard from "../components/AccomplishmentCard.astro";
 import NoticeBoardCard from "../components/NoticeBoardCard.astro";
 const colours = [
@@ -28,6 +21,11 @@ const colours = [
   "#ffe81b",
   "#ff7474",
 ];
+
+const notices = await getCollection("notices");
+notices.sort(function (a, b) {
+  return b.data.postDate.getTime() - a.data.postDate.getTime();
+});
 ---
 
 <!-- <Maintain /> -->
@@ -46,22 +44,16 @@ const colours = [
 
     <div class={``}>
       {
-        !data ? (
+        !notices ? (
           <div />
         ) : (
           // <h1 class="text-center text-xl">().</h1>
           // map each event to its own block
-          data.map((event, num) => {
+          notices.map((notice, num) => {
             const colour = colours[num];
-            let details = event.attributes;
             return (
               <div class="mt-12">
-                <NoticeBoardCard
-                  title={details.title}
-                  body={details.content}
-                  tColour={colour}
-                  date={details.publishedAt}
-                />
+                <NoticeBoardCard notice={notice} tColour={colour} />
               </div>
               
             );
