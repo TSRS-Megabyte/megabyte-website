@@ -113,7 +113,7 @@ accomplishments.sort(function (a, b) {
       </div>
 
       <div
-        class={`mb-5 grid w-full gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-${accomplishments.length}`}
+        class={`mb-5 grid w-full gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}
       >
         {
           !accomplishments ? (
@@ -121,7 +121,7 @@ accomplishments.sort(function (a, b) {
             <div>No accomplishments to display at the moment.</div>
           ) : (
             // map each event to its own block
-            accomplishments.map(async (accomplishment, num) => {
+            accomplishments.slice(0, 3).map(async (accomplishment, num) => {
               const colour = colours[num];
               return (
                 <div>
@@ -184,9 +184,9 @@ accomplishments.sort(function (a, b) {
         height: 2em;
         transition: 0.5s ease;
       }
-      #resources-learn-more-btn svg:hover {
-        transform: rotate(90deg);
-      }
+      /* #resources-learn-more-btn svg:hover {
+        transform: translate(3px, 0px);
+      } */
     </style>
   </div>
 </Layout>
