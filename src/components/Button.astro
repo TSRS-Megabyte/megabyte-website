@@ -7,15 +7,14 @@ export interface Props {
 const { link, text, color } = Astro.props;
 ---
 
-
 <button
-  class="link-button w-fit bg bg-opacity-0 py-2 text-center font-mono text-lg hover:cursor-pointer"
+  class="link-button bg w-fit bg-opacity-0 py-2 text-center font-mono text-lg hover:cursor-pointer"
 >
   <a href={link} class="h-full w-full px-4 font-bold">
     <span class="w-fit">{text}</span>
   </a>
 </button>
-<style define:vars={{color}}>
+<style define:vars={{ color }}>
   .bg {
     background-color: var(--color);
   }
