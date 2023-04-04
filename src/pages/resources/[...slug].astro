@@ -3,6 +3,7 @@ import Resource from "../../components/Resource.astro";
 import Layout from "../../layouts/Layout.astro";
 import ResourcePost from "../../components/ResourcePost.astro";
 import { getEntryBySlug } from "astro:content";
+
 const { slug } = Astro.params;
 const resource = await getEntryBySlug("resources", slug);
 if (resource === undefined) {

@@ -1,0 +1,38 @@
+---
+import Resource from "../../components/Resource.astro";
+import Layout from "../../layouts/Layout.astro";
+import ResourcePost from "../../components/ResourcePost.astro";
+import { getEntryBySlug } from "astro:content";
+import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
+
+const { slug } = Astro.params;
+const notice = await getEntryBySlug("sessions", slug);
+if (notice === undefined) {
+  return Astro.redirect("/404");
+}
+const colours = [
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+];
+
+const colour = colours[Math.floor(Math.random() * colours.length)];
+---
+
+<Layout title="Resources | Megabyte">
+  <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36">
+    <AccomplishmentMain tColour={colour} accomplishment={notice} />
+  </div>
+</Layout>

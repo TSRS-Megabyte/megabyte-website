@@ -15,15 +15,34 @@ const { Content } = await accomplishment.render();
 
 <div class="card flex h-full w-full flex-col rounded-lg">
   <div
-    class="bg-var bg-blue-500 flex-shrink border-b-2 py-3 px-4 leading-5 md:px-8"
+    class="flex bg-var bg-blue-500 flex-shrink border-b-2 py-3 px-4 leading-5 md:px-8"
   >
+  <div class="cont">
     <h3 class="mb-2 text-xl font-bold">
       {accomplishment.data.title}
     </h3>
     <h3 class="text-md mb-2 font-bold">
       {formatDate(accomplishment.data.date)}
-    </h3>
+    </h3></div>
+    <div class="flex flex-[2] items-center justify-end">
+      <a
+        class="mr-3"
+        title="Return to Accomplishments"
+        href={`/accomplishments#accomplishment-${accomplishment.slug}`}
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="m10.875 19.3l-6.6-6.6q-.15-.15-.213-.325T4 12q0-.2.063-.375t.212-.325l6.6-6.6q.275-.275.688-.287t.712.287q.3.275.313.688T12.3 6.1L7.4 11h11.175q.425 0 .713.288t.287.712q0 .425-.287.713t-.713.287H7.4l4.9 4.9q.275.275.288.7t-.288.7q-.275.3-.7.3t-.725-.3Z"
+          ></path></svg
+        ></a
+      >
+    </div>
   </div>
+  
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
   >
