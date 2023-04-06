@@ -1,0 +1,76 @@
+---
+//PAGE TO RENDER ALL AVAILABLE POSTS
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
+import NoticeBoardCard from "../../components/NoticeBoardCard.astro";
+import Session from "../../components/Session.astro";
+const colours = [
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+  "#81effc",
+  "#ffe81b",
+  "#ff7474",
+];
+
+const sessions = await getCollection("sessions");
+sessions.sort(function (a, b) {
+  return b.data.postDate.getTime() - a.data.postDate.getTime();
+});
+---
+
+<!-- <Maintain /> -->
+<Layout title="Sessions | Megabyte">
+  <div class="bg-cube h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
+    <div class="mb-8 flex flex-row items-center justify-center">
+      <div class="title-box w-fit bg-[#ceff1b] py-6 px-6">
+        <h1 class="mb-5 text-center text-2xl font-bold md:text-3xl xl:text-4xl">
+          Sessions
+        </h1>
+        <p class="text-center text-lg md:text-xl xl:text-xl">
+          Plan for the upcoming society meetings.
+        </p>
+      </div>
+    </div>
+
+    <div class={``}>
+      {
+        !sessions ? (
+          <div />
+        ) : (
+          // <h1 class="text-center text-xl">().</h1>
+          // map each event to its own block
+          sessions.map((session, num) => {
+            const colour = colours[num];
+            return (
+              <div class="mt-12">
+
+                <Session session={session} tColour={colour} />
+              </div>
+              
+            );
+          })
+        )
+      }
+    </div>
+  </div>
+
+  <style>
+    .title-box {
+      border: 2px solid #000;
+      box-shadow: 6px 6px 0px 0px #000;
+    }
+
+
+  </style>
+</Layout>

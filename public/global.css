@@ -33,3 +33,12 @@
     background-size: 350px;
     background-repeat: repeat;
 }
+
+.rich-text li {
+    list-style-type: disc;
+}
+
+.rich-text a {
+    color: #366994;
+    font-weight: bold;
+}
