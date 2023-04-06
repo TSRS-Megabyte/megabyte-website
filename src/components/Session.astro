@@ -13,28 +13,23 @@ const { session, tColour } = Astro.props;
 
 const { Content } = await session.render();
 ---
-<a
-          href={`/sessions/${session.slug}`}
-        >
+
 <div class="card flex h-full w-full flex-col">
-  
   <div class={`bg-var flex-shrink border-b-2 py-4 px-4 leading-5 md:px-8`}>
     <h3 class="mb-2 text-xl font-bold">
       {session.data.title}
     </h3>
     <p class="text-base font-medium">
-      Posted {formatDate(session.data.date)}
+      {session.data.date ? formatDate(session.data.date) : "TBD"}
     </p>
   </div>
   <div
-    class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pt-4 pb-4 md:px-8"
+    class="bg-white flex flex-grow flex-col items-start gap-3 px-4 pt-4 pb-4 md:px-8 rich-text"
   >
     <Content />
     <div class="items-end text-end text-lg"></div>
   </div>
-
 </div>
-</a>
 <style define:vars={{ tColour }}>
   .bg-var {
     background: var(--tColour);
@@ -44,25 +39,5 @@ const { Content } = await session.render();
     border: 3px solid black;
     box-shadow: 6px 6px 0px 0px;
     /* transition: ease 0.2s; */
-  }
-  .card:hover {
-    box-shadow: 3px 3px 0px 0px;
-    transform: translate(3px, 3px);
-  }
-  .card:hover .title {
-    background-image: linear-gradient(
-      rgba(210, 210, 210, 0.1),
-      rgba(210, 210, 210, 20%)
-    );
-    transition: ease 0.2s;
-  }
-  .link-button {
-    background: #ffffff;
-    border: 2px solid black;
-    box-shadow: 4px 4px 0px 0px;
-  }
-  .link-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px;
   }
 </style>
