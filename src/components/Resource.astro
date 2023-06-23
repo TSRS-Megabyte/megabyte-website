@@ -16,21 +16,20 @@ const likes = "❤️";
   class="card bg-white flex h-full w-full flex-col"
 >
   <div class="grid-cols-12 md:grid">
-    <a href={`resources/${resource.slug}`} class="col-span-4">
-      <div
-        class="bg-grad flex items-center justify-center p-4 border-b-2 md:border-b-0 md:border-r-2 h-full w-full"
-      >
-        {
-          resource.data.img ? (
-            <img
-              class="icon m-auto w-[100px] items-center text-center"
-              src={resource.data.img}
-            />
-          ) : (
-            ""
-          )
-        }
-      </div>
+    <a
+      href={`resources/${resource.slug}`}
+      class="bg-grad flex items-center justify-center p-4 border-b-2 md:border-b-0 md:border-r-2 col-span-4"
+    >
+      {
+        resource.data.img ? (
+          <img
+            class="icon m-auto w-[100px] items-center text-center"
+            src={resource.data.img}
+          />
+        ) : (
+          ""
+        )
+      }
     </a>
     <div class="col-span-8 flex flex-col pb-3">
       <h2 class="w-full border-b-2 py-3 px-4 text-xl font-bold">
