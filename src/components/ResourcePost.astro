@@ -13,20 +13,15 @@ const { Content } = await resource.render();
   <div
     class="bg-var flex flex-row items-center border-b-2 py-5 px-5 md:px-6 gap-5"
   >
- 
     <div class="logo">
-      <img
-        src={resource.data.img}
-        alt="Icon for resource"
-        class="h-16"
-      />
+      <img src={resource.data.img} alt="Icon for resource" class="w-[14vh]" />
     </div>
     <div class="title flex items-center">
       <div>
-        <h3 class="mb-1 text-xl font-bold">
+        <h3 class="mb-1 text-[2.6vh] font-bold">
           {resource.data.title}
         </h3>
-        <h3 class="text-md">
+        <h3 class="text-[2vh]">
           Last updated <span class="italic"
             >{formatDate(resource.data.postDate)}</span
           >
@@ -37,7 +32,9 @@ const { Content } = await resource.render();
   <div
     class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
   >
-    <div class="flex flex-col gap-3 text-left text-lg rich-text"><Content /></div>
+    <div class="flex flex-col gap-3 text-left text-lg rich-text">
+      <Content />
+    </div>
   </div>
 
   <style
