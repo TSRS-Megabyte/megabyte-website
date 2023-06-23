@@ -9,4 +9,4 @@ This volunteer will primarily work on short textual and image-based posts about 
 
 Expected time commitment: **1 hour / week**.
 
-If you are interested, please contact Arjun Sharma (IB 2-B) by email at [arjun.sharma6131@tsrs.org](mailto:arjun.sharma6131@tsrs.org) or 7428500651 on WhatsApp.
+If you are interested, please contact Arjun Sharma (IB 2-B) by email at [arjun.sharma6131@tsrs.org](mailto:arjun.sharma6131@tsrs.org) or [7428500651](https://wa.me/917428500651) on WhatsApp.
