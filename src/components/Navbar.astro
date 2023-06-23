@@ -9,7 +9,7 @@ const pathname = new URL(Astro.request.url).pathname;
     class="wrapper bg-white flex w-full flex-col items-center justify-start px-10 lg:static lg:flex-row lg:justify-between"
   >
     <div class="hamburgerGroup flex flex-row items-center justify-center">
-      <a href="/" class="navHome" title="Home">
+      <a href="/" class="navHome bhover:hover:scale-[102%]" title="Home">
         <div class="flex h-full w-full flex-row items-center justify-center">
           <img
             class="mr-[-0.35em] w-[3.6vw] min-w-[60px]"
@@ -253,39 +253,39 @@ const pathname = new URL(Astro.request.url).pathname;
 </style>
 
 <script defer>
-  const nav = document.querySelector(".navlinks-div");
-  const navlinks = document.querySelector(".navlinks");
-  const navToggle = document.querySelector(".nav-toggle");
-  const wrapper = document.querySelector(".wrapper");
+const nav = document.querySelector(".navlinks-div");
+const navlinks = document.querySelector(".navlinks");
+const navToggle = document.querySelector(".nav-toggle");
+const wrapper = document.querySelector(".wrapper");
 
-  const hamburgerMenu = document.querySelector(".hamburger-menu");
+const hamburgerMenu = document.querySelector(".hamburger-menu");
 
-  navToggle.addEventListener("click", (e) => {
-    e.preventDefault();
+navToggle.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    let visible = nav.getAttribute("data-visible");
-    visible = visible === "false" ? "true" : "false";
+  let visible = nav.getAttribute("data-visible");
+  visible = visible === "false" ? "true" : "false";
 
-    nav.setAttribute("data-visible", visible);
-    wrapper.setAttribute("blur", visible);
-    navToggle.setAttribute("aria-expanded", visible);
+  nav.setAttribute("data-visible", visible);
+  wrapper.setAttribute("blur", visible);
+  navToggle.setAttribute("aria-expanded", visible);
 
-    if (visible === "true") {
-      navlinks.classList.remove("hiddenNavlinks");
-      navlinks.classList.add("visible");
-      // document.querySelector(".hamburger-menu").innerHTML = "close";
-    } else {
-      navlinks.classList.remove("visible");
-      navlinks.classList.add("hiddenNavlinks");
-      // document.querySelector(".hamburger-menu").innerHTML = "menu";
-    }
-  });
+  if (visible === "true") {
+    navlinks.classList.remove("hiddenNavlinks");
+    navlinks.classList.add("visible");
+    // document.querySelector(".hamburger-menu").innerHTML = "close";
+  } else {
+    navlinks.classList.remove("visible");
+    navlinks.classList.add("hiddenNavlinks");
+    // document.querySelector(".hamburger-menu").innerHTML = "menu";
+  }
+});
 
-  document.addEventListener("scroll", () => {
-    if (window.scrollY != 0) {
-      wrapper.classList.add("scrolled");
-    } else {
-      wrapper.classList.remove("scrolled");
-    }
-  });
+document.addEventListener("scroll", () => {
+  if (window.scrollY != 0) {
+    wrapper.classList.add("scrolled");
+  } else {
+    wrapper.classList.remove("scrolled");
+  }
+});
 </script>
