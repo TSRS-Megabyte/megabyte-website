@@ -1,9 +1,6 @@
 ---
-import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
-import { marked } from "marked";
 import { formatDate } from "../../libs/dateFormat";
 import { CollectionEntry } from "astro:content";
-import Button from "./Button.astro";
 export interface Props {
   session: CollectionEntry<"sessions">;
   tColour: string;

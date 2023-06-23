@@ -1,6 +1,5 @@
 ---
 import Button from "./Button.astro";
-
 import { CollectionEntry } from "astro:content";
 import { marked } from "marked";
 interface Props {
@@ -17,24 +16,28 @@ const likes = "❤️";
   class="card bg-white flex h-full w-full flex-col"
 >
   <div class="grid-cols-12 md:grid">
-    <div class="bg-grad col-span-4 flex items-center justify-center">
-      {
-        resource.data.img ? (
-          <img
-            class="icon m-auto w-[100px] items-center text-center"
-            src={resource.data.img}
-          />
-        ) : (
-          ""
-        )
-      }
-    </div>
+    <a href={`resources/${resource.slug}`} class="col-span-4">
+      <div
+        class="bg-grad flex items-center justify-center p-4 border-b-2 md:border-b-0 md:border-r-2 h-full w-full"
+      >
+        {
+          resource.data.img ? (
+            <img
+              class="icon m-auto w-[100px] items-center text-center"
+              src={resource.data.img}
+            />
+          ) : (
+            ""
+          )
+        }
+      </div>
+    </a>
     <div class="col-span-8 flex flex-col pb-3">
       <h2 class="w-full border-b-2 py-3 px-4 text-xl font-bold">
         {resource.data.title}
       </h2>
       <div class="px-4 py-3 text-justify">
-        <div set:html={await marked.parse(resource.data.description)} />
+        <div set:html={marked.parse(resource.data.description)} />
       </div>
       <!-- <Button link="" text="Read more" color={resource.data.colors[0]} /> -->
       <button
@@ -74,4 +77,3 @@ const likes = "❤️";
     }
   </style>
 </div>
-

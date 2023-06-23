@@ -1,5 +1,4 @@
 ---
-
 title: Introduction to artificial intelligence
 priority: 2
 ---

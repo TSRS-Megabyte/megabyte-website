@@ -18,7 +18,7 @@ import HTMLayout from "../layouts/HTMLayout.astro";
               id={page[0].toLowerCase()}
               href={page[1]}
               class="px-5"
-              title={`Retur to ${page[0]}`}
+              title={`Return to ${page[0]}`}
             >
               {page[0].toUpperCase()}
             </a>
@@ -31,7 +31,10 @@ import HTMLayout from "../layouts/HTMLayout.astro";
 
 <style>
   body {
-    background-color: rgb(246, 247, 233);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgb(181, 175, 226) 100%)
   }
   h1 {
     color: rgb(41, 41, 41);

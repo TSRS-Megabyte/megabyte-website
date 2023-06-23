@@ -1,11 +1,9 @@
 ---
-import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
-import { marked } from "marked";
 import { formatDate } from "../../libs/dateFormat";
 import { CollectionEntry } from "astro:content";
 
 interface Props {
-  accomplishment: CollectionEntry<"accomplishments">;
+  accomplishment: CollectionEntry<any>;
   tColour: String;
 }
 
