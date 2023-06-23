@@ -39,13 +39,14 @@ const likes = "❤️";
         <div set:html={marked.parse(resource.data.description)} />
       </div>
       <!-- <Button link="" text="Read more" color={resource.data.colors[0]} /> -->
-      <button
+      <a
+        href={`resources/${resource.slug}`}
         class="link-button bg w-fit bg-opacity-0 py-[0.2em] text-center font-mono text-lg hover:cursor-pointer self-end mr-4"
       >
-        <a href={`resources/${resource.slug}`} class="h-full w-full px-3">
+        <div class="h-full w-full px-3 flex justify-center items-center">
           <span class="w-fit text-base font-light">Read more</span>
-        </a>
-      </button>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -65,12 +66,13 @@ const likes = "❤️";
     .bg {
       background-color: var(--color);
     }
-    button {
+    .link-button {
       border: 2px solid black;
       box-shadow: 4px 4px 0px 0px;
       color: black;
     }
-    button:hover {
+
+    .link-button:hover {
       transform: translate(2px, 2px);
       box-shadow: 2px 2px 0px 0px;
     }
