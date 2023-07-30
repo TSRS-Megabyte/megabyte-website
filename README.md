@@ -1,4 +1,5 @@
 # Megabyte website
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0a2fff49-4374-4956-bb9d-065c32c4c98c/deploy-status)](https://app.netlify.com/sites/megabyte-website/deploys)
 
 ## 🧞 Commands
@@ -24,9 +25,9 @@ All commands are run from the root of the project, from a terminal:
 - This means that we only use custom CSS when _absolutely necessary_, except for a few notable exceptions. These exceptions include:
   - Custom neubrutalist box-shadows and borders
   - Animations and transitions
-   
+
    Otherwise, _almost everything_ should be written in Tailwind. Never write a line of CSS that could be written in Tailwind.
-   
+
 - We write mobile-first CSS. This means that we write Tailwind classes for the mobile breakpoint first, and apply selectors (usually `md`) to change properties with larger breakpoints.
 
 - Use Flexbox and Grid for complex layouts. Never use floats or positioning unless specifically required. This does not mean that a lone paragraph tag needs to go in a flexbox, but complex layouts, such as cards or grids, often benefit from modern CSS display layouts. If you find yourself repeatedly adding the same margins or paddings to elements, you're probably in a situation where you can use flex or grid layouts to write clearner and more maintainable code.
