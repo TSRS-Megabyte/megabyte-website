@@ -1,6 +1,6 @@
 ---
 title: Introduction to the society and a mock hackathon pitch
-date: 2023-4-10
+date: 2023-04-10
 priority: 1
 ---
 

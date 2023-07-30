@@ -5,6 +5,9 @@ import Layout from "../../layouts/Layout.astro";
 import { getEntryBySlug } from "astro:content";
 
 const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required.")
+}
 const accomplishment = await getEntryBySlug("accomplishments", slug);
 
 if (accomplishment === undefined) {

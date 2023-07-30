@@ -2,6 +2,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0a2fff49-4374-4956-bb9d-065c32c4c98c/deploy-status)](https://app.netlify.com/sites/megabyte-website/deploys)
 
+## Pre-requisites
+* Install [NodeJS](https://nodejs.org/en/download)
+* Install the Astro and MDX extensions in Visual Studio Code
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:

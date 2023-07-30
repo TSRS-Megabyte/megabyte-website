@@ -2,10 +2,7 @@
 //PAGE TO RENDER ALL AVAILABLE POSTS
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import AccomplishmentCard from "../../components/AccomplishmentCard.astro";
-import NoticeBoardCard from "../../components/NoticeBoardCard.astro";
 import Session from "../../components/Session.astro";
-import { formatDate } from "../../../libs/dateFormat";
 const colours = [
   "#81effc",
   "#ffe81b",
@@ -26,7 +23,7 @@ const colours = [
 
 const sessions = await getCollection("sessions");
 sessions.sort(function (a, b) {
-    return a.data.priority - b.data.priority;
+    return a.data.priority - b.data.priority
 });
 ---
 
@@ -72,7 +69,7 @@ sessions.sort(function (a, b) {
           sessions.map((session, num) => {
             const colour = colours[num];
             return (
-              <div class="">
+              <div>
                 <Session session={session} tColour={colour} />
               </div>
             );

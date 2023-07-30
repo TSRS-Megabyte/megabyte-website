@@ -9,7 +9,10 @@ export interface Props {
 const { accomplishment, tColour } = Astro.props;
 ---
 
-<div class="card bg-white flex h-full w-full flex-col">
+<div
+  class="card bg-white flex h-full w-full flex-col"
+  id=`accomplishment-${accomplishment.slug}`
+>
   <div
     class="title flex flex-shrink flex-col items-center justify-between gap-1 px-5 pt-2 pb-2 text-center"
   >
@@ -43,7 +46,7 @@ const { accomplishment, tColour } = Astro.props;
         href={`accomplishments/${accomplishment.slug}`}
         class="hover:pointer bg-white link-button px-4 py-2 text-center font-mono text-sm uppercase"
       >
-        <span class="font-bold"> Read more</span>
+        <span class="font-bold">Read more</span>
       </a>
     </div>
   </div>

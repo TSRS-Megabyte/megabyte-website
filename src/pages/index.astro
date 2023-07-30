@@ -34,9 +34,9 @@ accomplishments.sort(function (a, b) {
 });
 ---
 
-<Layout title="Megabyte" class="=-mandatory h-screen w-screen">
+<Layout title="Megabyte" class="=-mandatory true-h-screen w-screen">
   <div
-    class="bg-hero-pattern max-w-screen h-screen bg-cover bg-center bg-no-repeat"
+    class="bg-hero-pattern max-w-screen true-h-screen bg-cover bg-center bg-no-repeat"
   >
     <div class="topMain h-full text-center text-5xl">
       <div class="m-auto text-center align-middle">
@@ -78,10 +78,9 @@ accomplishments.sort(function (a, b) {
         {
           !notices ? (
             <div>No notices to display.</div>
-          ) : (
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
-
+          ) : (
             notices.map(async (notice, num) => {
               const colour = colours[num];
               return (
@@ -117,10 +116,10 @@ accomplishments.sort(function (a, b) {
       >
         {
           !accomplishments ? (
-            // if there are no events found
+          // if there are no events found
             <div>No accomplishments to display at the moment.</div>
-          ) : (
             // map each event to its own block
+          ) : (
             accomplishments.slice(0, 3).map(async (accomplishment, num) => {
               const colour = colours[num];
               return (
@@ -198,12 +197,12 @@ accomplishments.sort(function (a, b) {
     justify-content: center;
   }
   .commune {
-    margin-top: 2vh;
-    font-size: 2vmax;
+    margin-top: 3vh;
+    font-size: 4.5vmin;
   }
 
   .weare {
-    font-size: 3vmax;
+    font-size: 7vmin;
     /* identical to box height */
     letter-spacing: -0.01em;
   }
@@ -211,7 +210,7 @@ accomplishments.sort(function (a, b) {
     background-image: url("/assets/anime-lines.svg");
   }
   .maintext {
-    font-size: 6vmax;
+    font-size: 15vmin;
     /* identical to box height */
     color: #cceaff;
     text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 8px 6px 0px #000,
@@ -270,7 +269,7 @@ accomplishments.sort(function (a, b) {
     display: flex;
   }
 </style>
-<script>
+<script is:inline>
 class TextScramble {
   constructor(el) {
     this.el = el;
@@ -325,14 +324,11 @@ class TextScramble {
   }
 }
 
-const phrases = [
-  "Megabyte",
-];
+const phrases = ["Megabyte"];
 
 const el = document.querySelector(".text");
 const fx = new TextScramble(el);
 
 let counter = 0;
 fx.setText(phrases[counter]);
-  
 </script>
