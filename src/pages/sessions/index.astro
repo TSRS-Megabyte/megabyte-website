@@ -23,7 +23,7 @@ const colours = [
 
 const sessions = await getCollection("sessions");
 sessions.sort(function (a, b) {
-    return a.data.priority - b.data.priority
+    return b.data.date -  a.data.date;
 });
 ---
 

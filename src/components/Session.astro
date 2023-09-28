@@ -20,10 +20,10 @@ const { Content } = await session.render();
       {session.data.date ? formatDate(session.data.date) : "TBD"}
     </p>
   </div>
-  <div
-    class="bg-white px-4 pt-4 pb-4 md:px-8 rich-text"
-  >
-    <Content />
+  <div class="bg-white px-4 pb-4 pt-4 md:px-8">
+    <div class="prose">
+      <Content />
+    </div>
     <div class="items-end text-end text-lg"></div>
   </div>
 </div>
