@@ -13,12 +13,12 @@ const likes = "❤️";
 
 <div
   id={`resource-${resource.slug}`}
-  class="card bg-white flex h-full w-full flex-col pb-3"
+  class="card bg-white flex h-full w-full flex-col pb-3 items-end"
 >
   <h2 class="w-full border-b-2 py-3 px-4 text-xl font-bold">
     {resource.data.title}
   </h2>
-  <div class="px-4 py-3 text-justify">
+  <div class="px-4 py-3 text-justify w-full flex-grow">
     <div set:html={marked.parse(resource.data.description)} />
   </div>
   <!-- <Button link="" text="Read more" color={resource.data.colors[0]} /> -->

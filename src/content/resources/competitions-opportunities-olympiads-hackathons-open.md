@@ -8,7 +8,7 @@ lastUpdated: 2023-09-28
 
 If you're looking to apply your knowledge of tech and programming to gain awards and recognition, the best way to do so is through competitive events.
 
-Aside from participating competitions through school, there are also a number of events organised every year by large organisations. These are typically extremely competitive, but carry significant prizes and prestige. They're also be a great opportunity for you to learn through working on a real project, and to connect with teammates from all over the world!
+Aside from participating competitions through school, there are also a number of events organised every year by large organisations. These are typically extremely competitive, but carry significant prizes and prestige. They're also a great opportunity for you to learn through working on a real project, and to connect with teammates from all over the world!
 
 ## Hackathons and programming events
 
@@ -91,6 +91,16 @@ Registration for this event typically opens in June to July and closes in August
 Unlike the other events on this list, this event run by the Ministry of Education requires you to register through school. Up to 10 teams of 1-4 individuals are typically allowed, along with an adult mentor. This extremely competitive event sees thousands of teams from all over the country submit solutions under one of the 10+ tracks each year, ranging from energy to health. Teams typically need to first submit a detailed proposal to judges. If shortlisted, they are required to build a prototype and present it to experts from the government and industry.
 
 The timeframe of this event varies, taking place from April-August in 2022 and October-December in 2023. You can check their website for up-to-date information [here](https://sih.gov.in/).
+
+### Technovation Girls Challenge
+**Typical timeframe**: January to April
+
+**Eligibility**: Girls aged 8-18
+
+Girls aged 8-18 work in teams (of 1 to 5) to find a problem in their community and build a mobile app or AI project to help solve it. The event typically lasts twelve weeks.
+
+Registration typically opens in October. You can learn more about the event [here](https://technovationchallenge.org/).
+
 
 ### NASA SpaceApps
 

@@ -25,6 +25,6 @@ An exciting activity was organised in the CT period in which classes attempted t
 
 [Posters](https://drive.google.com/drive/folders/1aNMj-TJGbZMRGhgYLpBv_xtGLx42UWOG?usp=sharing) were put up around school explaining the working of ChatGPT, dos and don'ts for using it, and helpful tips to get started.
 
-The week culminated with a talk in the assembly, in which Ritwic Verma (Head of ICT) and Arjun Sharma (Head of Megabyte) instructed the student body on how to engage safely and responsibly with AI. discussion of the ethical implications of these technologies, and how they as students can ethically use them to improve their own lives.
+The week culminated with a talk in the assembly, in which Ritwic Verma (Head of ICT) and Arjun Sharma (Head of Megabyte) instructed the student body on how to engage safely and responsibly with AI. It included a discussion of the ethical implications of these technologies, and how they as students can ethically use them to improve their own lives.
 
 We hope that AI Week helped make the student body better equipped survive in a world increasingly dominated by AI, and be better prepared to avail the benefits of this new technology. We look forward to how we can continue to responsibly embrace progress in the future.
