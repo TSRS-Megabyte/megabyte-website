@@ -1,6 +1,6 @@
 ---
 title: Winners @ Springdales School Hackathon
-date: 2023-08-09
+date: 2023-08-05
 subline: Our hackathon team won this spirituality-themed event for their creative platform
 media:
   [

@@ -71,9 +71,9 @@ Wherever you're learning from, make sure that the course is for Python 3 or late
 
 4. Harvard CS50 (see below)
 
-Make sure not to learn anything involving 'React', 'Vue', 'Next', or similar advanced frameworks until you have a foundation in the basics of HTML, CSS, and JavaScript. These are tools which allow you to build complex web applications, but jumping to these may detract from you building the necessary foundation in JavaScript first.
+Make sure not to learn anything involving 'React', 'Vue', 'Next', or similar advanced frameworks until you have a foundation in the basics of HTML, CSS, and JavaScript. These are tools which allow you to build complex web applications, but jumping to these may prevent from you building the necessary foundation in JavaScript first.
 
-## General computer science
+### General computer science
 
 [Harvard's CS50: Introduction to Computer Science](https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science) on edX is widely considered to be a great introduction to computer science and a variety of programming languages.
 
