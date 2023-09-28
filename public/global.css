@@ -27,20 +27,3 @@
     background-size: 350px;
     background-repeat: repeat;
 }
-
-.rich-text li {
-    list-style-type: disc;
-}
-
-.rich-text a {
-    color: #366994;
-    font-weight: bold;
-}
-
-.rich-text ul {
-    padding-left: 1em;
-}
-
-.rich-text ul li ul {
-    padding-left: 1.5em;
-}

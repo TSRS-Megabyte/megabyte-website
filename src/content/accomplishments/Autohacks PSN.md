@@ -1,7 +1,7 @@
 ---
 title: Autohacks @ Pathways Noida
 date: 2023-01-22
-subline: Our hackathon team Moulsari placed second at this automation-themed hackathon.
+subline: Our hackathon team placed second at this automation-themed hackathon.
 media:
   [
     https://dinvpjybsthgrzixefvj.supabase.co/storage/v1/object/public/strapi-uploads/email-ext_1679590107805.jpg,

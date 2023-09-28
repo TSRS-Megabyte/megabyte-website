@@ -15,11 +15,10 @@ Based on a weighted sum of offline and online phase points, Srishti house was th
 The winners of the 'Most Valuable Player' award were:
 
 1st - Aarush Aggarwal, Vasundhara
-
 2nd - Dhruv Kapur, Srishti
 3rd - Arjun Narasimhan, Himgiri
-Honorable mention - Vedant Rathi, Sagar
-
----
+Vedant Rathi from Sagar house won an honourable mention.
 
 The organising team consisted of Rohan Kapur (Head of ICT), Rohan Kathuria (Head of Activities), Aarav Wadhwani (Head of Megabyte), Advay Gupta and Arjun Sharma.
+
+We thank everyone who participated in Capture the Flag this year, and hope for it to continue to encourage the student body to engage with technology in future years.
