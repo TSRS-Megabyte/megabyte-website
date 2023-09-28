@@ -148,7 +148,7 @@ You can learn more about and apply to TJA [here](https://www.nyas.org/programs/g
 
 These events are the gold standard of achievement in computer science at the national level, and enable. However, they are considered to be extremely difficult, and will likely require significant preparation. Success in olympiads is looked upon highly favourably by colleges, both domestic ones (including IITs), as well as the top foreign ones (in the US, UK, Singapore, etc.).
 
-_Note: the olympiads here are not affiliated with SOF
+_Note: the olympiads here are unrelated to the ones conducted by SOF_.
 
 ### Indian Computing Olympiad
 
