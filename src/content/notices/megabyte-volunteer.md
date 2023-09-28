@@ -1,5 +1,5 @@
 ---
-title: Looking for volunteer to manage Megabyte website content
+title: Looking for a volunteer to manage Megabyte website content
 postDate: 2023-09-23
 ---
 

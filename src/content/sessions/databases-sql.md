@@ -4,7 +4,7 @@ date: 2023-07-31
 priority: 10000
 ---
 
-Moving on from the theme of AI, society members were given exposure to databases and SQL, through interactive tutorials and .
+Moving on from the theme of AI, society members were given exposure to databases and SQL, through an interactive tutorial and challenge exercise.
 
 The session started with a discussion of recent news in the world of technology, from the launch of Threaads to news of a proposed plan for watermarking of AI-generated content.
 
