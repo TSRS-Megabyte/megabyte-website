@@ -35,23 +35,21 @@ accomplishments.sort(function (a, b) {
 ---
 
 <Layout title="Megabyte" class="=-mandatory true-h-screen w-screen">
-  <div
-    class="bg-hero-pattern max-w-screen true-h-screen bg-cover bg-center bg-no-repeat"
-  >
-    <div class="topMain h-full text-center text-5xl">
+  <div class="bg-hero-pattern true-h-screen bg-cover bg-center bg-no-repeat">
+    <div class="topMain h-full text-center">
       <div class="m-auto text-center align-middle">
+        <span class="text-5xl">We are</span>
         <span
-          class="weare flex h-full w-full flex-col items-center justify-center text-center font-normal"
-          >We are</span
-        >
-        <span
-          class="maintext mt-0 flex h-full w-full flex-col items-center justify-center font-semibold tracking-wider"
+          class="mt-12 flex h-full w-full flex-col items-center justify-center"
           ><div class="container">
-            <div class="text"></div>
-          </div></span
-        >
+            <div id="megabyte-hero-name" class="font-semibold tracking-wider"></div>
+          </div>
+          <span class="mt-4 text-lg md:text-2xl font-semibold uppercase xl:max-w-[50vw]"
+            >The computer society of The Shri Ram School, Moulsari</span
+          >
+        </span>
         <span
-          class="commune flex h-full w-full flex-row items-center justify-center text-center"
+          class="commune mt-16 flex h-full w-full flex-row items-center justify-center text-center xl:max-w-[60vw]"
         >
           <span class="comm text-center"
             ><span class="l-hidden"> A community of</span>
@@ -63,6 +61,7 @@ accomplishments.sort(function (a, b) {
       </div>
     </div>
   </div>
+
   <div class="body bg-cube py-8">
     <div class="notice mb-16 px-8 md:px-24">
       <div class="section-title-box mb-6 w-fit p-5 text-left">
@@ -78,9 +77,9 @@ accomplishments.sort(function (a, b) {
         {
           !notices ? (
             <div>No notices to display.</div>
+          ) : (
             // <h1 class="text-center text-xl">().</h1>
             // map each event to its own block
-          ) : (
             notices.map(async (notice, num) => {
               const colour = colours[num];
               return (
@@ -116,10 +115,10 @@ accomplishments.sort(function (a, b) {
       >
         {
           !accomplishments ? (
-          // if there are no events found
+            // if there are no events found
             <div>No accomplishments to display at the moment.</div>
-            // map each event to its own block
           ) : (
+            // map each event to its own block
             accomplishments.slice(0, 3).map(async (accomplishment, num) => {
               const colour = colours[num];
               return (
@@ -139,7 +138,7 @@ accomplishments.sort(function (a, b) {
       </div>
     </div>
     <div class="mb-16 px-8 md:px-24">
-      <div class="section-title-box mb-6 w-fit py-8 px-8 text-left">
+      <div class="section-title-box mb-6 w-fit px-8 py-8 text-left">
         <p class="mb-2 text-2xl font-semibold tracking-wider md:text-3xl">
           Resources
         </p>
@@ -150,7 +149,7 @@ accomplishments.sort(function (a, b) {
 
         <button
           id="resources-learn-more-btn"
-          class="bg-green py-2 px-1 text-center font-mono text-lg hover:cursor-pointer"
+          class="bg-green px-1 py-2 text-center font-mono text-lg hover:cursor-pointer"
         >
           <a
             href="/resources"
@@ -197,7 +196,7 @@ accomplishments.sort(function (a, b) {
     justify-content: center;
   }
   .commune {
-    margin-top: 3vh;
+    margin-top: 5vh;
     font-size: 4.5vmin;
   }
 
@@ -209,8 +208,8 @@ accomplishments.sort(function (a, b) {
   .bg-hero-pattern {
     background-image: url("/assets/anime-lines.svg");
   }
-  .maintext {
-    font-size: 15vmin;
+  #megabyte-hero-name {
+    font-size: 12vmin;
     /* identical to box height */
     color: #cceaff;
     text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 8px 6px 0px #000,
@@ -255,7 +254,7 @@ accomplishments.sort(function (a, b) {
     .rec-text {
       line-height: 32px;
     }
-    .maintext {
+    #megabyte-hero-name {
       text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 6px 4px 0px #000,
         -2px -2px 0px #000;
     }
@@ -326,7 +325,7 @@ class TextScramble {
 
 const phrases = ["Megabyte"];
 
-const el = document.querySelector(".text");
+const el = document.querySelector("#megabyte-hero-name");
 const fx = new TextScramble(el);
 
 let counter = 0;
