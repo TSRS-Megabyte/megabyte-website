@@ -35,28 +35,29 @@ accomplishments.sort(function (a, b) {
 ---
 
 <Layout title="Megabyte" class="=-mandatory true-h-screen w-screen">
-  <div class="bg-hero-pattern true-h-screen bg-cover bg-center bg-no-repeat">
-    <div class="topMain h-full text-center">
-      <div class="m-auto text-center align-middle">
-        <span class="text-5xl">We are</span>
+  <div class="bg-hero-pattern true-h-screen bg-cover bg-center bg-no-repeat pt-[25vh] lg:pt-[15vh] pb-[25vh] lg:pb-[20vh] px-5">
+    <div class="flex h-full flex-col items-center text-center justify-between">
+      <div
+        class="container flex flex-col gap-2"
+      >
         <span
-          class="mt-12 flex h-full w-full flex-col items-center justify-center"
-          ><div class="container">
-            <div id="megabyte-hero-name" class="font-semibold tracking-wider"></div>
-          </div>
-          <span class="mt-4 text-lg md:text-2xl font-semibold uppercase xl:max-w-[50vw]"
-            >The computer society of The Shri Ram School, Moulsari</span
-          >
-        </span>
-        <span
-          class="commune mt-16 flex h-full w-full flex-row items-center justify-center text-center xl:max-w-[60vw]"
+          class="-mb-5 text-lg font-semibold uppercase md:text-2xl xl:max-w-[50vw]"
+          >We are</span
         >
-          <span class="comm text-center"
-            ><span class="l-hidden"> A community of</span>
-            <span>Enthus<span class="blue-u understroke">iasts</span></span>, <span
-              >Innov<span class="yel-u understroke">ators</span></span
-            >, and<span> M<span class="red-u understroke">akers</span></span>.
-          </span>
+        <div id="megabyte-hero-name" class="font-semibold tracking-wider"></div>
+        <span
+          class="text-lg font-semibold uppercase md:text-2xl xl:max-w-[50vw]"
+          >The computer society of The Shri Ram School, Moulsari</span
+        >
+      </div>
+      <div
+        class="flex flex-row items-center justify-center text-center text-2xl lg:text-4xl "
+      >
+        <span class="comm text-center"
+          ><span class="l-hidden"> A community of</span>
+          <span>Enthus<span class="blue-u understroke">iasts</span></span>, <span
+            >Innov<span class="yel-u understroke">ators</span></span
+          >, and<span> M<span class="red-u understroke">akers</span></span>.
         </span>
       </div>
     </div>
@@ -195,10 +196,6 @@ accomplishments.sort(function (a, b) {
     align-items: center;
     justify-content: center;
   }
-  .commune {
-    margin-top: 5vh;
-    font-size: 4.5vmin;
-  }
 
   .weare {
     font-size: 7vmin;
@@ -209,7 +206,7 @@ accomplishments.sort(function (a, b) {
     background-image: url("/assets/anime-lines.svg");
   }
   #megabyte-hero-name {
-    font-size: 12vmin;
+    font-size: 15vmin;
     /* identical to box height */
     color: #cceaff;
     text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 8px 6px 0px #000,
