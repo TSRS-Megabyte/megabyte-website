@@ -11,29 +11,31 @@ const { Content } = await resource.render();
 
 <div class="card flex h-full w-full flex-col">
   <div
-    class="bg-var flex flex-row items-center border-b-2 py-5 px-5 md:px-6 gap-5"
+    class="bg-var flex flex-row items-center gap-5 border-b-2 px-5 py-5 md:px-6"
   >
-    <div class="logo">
+    <!-- <div class="logo">
       <img src={resource.data.img} alt="Icon for resource" class="w-[14vh]" />
-    </div>
+    </div> -->
     <div class="title flex items-center">
       <div>
         <h3 class="mb-1 text-[2.6vh] font-bold">
           {resource.data.title}
         </h3>
-        <h3 class="text-[2vh]">
-          Last updated <span class="italic"
-            >{formatDate(resource.data.postDate)}</span
+        <h3 class="text-md italic">
+          Last updated <span class=""
+            >{formatDate(resource.data.lastUpdated)}</span
           >
         </h3>
       </div>
     </div>
   </div>
   <div
-    class="bg-white flex flex-grow flex-col items-start gap-3 py-5 px-4 md:px-8"
+    class="bg-white flex flex-grow flex-col items-start gap-3 px-4 py-5 md:px-8"
   >
-    <div class="flex flex-col gap-3 text-left text-lg rich-text">
-      <Content />
+    <div class="flex flex-col gap-3 text-left text-lg">
+      <div class="prose">
+        <Content />
+      </div>
     </div>
   </div>
 

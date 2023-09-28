@@ -26,10 +26,10 @@ const sessionCollection = defineCollection({
 const resourcesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    img: z.string().optional(),
-    author: z.string(),
-    postDate: z.date(),
-    description: z.string(),
+    // img: z.string().optional(),
+    // author: z.string(),
+    lastUpdated: z.date(),
+    description: z.string().optional(),
     colors: z.array(z.string().regex(/^#/)).length(2),
     tags: z.array(z.string()).optional(),
   }),
