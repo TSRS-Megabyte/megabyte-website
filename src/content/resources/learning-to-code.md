@@ -18,11 +18,11 @@ You should learn Python if:
 
 * You're generally interested in computers, and aren't sure exactly how you want to use your programming knowledge in the future
 * You want to learn programming to make small programs and scripts that complete small, interesting tasks
-* You want to learn about artificial intelligence, such as building build machine learning models
+* You want to learn about artificial intelligence, such as building machine learning models
 
 You should learn JavaScript if:
 
-* You're interested on working on apps, either web apps or mobile apps
+* You're interested in working on apps, either web apps or mobile apps
 * You want to make virtual reality and augmented reality projects
 
 Note that JavaScript is unrelated to the Java programming language.

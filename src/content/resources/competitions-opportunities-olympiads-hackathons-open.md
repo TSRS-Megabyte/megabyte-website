@@ -93,6 +93,7 @@ Unlike the other events on this list, this event run by the Ministry of Educatio
 The timeframe of this event varies, taking place from April-August in 2022 and October-December in 2023. You can check their website for up-to-date information [here](https://sih.gov.in/).
 
 ### Technovation Girls Challenge
+
 **Typical timeframe**: January to April
 
 **Eligibility**: Girls aged 8-18
@@ -100,7 +101,6 @@ The timeframe of this event varies, taking place from April-August in 2022 and O
 Girls aged 8-18 work in teams (of 1 to 5) to find a problem in their community and build a mobile app or AI project to help solve it. The event typically lasts twelve weeks.
 
 Registration typically opens in October. You can learn more about the event [here](https://technovationchallenge.org/).
-
 
 ### NASA SpaceApps
 
@@ -120,7 +120,7 @@ You can find online hackathons, many of which are open only to high school stude
 
 ## Open Innovation Events
 
-These are events in which developing technical projects is allowed–and often successful–but not necessarily required.
+These are events in which the submission of technical projects is allowed, but not necessarily required.
 
 ### Conrad Challenge
 
@@ -156,7 +156,7 @@ You can learn more about and apply to TJA [here](https://www.nyas.org/programs/g
 
 ## Academic events
 
-These events are the gold standard of achievement in computer science at the national level, and enable. However, they are considered to be extremely difficult, and will likely require significant preparation. Success in olympiads is looked upon highly favourably by colleges, both domestic ones (including IITs), as well as the top foreign ones (in the US, UK, Singapore, etc.).
+These events are the gold standard of achievement in computer science at the national level. However, they are considered to be extremely difficult, and will likely require significant preparation. Success in olympiads is looked upon highly favourably by colleges, both domestic ones (including IITs), as well as the top foreign ones (in the US, UK, Singapore, etc.).
 
 _Note: the olympiads here are unrelated to the ones conducted by SOF_.
 
