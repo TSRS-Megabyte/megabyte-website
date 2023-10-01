@@ -10,14 +10,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap(),
-    tailwind(),
-    partytown({
-      // Adds dataLayer.push as a forwarding-event.
-      config: {
-        forward: ["dataLayer.push"],
-      },
-    }),
-    
+    tailwind(),    
   ],
   output: "server",
   adapter: netlify(),
