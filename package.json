@@ -14,7 +14,7 @@
     "@astrojs/netlify": "^2.2.0",
     "@astrojs/react": "^2.1.0",
     "@astrojs/rss": "^2.1.1",
-    "@astrojs/sitemap": "^1.1.0",
+    "@astrojs/sitemap": "^1.4.0",
     "@astrojs/tailwind": "^3.1.1",
     "@swup/fade-theme": "^1.0.5",
     "@types/marked": "^5.0.0",

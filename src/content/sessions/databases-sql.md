@@ -10,4 +10,4 @@ The session started with a discussion of recent news in the world of technology,
 
 Then, an interactive tutorial about databases and SQL was given. Members learnt the fundamentals of relational databses, queries for reading and manipulating data, and potential vulnerabilities in database design. The final challenge of the session was attempting to log in to a fake vulnerable site without the password, using knowledge of SQL learnt in the session.
 
-The session ended with a discussion of how SQL and datbases can practically be used in real-world apps and projects. 
+The session ended with a discussion of how SQL and datbases can practically be used in real-world apps and projects.
