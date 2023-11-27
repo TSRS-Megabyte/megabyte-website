@@ -49,7 +49,7 @@ const pathname = new URL(Astro.request.url).pathname;
       class="navlinks-div relative flex h-0 flex-col gap-3 lg:visible lg:static lg:block lg:h-auto"
       data-visible="false"
     >
-      <ul
+      <div
         class="navlinks hiddenNavlinks flex h-full flex-col justify-around lg:h-auto lg:flex-row lg:justify-start text-center"
       >
         {
@@ -59,11 +59,11 @@ const pathname = new URL(Astro.request.url).pathname;
               id={page[0].toLowerCase()}
               href={page[1]}
             >
-              <li class="text-md lg:text-xl">{page[0].toUpperCase()}</li>
+              <span class="text-md lg:text-xl">{page[0].toUpperCase()}</span>
             </a>
           ))
         }
-      </ul>
+      </div>
     </div>
   </div>
 </div>
