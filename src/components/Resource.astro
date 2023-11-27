@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { marked } from "marked";
 interface Props {
   resource: CollectionEntry<"resources">;
@@ -19,11 +19,11 @@ const likes = "❤️";
     {resource.data.title}
   </h2>
   <div class="px-4 py-3 text-justify w-full flex-grow">
-    <div set:html={marked.parse(resource.data.description)} />
+    <div set:html={marked.parse(resource.data.description || "")} />
   </div>
   <!-- <Button link="" text="Read more" color={resource.data.colors[0]} /> -->
   <a
-    href={`resources/${resource.slug}`}
+    href={`/resources/${resource.slug}`}
     class="link-button bg w-fit bg-opacity-0 py-[0.2em] text-center font-mono text-lg hover:cursor-pointer self-end mr-4"
   >
     <div class="h-full w-full px-3 flex justify-center items-center">
