@@ -327,12 +327,11 @@ accomplishments.sort(function (a, b) {
       return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
   }
-
-  const phrases = ["Megabyte"];
-
-  const el = document.querySelector("#megabyte-hero-name");
-  const fx = new TextScramble(el);
-
-  let counter = 0;
-  fx.setText(phrases[counter]);
+  document.addEventListener("astro:page-load", () => {
+    const phrases = ["Megabyte"];
+    const el = document.querySelector("#megabyte-hero-name");
+    const fx = new TextScramble(el);
+    let counter = 0;
+    fx.setText(phrases[counter]);
+  });
 </script>

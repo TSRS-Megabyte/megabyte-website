@@ -7,6 +7,7 @@ import netlify from "@astrojs/netlify/functions";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tsrsmegabyte.com",
+  trailingSlash: "never",
   prefetch: {
     prefetchAll: true,
   },
