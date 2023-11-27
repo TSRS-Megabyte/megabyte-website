@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
 
 // this isnt used??
@@ -38,6 +38,6 @@ const colour = colours[Math.floor(Math.random() * colours.length)];
 
 <Layout title="Resources | Megabyte">
   <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36">
-    <AccomplishmentMain tColour={colour} accomplishment={entry} />
+    <AccomplishmentMain tColour={colour} entry={entry} />
   </div>
 </Layout>

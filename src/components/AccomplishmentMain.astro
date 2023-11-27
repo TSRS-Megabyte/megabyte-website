@@ -3,12 +3,13 @@ import { formatDate } from "../../libs/dateFormat";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  accomplishment: CollectionEntry<"accomplishments">;
+  entry: CollectionEntry<"accomplishments"> | CollectionEntry<"sessions">;
   tColour: String;
 }
 
-const { accomplishment, tColour } = Astro.props;
-const { Content } = await accomplishment.render();
+const { entry, tColour } = Astro.props;
+
+const { Content } = await entry.render();
 ---
 
 <div class="card flex h-full w-full flex-col rounded-lg">
@@ -17,7 +18,7 @@ const { Content } = await accomplishment.render();
       <a
         class="mr-3"
         title="Return to Accomplishments"
-        href={`/accomplishments#accomplishment-${accomplishment.slug}`}
+        href={`/accomplishments#accomplishment-${entry.slug}`}
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -31,10 +32,10 @@ const { Content } = await accomplishment.render();
       >
       <div class="cont">
         <h3 class="mb-2 text-xl font-bold">
-          {accomplishment.data.title}
+          {entry.data.title}
         </h3>
         <h3 class="text-md mb-2 font-bold">
-          {formatDate(accomplishment.data.date)}
+          {formatDate(entry.data.date)}
         </h3>
       </div>
     </div>
@@ -44,12 +45,15 @@ const { Content } = await accomplishment.render();
     <div class="prose max-w-none col-span-12 text-lg md:col-span-8 order-1">
       <Content />
     </div>
-
-    <img
-      class="-order-1 md:order-2 col-span-12 md:col-span-4"
-      src={accomplishment.data.media[0]}
-      alt={accomplishment.data.media[0]}
-    />
+    {
+      "media" in entry.data && (
+        <img
+          class="-order-1 md:order-2 col-span-12 md:col-span-4"
+          src={entry.data.media[0]}
+          alt={entry.data.media[0]}
+        />
+      )
+    }
   </div>
 </div>
 
