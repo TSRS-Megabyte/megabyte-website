@@ -13,5 +13,13 @@ export default defineConfig({
     tailwind(),
   ],
   output: "hybrid",
+  build: {
+    redirects: false,
+  },
+  redirects: {
+    "/edit": "https://prose.io/#TSRS-Megabyte/megabyte-website/tree/main/src/content",
+    "/content": "https://prose.io/#TSRS-Megabyte/megabyte-website/tree/main/src/content",
+    "/admin": "https://prose.io/#TSRS-Megabyte/megabyte-website/tree/main/src/content"
+  },
   adapter: netlify(),
 });
