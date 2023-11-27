@@ -10,8 +10,8 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap(),
-    tailwind(),    
+    tailwind(),
   ],
-  output: "server",
+  output: "hybrid",
   adapter: netlify(),
 });

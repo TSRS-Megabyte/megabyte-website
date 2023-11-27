@@ -26,15 +26,6 @@ accomplishments.sort(function (a, b) {
 });
 ---
 
-<!-- <Maintain /> Use when site under Maintainance --><!-- <Maintain /> --><!-- 
-  structure of the post
-  title: "this is the title"
-description: "this is a description of the post"
-pubDate: "this is pubdate"
-updatedDate: ""
-heroImage: "/public/assets/tsrs.svg"
-
-<!-- `/accomplishments/${post.slug}/`} --><!-- `/accomplishments/${post.slug}/`} -->
 <Layout title="Accomplishments | Megabyte">
   <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
     <div class="mb-8 flex flex-row items-center justify-center">
@@ -52,8 +43,12 @@ heroImage: "/public/assets/tsrs.svg"
             ><a target="_blank" href="mailto:tsrs.mgbt@gmail.com"
               >tsrs.mgbt@gmail.com</a
             ></span
-          > in case you would like one of your tech-related accomplishments to be
-          featured on the website. Please find guidelines for the same <a  class="underline font-bold" href="https://docs.google.com/document/d/1Gqt7jevVNO-v3vUxaR3INSPHcOF0IcZoNNWS2ewIJ1c/edit?usp=sharing">here</a>.
+          > in case you would like one of your tech-related accomplishments to
+          be featured on the website. Please find guidelines for the same <a
+            class="underline font-bold"
+            href="https://docs.google.com/document/d/1Gqt7jevVNO-v3vUxaR3INSPHcOF0IcZoNNWS2ewIJ1c/edit?usp=sharing"
+            >here</a
+          >.
         </p>
       </div>
     </div>
@@ -81,12 +76,10 @@ heroImage: "/public/assets/tsrs.svg"
 
     <style>
       .title-box {
-        border: 3px solid #000;
-        box-shadow: 6px 6px 0px 0px #000;
+        @apply border-[3px] border-solid border-black shadow-[6px_6px_0_0_black];
       }
-
       a {
-        text-decoration: underline;
+        @apply underline;
       }
     </style>
   </div>

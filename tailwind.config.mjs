@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   mode: "jit",
   theme: {
     fontFamily: {
@@ -26,19 +26,28 @@ module.exports = {
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
-    colors: {
-      bluetwo: "#82E8F",
-      yellow: "#FFE81B",
-      red: "#FF7474",
-      green: "#CEFF1B",
-    },
     extend: {
       screens: {
         bhover: { raw: "(hover: hover)" },
       },
+      colors: {
+        bluetwo: "#82E8F",
+        yellow: "#FFE81B",
+        red: "#FF7474",
+        green: "#CEFF1B",
+      },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography')
+  plugins: [function ({ addVariant }) {
+    addVariant("child", "& > *");
+    addVariant("child-hover", "& > *:hover");
+  },
+  function ({ addVariant }) {
+    addVariant("supports-dynamic", "@supports (width: 1dvw)");
+  },
+  require('@tailwindcss/typography')
   ],
+  safelist: [{
+    pattern: /bg-.*/
+  },]
 };

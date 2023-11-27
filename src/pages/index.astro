@@ -23,6 +23,8 @@ const colours = [
   "#ffe81b",
   "#ff7474",
 ];
+const colorClassNames =
+  "bg-[#81effc] bg-[#ffe81b] bg-[#ff7474] bg-[#81effc] bg-[#ffe81b] bg-[#ff7474] bg-[#81effc] bg-[#ffe81b] bg-[#ff7474] bg-[#81effc] bg-[#ffe81b] bg-[#ff7474]";
 
 const notices = await getCollection("notices");
 notices.sort(function (a, b) {
@@ -35,11 +37,11 @@ accomplishments.sort(function (a, b) {
 ---
 
 <Layout title="Megabyte" class="=-mandatory true-h-screen w-screen">
-  <div class="bg-hero-pattern true-h-screen bg-cover bg-center bg-no-repeat pt-[25vh] lg:pt-[15vh] pb-[25vh] lg:pb-[20vh] px-5">
+  <div
+    class="bg-hero-pattern true-h-screen bg-cover bg-center bg-no-repeat pt-[25vh] lg:pt-[15vh] pb-[25vh] lg:pb-[20vh] px-5"
+  >
     <div class="flex h-full flex-col items-center text-center justify-between">
-      <div
-        class="container flex flex-col gap-2"
-      >
+      <div class="container flex flex-col gap-2">
         <span
           class="-mb-5 text-lg font-semibold uppercase md:text-2xl xl:max-w-[50vw]"
           >We are</span
@@ -51,7 +53,7 @@ accomplishments.sort(function (a, b) {
         >
       </div>
       <div
-        class="flex flex-row items-center justify-center text-center text-2xl lg:text-4xl "
+        class="flex flex-row items-center justify-center text-center text-2xl lg:text-4xl"
       >
         <span class="comm text-center"
           ><span class="l-hidden"> A community of</span>
@@ -209,7 +211,10 @@ accomplishments.sort(function (a, b) {
     font-size: 15vmin;
     /* identical to box height */
     color: #cceaff;
-    text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 8px 6px 0px #000,
+    text-shadow:
+      -2px 2px 0px #000,
+      2px 2px 0px #000,
+      8px 6px 0px #000,
       -2px -2px 0px #000;
   }
   .understroke {
@@ -252,7 +257,10 @@ accomplishments.sort(function (a, b) {
       line-height: 32px;
     }
     #megabyte-hero-name {
-      text-shadow: -2px 2px 0px #000, 2px 2px 0px #000, 6px 4px 0px #000,
+      text-shadow:
+        -2px 2px 0px #000,
+        2px 2px 0px #000,
+        6px 4px 0px #000,
         -2px -2px 0px #000;
     }
   }
@@ -266,65 +274,65 @@ accomplishments.sort(function (a, b) {
   }
 </style>
 <script is:inline>
-class TextScramble {
-  constructor(el) {
-    this.el = el;
-    this.chars = "!<>-_\\/[]{}—=+*^?#________";
-    this.update = this.update.bind(this);
-  }
-  setText(newText) {
-    const oldText = this.el.innerText;
-    const length = Math.max(oldText.length, newText.length);
-    const promise = new Promise((resolve) => (this.resolve = resolve));
-    this.queue = [];
-    for (let i = 0; i < length; i++) {
-      const from = oldText[i] || "";
-      const to = newText[i] || "";
-      const start = Math.floor(Math.random() * 40);
-      const end = start + Math.floor(Math.random() * 40);
-      this.queue.push({ from, to, start, end });
+  class TextScramble {
+    constructor(el) {
+      this.el = el;
+      this.chars = "!<>-_\\/[]{}—=+*^?#________";
+      this.update = this.update.bind(this);
     }
-    cancelAnimationFrame(this.frameRequest);
-    this.frame = 0;
-    this.update();
-    return promise;
-  }
-  update() {
-    let output = "";
-    let complete = 0;
-    for (let i = 0, n = this.queue.length; i < n; i++) {
-      let { from, to, start, end, char } = this.queue[i];
-      if (this.frame >= end) {
-        complete++;
-        output += to;
-      } else if (this.frame >= start) {
-        if (!char || Math.random() < 0.28) {
-          char = this.randomChar();
-          this.queue[i].char = char;
+    setText(newText) {
+      const oldText = this.el.innerText;
+      const length = Math.max(oldText.length, newText.length);
+      const promise = new Promise((resolve) => (this.resolve = resolve));
+      this.queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || "";
+        const to = newText[i] || "";
+        const start = Math.floor(Math.random() * 40);
+        const end = start + Math.floor(Math.random() * 40);
+        this.queue.push({ from, to, start, end });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    }
+    update() {
+      let output = "";
+      let complete = 0;
+      for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i];
+        if (this.frame >= end) {
+          complete++;
+          output += to;
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = this.randomChar();
+            this.queue[i].char = char;
+          }
+          output += `<span class="dud">${char}</span>`;
+        } else {
+          output += from;
         }
-        output += `<span class="dud">${char}</span>`;
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.resolve();
       } else {
-        output += from;
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
       }
     }
-    this.el.innerHTML = output;
-    if (complete === this.queue.length) {
-      this.resolve();
-    } else {
-      this.frameRequest = requestAnimationFrame(this.update);
-      this.frame++;
+    randomChar() {
+      return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
   }
-  randomChar() {
-    return this.chars[Math.floor(Math.random() * this.chars.length)];
-  }
-}
 
-const phrases = ["Megabyte"];
+  const phrases = ["Megabyte"];
 
-const el = document.querySelector("#megabyte-hero-name");
-const fx = new TextScramble(el);
+  const el = document.querySelector("#megabyte-hero-name");
+  const fx = new TextScramble(el);
 
-let counter = 0;
-fx.setText(phrases[counter]);
+  let counter = 0;
+  fx.setText(phrases[counter]);
 </script>

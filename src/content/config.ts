@@ -1,6 +1,7 @@
 import { z, defineCollection } from "astro:content";
 
 const accomplishmentsCollection = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     date: z.date(), // date in yyyy-mm-dd format - for eg 13th december 2017 is 2017-12-13
@@ -9,6 +10,7 @@ const accomplishmentsCollection = defineCollection({
   }),
 });
 const noticesCollection = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     postDate: z.date(),
@@ -16,6 +18,7 @@ const noticesCollection = defineCollection({
   }),
 });
 const sessionCollection = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     date: z.date().optional(),
@@ -24,6 +27,7 @@ const sessionCollection = defineCollection({
   }),
 });
 const resourcesCollection = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     // img: z.string().optional(),

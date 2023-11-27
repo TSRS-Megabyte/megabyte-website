@@ -2,17 +2,27 @@
 //schena for each blogpost
 import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
 import Layout from "../../layouts/Layout.astro";
-import { getEntryBySlug } from "astro:content";
+import { getCollection, getEntryBySlug } from "astro:content";
 
-const { slug } = Astro.params;
-if (slug === undefined) {
-  throw new Error("Slug is required.")
-}
-const accomplishment = await getEntryBySlug("accomplishments", slug);
+// const { slug } = Astro.params;
+// if (slug === undefined) {
+//   throw new Error("Slug is required.")
+// }
+// const accomplishment = await getEntryBySlug("accomplishments", slug);
 
-if (accomplishment === undefined) {
-  return Astro.redirect("/404");
+// if (accomplishment === undefined) {
+//   return Astro.redirect("/404");
+// }
+
+export async function getStaticPaths() {
+  const accomplishmentEntries = await getCollection("accomplishments");
+  return accomplishmentEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
+
+const { entry } = Astro.props;
 
 const colours = ["#ff7474", "#ffe874", "#74ff74", "#74d4ff"];
 const colour = colours[Math.floor(Math.random() * colours.length)];
@@ -20,9 +30,9 @@ const colour = colours[Math.floor(Math.random() * colours.length)];
 
 {
   (
-    <Layout title={`${accomplishment.data.title} | Megabyte`}>
+    <Layout title={`${entry.data.title} | Megabyte`}>
       <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36 md:px-24">
-        <AccomplishmentMain accomplishment={accomplishment} tColour={colour} />
+        <AccomplishmentMain accomplishment={entry} tColour={colour} />
       </div>
       <style />
     </Layout>

@@ -1,5 +1,5 @@
 ---
-import { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { formatDate } from "../../libs/dateFormat";
 
 export interface Props {
@@ -14,7 +14,10 @@ const { accomplishment, tColour } = Astro.props;
   id=`accomplishment-${accomplishment.slug}`
 >
   <div
-    class="title flex flex-shrink flex-col items-center justify-between gap-1 px-5 pt-2 pb-2 text-center"
+    class:list={[
+      "flex flex-shrink flex-col items-center justify-between gap-1 px-5 pt-2 pb-2 text-center",
+      `bg-[${tColour}]`,
+    ]}
   >
     <p
       class="flex min-h-[60px] flex-grow items-center justify-center text-2xl font-bold"
@@ -30,8 +33,7 @@ const { accomplishment, tColour } = Astro.props;
       {
         (
           <img
-            class="mb-4 h-auto max-h-[250px] w-auto max-w-full"
-            style="box-shadow: 4px 4px 0px 0px #000; border: 2px solid black;"
+            class="mb-4 h-auto max-h-[250px] w-auto max-w-full shadow-[4px_4px_0_0] shadow-black border-[2px] border-solid border-black"
             src={accomplishment.data.media[0]}
             alt={accomplishment.data.media[0]}
           />
@@ -51,33 +53,12 @@ const { accomplishment, tColour } = Astro.props;
     </div>
   </div>
 
-  <style define:vars={{ tColour }}>
+  <style>
     .card {
-      box-shadow: 6px 6px 0px 0px;
-      border: 2px solid black;
-      transition: ease 0.2s;
+      @apply shadow-[6px_6px_0_0] border-[2px] border-solid border-black duration-200;
     }
-
-    body {
-      font-family: "Lexend";
-    }
-
-    .bg-white {
-      background-color: #fff;
-    }
-
     .link-button {
-      background: #ffffff;
-      border: 1px solid black;
-      box-shadow: 4px 4px 0px 0px;
-    }
-
-    .link-button:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px 0px;
-    }
-    .title {
-      background-color: var(--tColour);
+      @apply bg-white border-[1px] border-solid border-black shadow-[4px_4px_0px_0px] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px];
     }
   </style>
 </div>

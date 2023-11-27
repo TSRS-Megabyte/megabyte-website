@@ -1,20 +1,20 @@
 ---
-import Resource from "../../components/Resource.astro";
 import Layout from "../../layouts/Layout.astro";
-import ResourcePost from "../../components/ResourcePost.astro";
-import { getEntryBySlug } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
 import AccomplishmentMain from "../../components/AccomplishmentMain.astro";
 
-const { slug } = Astro.params;
+// this isnt used??
 
-if (slug === undefined) {
-  throw new Error("Slug is required.")
+export async function getStaticPaths() {
+  const sessionEntries = await getCollection("sessions");
+  return sessionEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-const session = await getEntryBySlug("sessions", slug)
-if (session === undefined) {
-  return Astro.redirect("/404");
-}
+const { entry } = Astro.props;
+
 const colours = [
   "#81effc",
   "#ffe81b",
@@ -38,6 +38,6 @@ const colour = colours[Math.floor(Math.random() * colours.length)];
 
 <Layout title="Resources | Megabyte">
   <div class="bg-line h-full px-8 pt-24 pb-8 sm:pt-36">
-    <AccomplishmentMain tColour={colour} accomplishment={session} />
+    <AccomplishmentMain tColour={colour} accomplishment={entry} />
   </div>
 </Layout>
