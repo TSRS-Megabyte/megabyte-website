@@ -19,7 +19,10 @@ const { title } = Astro.props;
       name="description"
       content="The computer society of The Shri Ram School, Moulsari"
     />
-    <link rel="icon" href="/final/mega-bw.svg" />
+    <!-- Fallback png-icon for other browsers -->
+    <link rel="icon" href="/final/favicon.ico" sizes="any" />
+    <!-- Main SVG icon -->
+    <link rel="icon" href="/final/mega-bw.svg" type="image/svg+xml" />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
