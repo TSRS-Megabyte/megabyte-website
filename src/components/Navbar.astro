@@ -87,7 +87,7 @@ const pathname = new URL(Astro.request.url).pathname;
   .navlink:not(.current) li:hover {
     text-decoration: underline;
     text-underline-offset: 0.5em;
-    text-decoration-color: ;
+    text-decoration-color:;
   }
 
   .current {
@@ -219,7 +219,9 @@ const pathname = new URL(Astro.request.url).pathname;
     }
     .line {
       fill: none;
-      transition: stroke-dasharray 700ms, stroke-dashoffset 700ms;
+      transition:
+        stroke-dasharray 700ms,
+        stroke-dashoffset 700ms;
 
       stroke: #000;
       stroke-width: 5.5;
@@ -236,8 +238,12 @@ const pathname = new URL(Astro.request.url).pathname;
     .ham8 .bottom {
       stroke-dasharray: 40 85;
       transform-origin: 50%;
-      transition: transform 400ms, stroke-dashoffset 400ms;
-      -webkit-transition: transform 400ms, stroke-dashoffset 400ms;
+      transition:
+        transform 400ms,
+        stroke-dashoffset 400ms;
+      -webkit-transition:
+        transform 400ms,
+        stroke-dashoffset 400ms;
     }
     .ham8.active .top {
       stroke-dashoffset: -64px;
@@ -252,40 +258,43 @@ const pathname = new URL(Astro.request.url).pathname;
   }
 </style>
 
-<script defer>
-const nav = document.querySelector(".navlinks-div");
-const navlinks = document.querySelector(".navlinks");
-const navToggle = document.querySelector(".nav-toggle");
-const wrapper = document.querySelector(".wrapper");
+<script>
+  async function setup() {
+    const nav = document.querySelector(".navlinks-div");
+    const navlinks = document.querySelector(".navlinks");
+    const navToggle = document.querySelector(".nav-toggle");
+    const wrapper = document.querySelector(".wrapper");
 
-const hamburgerMenu = document.querySelector(".hamburger-menu");
+    navToggle?.addEventListener("click", (e) => {
+      e.preventDefault();
 
-navToggle.addEventListener("click", (e) => {
-  e.preventDefault();
+      let visible = nav?.getAttribute("data-visible");
+      visible = visible === "false" ? "true" : "false";
 
-  let visible = nav.getAttribute("data-visible");
-  visible = visible === "false" ? "true" : "false";
+      nav?.setAttribute("data-visible", visible);
+      wrapper?.setAttribute("blur", visible);
+      navToggle.setAttribute("aria-expanded", visible);
 
-  nav.setAttribute("data-visible", visible);
-  wrapper.setAttribute("blur", visible);
-  navToggle.setAttribute("aria-expanded", visible);
+      if (visible === "true") {
+        navlinks?.classList.remove("hiddenNavlinks");
+        navlinks?.classList.add("visible");
+        // document.querySelector(".hamburger-menu").innerHTML = "close";
+      } else {
+        navlinks?.classList.remove("visible");
+        navlinks?.classList.add("hiddenNavlinks");
+        // document.querySelector(".hamburger-menu").innerHTML = "menu";
+      }
+    });
 
-  if (visible === "true") {
-    navlinks.classList.remove("hiddenNavlinks");
-    navlinks.classList.add("visible");
-    // document.querySelector(".hamburger-menu").innerHTML = "close";
-  } else {
-    navlinks.classList.remove("visible");
-    navlinks.classList.add("hiddenNavlinks");
-    // document.querySelector(".hamburger-menu").innerHTML = "menu";
+    document.addEventListener("scroll", () => {
+      if (window.scrollY != 0) {
+        wrapper?.classList.add("scrolled");
+      } else {
+        wrapper?.classList.remove("scrolled");
+      }
+    });
   }
-});
-
-document.addEventListener("scroll", () => {
-  if (window.scrollY != 0) {
-    wrapper.classList.add("scrolled");
-  } else {
-    wrapper.classList.remove("scrolled");
-  }
-});
+  document.addEventListener("astro:page-load", async () => {
+    setup();
+  });
 </script>
