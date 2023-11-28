@@ -2,7 +2,7 @@
 title: "Getting started with programming"
 author: TSRS Megabyte
 description: A guide to help complete beginners learn to code
-colors: ["#FFBEBE", "#F99973"]
+colors: ["#beffc7", "#deff59"]
 lastUpdated: 2023-09-28
 ---
 

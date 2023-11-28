@@ -1,7 +1,6 @@
 ---
 title: Introduction to the society and artificial intelligence
 date: 2023-04-10
-priority: 10000
 ---
 
 In the first session of the year, we introduced society members to our goals for the year and started with an introduction to AI, our theme for the month.

@@ -1,6 +1,5 @@
 ---
 title: Hackathons and artificial intelligence
-priority: 10000
 date: 2023-04-17
 ---
 

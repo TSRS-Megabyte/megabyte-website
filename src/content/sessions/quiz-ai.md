@@ -1,6 +1,5 @@
 ---
 title: A quiz about AI news and technologies
-priority: 10000
 date: 2023-05-22
 ---
 

@@ -2,7 +2,7 @@
 title: "Competitive events and opportunities"
 author: TSRS Megabyte
 description: Places where you can apply your tech skills for recognition and awards!
-colors: ["#FFBEBE", "#F99973"]
+colors: ["#FFBEBE", "#ffae59"]
 lastUpdated: 2023-09-28
 ---
 

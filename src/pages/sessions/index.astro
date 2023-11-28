@@ -1,6 +1,6 @@
 ---
 //PAGE TO RENDER ALL AVAILABLE POSTS
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Session from "../../components/Session.astro";
 const colours = [
@@ -21,9 +21,21 @@ const colours = [
   "#ff7474",
 ];
 
+const getDate = (session: CollectionEntry<"sessions">) =>
+  session.data.date ? session.data.date.getTime() : Number.MAX_SAFE_INTEGER;
+const getPriority = (session: CollectionEntry<"sessions">) =>
+  session.data.priority || Number.MAX_SAFE_INTEGER;
+const getName = (session: CollectionEntry<"sessions">) => session.data.title;
+
 const sessions = await getCollection("sessions");
-sessions.sort(function (a, b) {
-    return b.data.date -  a.data.date;
+
+// The way the sorting works is by first checking dates, then checking priority (higher means higher on the final sort), and then checking by alphabet if there's no date or priority.
+sessions.sort((a, b) => {
+  return (
+    getDate(b) - getDate(a) ||
+    getPriority(b) - getPriority(a) ||
+    getName(a).localeCompare(getName(b))
+  );
 });
 ---
 
