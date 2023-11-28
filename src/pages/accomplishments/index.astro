@@ -9,15 +9,6 @@ const colours = [
   "#81effc",
   "#ffe81b",
   "#ff7474",
-  "#81effc",
-  "#ffe81b",
-  "#ff7474",
-  "#81effc",
-  "#ffe81b",
-  "#ff7474",
-  "#81effc",
-  "#ffe81b",
-  "#ff7474",
 ];
 
 const accomplishments = await getCollection("accomplishments");
@@ -65,7 +56,7 @@ accomplishments.sort(function (a, b) {
               <div>
                 <AccomplishmentCard
                   accomplishment={accomplishment}
-                  tColour={colours[num]}
+                  tColour={colours[num % colours.length]}
                 />
               </div>
             );
