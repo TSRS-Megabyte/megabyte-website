@@ -46,7 +46,9 @@ accomplishments.sort(function (a, b) {
           class="-mb-5 text-lg font-semibold uppercase md:text-2xl xl:max-w-[50vw]"
           >We are</span
         >
-        <div id="megabyte-hero-name" class="font-semibold tracking-wider"></div>
+        <div id="megabyte-hero-name" class="font-semibold tracking-wider">
+          Megabyte
+        </div>
         <span
           class="text-lg font-semibold uppercase md:text-2xl xl:max-w-[50vw]"
           >The computer society of The Shri Ram School, Moulsari</span
@@ -205,7 +207,8 @@ accomplishments.sort(function (a, b) {
     letter-spacing: -0.01em;
   }
   .bg-hero-pattern {
-    background-image: linear-gradient(to top, white, transparent 5rem), url(/assets/anime-lines.svg);
+    background-image: linear-gradient(to top, white, transparent 5rem),
+      url(/assets/anime-lines.svg);
   }
   .body {
     mask-image: linear-gradient(to bottom, transparent, black 4rem);
@@ -277,7 +280,7 @@ accomplishments.sort(function (a, b) {
     display: flex;
   }
 </style>
-<script is:inline>
+<script is:inline async>
   class TextScramble {
     constructor(el) {
       this.el = el;
@@ -331,11 +334,25 @@ accomplishments.sort(function (a, b) {
       return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
   }
-  document.addEventListener("astro:page-load", () => {
+  async function scramble() {
     const phrases = ["Megabyte"];
     const el = document.querySelector("#megabyte-hero-name");
     const fx = new TextScramble(el);
     let counter = 0;
     fx.setText(phrases[counter]);
+  }
+  document.addEventListener(
+    "astro:page-load",
+    async () => {
+      scramble().then(
+        setInterval(async () => {
+          await scramble();
+        }, 1000 * 10),
+      );
+    },
+    { once: true },
+  );
+  document.addEventListener("astro:after-swap", async () => {
+    scramble();
   });
 </script>
