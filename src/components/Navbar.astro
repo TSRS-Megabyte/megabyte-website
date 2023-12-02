@@ -59,7 +59,9 @@ const pathname = new URL(Astro.request.url).pathname;
               id={page[0].toLowerCase()}
               href={page[1]}
             >
-              <span class="text-md lg:text-xl">{page[0].toUpperCase()}</span>
+              <span class="text-md lg:text-xl navlink-text">
+                {page[0].toUpperCase()}
+              </span>
             </a>
           ))
         }
@@ -81,13 +83,13 @@ const pathname = new URL(Astro.request.url).pathname;
     padding: 0 1em;
     font-size: 19px;
   }
-  li {
+  .navlink-text {
     font-family: "Roboto Mono", monospace;
   }
-  .navlink:not(.current) li:hover {
+  .navlink:not(.current) .navlink-text:hover {
     text-decoration: underline;
     text-underline-offset: 0.5em;
-    text-decoration-color:;
+    text-decoration-color: black;
   }
 
   .current {
@@ -181,7 +183,7 @@ const pathname = new URL(Astro.request.url).pathname;
       pointer-events: none;
     }
 
-    li {
+    .navlink-text {
       font-size: 2.5vmax;
     }
     .symbol {
