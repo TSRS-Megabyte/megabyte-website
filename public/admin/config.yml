@@ -16,7 +16,6 @@ collections:
         name: "date"
         widget: "datetime"
         date_format: "YYYY-MM-DD" # e.g. 24.12.2021
-        format: "L"
         picker_utc: false
       - {label: "Subline", name: "subline", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -37,7 +36,6 @@ collections:
         name: "postDate"
         widget: "datetime"
         date_format: "YYYY-MM-DD" # e.g. 24.12.2021
-        format: "L"
         picker_utc: false
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Tags"
@@ -56,7 +54,6 @@ collections:
         widget: "datetime"
         default: ""
         date_format: "YYYY-MM-DD" # e.g. 24.12.2021
-        format: "L"
         picker_utc: false
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Tags"
@@ -79,7 +76,6 @@ collections:
         name: "lastUpdated"
         widget: "datetime"
         date_format: "YYYY-MM-DD" # e.g. 24.12.2021
-        format: "L"
         picker_utc: false
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Description", name: "description", widget: "string", default: ""}
