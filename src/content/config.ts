@@ -6,7 +6,7 @@ const accomplishmentsCollection = defineCollection({
     title: z.string(),
     date: z.date(), // date in yyyy-mm-dd format - for eg 13th december 2017 is 2017-12-13
     subline: z.string(),
-    media: z.array(z.string()), // file paths - urls or strings
+    media: z.array(z.string()),// file paths - urls or strings
   }),
 });
 const noticesCollection = defineCollection({

@@ -6,6 +6,7 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
+  trailingSlash: "never",
   site: "https://tsrsmegabyte.com",
   prefetch: {
     prefetchAll: true,
@@ -20,9 +21,9 @@ export default defineConfig({
     redirects: false,
   },
   redirects: {
-    "/edit": "https://prose.io/#TSRS-Megabyte/megabyte-website/tree/main/src/content",
-    "/content": "https://prose.io/#TSRS-Megabyte/megabyte-website/tree/main/src/content",
-    "/admin": "https://prose.io/#TSRS-Megabyte/megabyte-website/tree/main/src/content"
+    "/edit": "/admin",
+    "/content": "/admin",
+    "/admin": "/admin/index.html"
   },
   adapter: netlify(),
 });

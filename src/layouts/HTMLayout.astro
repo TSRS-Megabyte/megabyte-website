@@ -38,9 +38,22 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="/global.css" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions fallback="swap" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
   </head>
 
   <body class="overflow-x-hidden">
     <slot />
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
