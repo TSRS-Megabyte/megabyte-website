@@ -17,7 +17,7 @@ collections:
         widget: "datetime"
         date_format: "DD-MM-YYYY" # e.g. 24.12.2021
         format: "YYYY-MM-DD"
-        picker_utc: false
+        picker_utc: true
       - {label: "Subline", name: "subline", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Media"
@@ -38,7 +38,7 @@ collections:
         widget: "datetime"
         date_format: "DD-MM-YYYY" # e.g. 24.12.2021
         format: "YYYY-MM-DD"
-        picker_utc: false
+        picker_utc: true
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Tags"
         name: "tags"
@@ -57,7 +57,7 @@ collections:
         default: ""
         date_format: "DD-MM-YYYY" # e.g. 24.12.2021
         format: "YYYY-MM-DD"
-        picker_utc: false
+        picker_utc: true
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Tags"
         name: "tags"
@@ -80,7 +80,7 @@ collections:
         widget: "datetime"
         date_format: "DD-MM-YYYY" # e.g. 24.12.2021
         format: "YYYY-MM-DD"
-        picker_utc: false
+        picker_utc: true
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Description", name: "description", widget: "string", default: ""}
       - label: "Tags"
