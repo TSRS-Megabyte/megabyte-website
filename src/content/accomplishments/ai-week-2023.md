@@ -1,6 +1,6 @@
 ---
 title: AI Week 2023
-date: 2023-04-23
+date: 2023-04-22
 subline: Over the course of a week, the student body learnt about AI and how to
   engage with it responsibly and productively.
 media:
