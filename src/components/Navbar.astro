@@ -262,12 +262,13 @@ const pathname = new URL(Astro.request.url).pathname;
 
 <script>
   async function setup() {
+    console.log("Setup nav");
     const nav = document.querySelector(".navlinks-div");
     const navlinks = document.querySelector(".navlinks");
     const navToggle = document.querySelector(".nav-toggle");
     const wrapper = document.querySelector(".wrapper");
-
-    navToggle?.addEventListener("click", (e) => {
+    // console.log(nav, navlinks, navToggle, wrapper);
+    (navToggle as HTMLElement).addEventListener("click", (e) => {
       e.preventDefault();
 
       let visible = nav?.getAttribute("data-visible");
@@ -275,7 +276,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
       nav?.setAttribute("data-visible", visible);
       wrapper?.setAttribute("blur", visible);
-      navToggle.setAttribute("aria-expanded", visible);
+      (navToggle as HTMLElement).setAttribute("aria-expanded", visible);
 
       if (visible === "true") {
         navlinks?.classList.remove("hiddenNavlinks");
@@ -296,7 +297,6 @@ const pathname = new URL(Astro.request.url).pathname;
       }
     });
   }
-  setup();
   document.addEventListener("astro:page-load", async () => {
     setup();
   });
