@@ -97,3 +97,16 @@ collections:
         min: 2
         max: 2
         field: { label: 'Color', name: 'color', widget: 'color', enableAlpha: true, allowInput: true }
+  - name: "conductors"
+    label: "Conductors"
+    folder: "src/content/conductors"
+    create: true
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Session Conductor Name", name: "name", widget: "string"}
+      - label: "Links"
+        name: "links"
+        widget: "list"
+        default: []
+        field: {label: "Link", name: "link", widget: "string"}
