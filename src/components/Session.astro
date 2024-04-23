@@ -1,14 +1,15 @@
 ---
 import { formatDate } from "../../libs/dateFormat";
-import type { CollectionEntry } from "astro:content";
+import { getEntries, type CollectionEntry } from "astro:content";
 export interface Props {
   session: CollectionEntry<"sessions">;
   tColour: string;
 }
 
 const { session, tColour } = Astro.props;
-
 const { Content } = await session.render();
+
+const conductors = await getEntries(session.data.conductedBy);
 ---
 
 <div class="card flex h-full w-full flex-col">
@@ -22,10 +23,12 @@ const { Content } = await session.render();
       {session.data.date ? formatDate(session.data.date) : "TBD"}
     </p>
     {
-      session.data.conductedBy && (
+      conductors.length >= 1 && (
         <p class="text-base font-light">
           Conducted by{" "}
-          <span class="font-medium">{session.data.conductedBy}</span>
+          <span class="font-medium">
+            {conductors.map((c) => (c.data as any as { name: string }).name)}
+          </span>
         </p>
       )
     }

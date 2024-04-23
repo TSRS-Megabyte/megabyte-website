@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection, reference } from "astro:content";
 
 const accomplishmentsCollection = defineCollection({
   type: "content",
@@ -21,7 +21,7 @@ const sessionCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    conductedBy: z.string().optional(),
+    conductedBy: z.array(reference("conductors")),
     date: z.date().optional(),
     tags: z.array(z.string()).optional(),
     priority: z.number().optional().default(0),
@@ -39,9 +39,23 @@ const resourcesCollection = defineCollection({
     tags: z.array(z.string()).optional(),
   }),
 });
+const conductorsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    name: z.string(),
+    img: z.string().optional(),
+    bio: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    links: z.array(z.object({
+      name: z.string(),
+      url: z.string().url(),
+    })).optional(),
+  }),
+});
 export const collections = {
   accomplishments: accomplishmentsCollection,
   notices: noticesCollection,
   resources: resourcesCollection,
   sessions: sessionCollection,
+  conductors: conductorsCollection,
 };

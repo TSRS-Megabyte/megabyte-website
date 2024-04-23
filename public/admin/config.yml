@@ -58,11 +58,10 @@ collections:
         date_format: "DD-MM-YYYY" # e.g. 24.12.2021
         format: "YYYY-MM-DD"
         picker_utc: false
-      - label: "Conducted By"
+      - label: "Conducted By" # array of strings
         name: "conductedBy"
-        widget: "string"
-        required: false
-      - {label: "Body", name: "body", widget: "markdown"}
+        widget: "list"
+        default: []
       - label: "Tags"
         name: "tags"
         widget: "list"
