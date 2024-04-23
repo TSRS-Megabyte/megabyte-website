@@ -1,6 +1,7 @@
 ---
 title: Hackathons and artificial intelligence
 date: 2023-04-17
+conductedBy: Arjun Sharma
 ---
 
 

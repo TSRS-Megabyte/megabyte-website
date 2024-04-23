@@ -21,6 +21,7 @@ const sessionCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    conductedBy: z.string().optional(),
     date: z.date().optional(),
     tags: z.array(z.string()).optional(),
     priority: z.number().optional().default(0),

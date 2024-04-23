@@ -13,7 +13,9 @@ const { Content } = await entry.render();
 ---
 
 <div class="card flex h-full w-full flex-col">
-  <div class="bg-var border-b-2 border-neutral-800 flex flex-shrink px-4 py-3 leading-5 md:px-8">
+  <div
+    class="bg-var border-b-2 border-neutral-800 flex flex-shrink px-4 py-3 leading-5 md:px-8"
+  >
     <div class="flex flex-[2] items-center">
       <a
         class="mr-3"
@@ -37,6 +39,13 @@ const { Content } = await entry.render();
         <h3 class="text-md mb-2 font-bold">
           {formatDate(entry.data.date)}
         </h3>
+        <h2>
+          {
+            "conductedBy" in entry.data
+              ? `Conducted by ${entry.data.conductedBy}`
+              : ""
+          }
+        </h2>
       </div>
     </div>
   </div>

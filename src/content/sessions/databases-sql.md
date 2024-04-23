@@ -1,6 +1,7 @@
 ---
 title: Introduction to databases and SQL
 date: 2023-07-31
+conductedBy: Arjun Sharma
 ---
 
 Moving on from the theme of AI, society members were given exposure to databases and SQL, through an interactive tutorial and challenge exercise.
