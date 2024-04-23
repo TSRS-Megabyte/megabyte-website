@@ -40,7 +40,7 @@ const resourcesCollection = defineCollection({
   }),
 });
 const conductorsCollection = defineCollection({
-  type: "content",
+  type: "data",
   schema: z.object({
     name: z.string(),
     img: z.string().optional(),
