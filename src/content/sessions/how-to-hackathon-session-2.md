@@ -1,6 +1,6 @@
 ---
 title: "How to Hackathon: Session 2"
-date: 14-05-2024
+date: 2024-05-14
 conductedBy:
   - aaryan-chadha
   - varun-sahni
