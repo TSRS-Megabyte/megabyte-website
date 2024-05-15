@@ -71,6 +71,7 @@ collections:
         widget: "number"
         default: 0
         value_type: "int"
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "resources" # Used in routes, e.g., /admin/collections/blog
     label: "Resources" # Used in the UI
     folder: "src/content/resources" # The path to the folder where the documents are stored
