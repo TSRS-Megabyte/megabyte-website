@@ -4,6 +4,7 @@ date: 14-05-2024
 conductedBy:
   - aaryan-chadha
   - varun-sahni
-tags: []
+tags:
+  - hackathon
 priority: 0
 ---
