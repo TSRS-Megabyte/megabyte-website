@@ -27,7 +27,9 @@ const conductors = await getEntries(session.data.conductedBy);
         <p class="text-base font-light">
           Conducted by{" "}
           <span class="font-medium">
-            {conductors.map((c) => (c.data as any as { name: string }).name)}
+            {conductors
+              .map((c) => (c.data as any as { name: string }).name)
+              .join(", ")}
           </span>
         </p>
       )
