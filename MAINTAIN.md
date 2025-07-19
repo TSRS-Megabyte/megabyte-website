@@ -1,6 +1,6 @@
 ### Created
 
-2023: Aarush Aggarwal, Arjun Sharma, Ritwic Verma, Shreedhar Raj, Varun Sahni
+- 2023: Aarush Aggarwal, Arjun Sharma, Ritwic Verma, Shreedhar Raj, Varun Sahni
 
 ### Maintained
 - 2023: Aarush Aggarwal, Arjun Sharma, Ritwic Verma, Shreedhar Raj, Varun Sahni
