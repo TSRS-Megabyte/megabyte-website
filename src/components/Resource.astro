@@ -16,7 +16,7 @@ const likes = "❤️";
   class="card bg-white flex h-full w-full flex-col pb-3 items-end"
 >
   <h2
-    class="w-full bg-grad border-b-2 border-neutral-800 py-3 px-4 text-xl font-bold"
+    class="w-full bg border-b-2 border-neutral-800 py-3 px-4 text-xl font-bold"
   >
     {resource.data.title}
   </h2>
@@ -26,7 +26,7 @@ const likes = "❤️";
   <!-- <Button link="" text="Read more" color={resource.data.colors[0]} /> -->
   <a
     href={`/resources/${resource.slug}`}
-    class="link-button bg w-fit bg-opacity-0 py-[0.2em] text-center font-mono text-lg hover:cursor-pointer self-end mr-4"
+    class="link-button bg-2 w-fit bg-opacity-0 py-[0.2em] text-center font-mono text-lg hover:cursor-pointer self-end mr-4"
   >
     <div class="h-full w-full px-3 flex justify-center items-center">
       <span class="w-fit text-base font-light">Read more</span>
@@ -39,15 +39,12 @@ const likes = "❤️";
       colour2: resource.data.colors[1],
     }}
   >
-    .bg-grad {
-      background-image: linear-gradient(
-        to bottom,
-        var(--colour1) 0%,
-        var(--colour2) 100%
-      );
-    }
+  
     .bg {
-      background-color: var(--color);
+      background-color: var(--colour1);
+    }
+    .bg-2 {
+      background-color: white;
     }
     .link-button {
       border: 2px solid black;
