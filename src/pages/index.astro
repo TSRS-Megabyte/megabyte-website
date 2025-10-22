@@ -36,7 +36,7 @@ accomplishments.sort(function (a, b) {
 });
 ---
 
-<Layout title="Megabyte" class="=-mandatory true-h-screen w-screen">
+<Layout title="Megabyte" class="=-mandatory true-h-screen">
   <div
     class="bg-hero-pattern true-h-screen bg-cover bg-center bg-no-repeat pt-[25vh] lg:pt-[15vh] pb-[25vh] lg:pb-[20vh] px-5"
   >
@@ -349,10 +349,10 @@ accomplishments.sort(function (a, b) {
       scramble().then(
         setInterval(async () => {
           await scramble();
-        }, 1000 * 10),
+        }, 1000 * 10)
       );
     },
-    { once: true },
+    { once: true }
   );
   document.addEventListener("astro:after-swap", async () => {
     scramble();
